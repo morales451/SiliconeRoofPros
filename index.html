@@ -544,7 +544,7 @@
                 <div class="footer-newsletter">
                     <h4>Get Roofing Tips</h4>
                     <p>Subscribe for maintenance tips and industry insights.</p>
-                    <form name="newsletter" method="POST" data-netlify="true" class="newsletter-form">
+                    <form name="newsletter" method="POST" action="/thank-you.html" data-netlify="true" class="newsletter-form">
                         <input type="hidden" name="form-name" value="newsletter">
                         <input type="email" name="email" placeholder="Enter your email" required>
                         <button type="submit" class="btn btn-primary">Subscribe</button>
@@ -568,7 +568,7 @@
             <button class="quote-modal-close" id="modal-close">&times;</button>
             <h3>Complete Your Free Quote Request</h3>
             <p>We'll analyze your roof and send an estimate within 60 minutes.</p>
-            <form name="satellite-quote" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="modal-quote-form">
+            <form name="satellite-quote" method="POST" action="/thank-you.html" data-netlify="true" netlify-honeypot="bot-field" id="modal-quote-form">
                 <input type="hidden" name="form-name" value="satellite-quote">
                 <input type="hidden" name="latitude" id="modal-latitude">
                 <input type="hidden" name="longitude" id="modal-longitude">
