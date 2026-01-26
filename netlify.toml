@@ -4,8 +4,8 @@
   # Directory to publish (root since it's a static site)
   publish = "."
 
-  # No build command needed for static HTML
-  command = "echo 'Static site - no build required'"
+  # Build command to inject environment variables
+  command = "bash build.sh"
 
 # Redirects and rewrites
 [[redirects]]
