@@ -190,9 +190,15 @@ p {
 
 .top-bar-content {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     gap: var(--spacing-xl);
+}
+
+.top-bar-text {
+    color: var(--white);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
 }
 
 .emergency-phone,
