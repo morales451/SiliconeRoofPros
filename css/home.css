@@ -744,3 +744,142 @@
         grid-template-columns: 1fr;
     }
 }
+
+/* ===================================
+   Before/After Section
+   =================================== */
+.before-after-section {
+    padding: var(--spacing-4xl) 0;
+    background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+}
+
+.before-after-section .section-header {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+}
+
+.before-after-section .section-header h2 {
+    font-size: 2.5rem;
+    color: var(--gray-900);
+    margin-bottom: var(--spacing-sm);
+}
+
+.before-after-section .section-header p {
+    font-size: 1.125rem;
+    color: var(--gray-600);
+}
+
+.before-after-wrapper {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.before-after-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.before-after-labels {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: var(--spacing-lg);
+    pointer-events: none;
+}
+
+.label-before,
+.label-after {
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: var(--radius-full);
+    font-weight: 700;
+    font-size: 0.875rem;
+    letter-spacing: 0.05em;
+}
+
+.label-before {
+    background: rgba(220, 38, 38, 0.9);
+}
+
+.label-after {
+    background: rgba(16, 185, 129, 0.9);
+}
+
+.before-after-benefits {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-2xl);
+    margin-top: var(--spacing-2xl);
+    padding: var(--spacing-lg);
+    background: white;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ba-benefit {
+    text-align: center;
+}
+
+.ba-benefit strong {
+    display: block;
+    font-size: 1.125rem;
+    color: var(--gray-900);
+    margin-bottom: 0.25rem;
+}
+
+.ba-benefit span {
+    font-size: 0.875rem;
+    color: var(--gray-500);
+}
+
+.ba-arrow {
+    flex-shrink: 0;
+}
+
+.ba-arrow svg {
+    width: 32px;
+    height: 32px;
+    color: var(--primary);
+}
+
+@media (max-width: 768px) {
+    .before-after-section {
+        padding: var(--spacing-3xl) 0;
+    }
+
+    .before-after-section .section-header h2 {
+        font-size: 1.875rem;
+    }
+
+    .before-after-labels {
+        padding: var(--spacing-md);
+    }
+
+    .label-before,
+    .label-after {
+        padding: 0.375rem 1rem;
+        font-size: 0.75rem;
+    }
+
+    .before-after-benefits {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+
+    .ba-arrow {
+        transform: rotate(90deg);
+    }
+}
