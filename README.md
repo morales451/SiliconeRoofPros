@@ -11,10 +11,13 @@ SiliconeRoofPros/
 ├── process.html        # Our Process page
 ├── blog.html           # Blog listing page
 ├── contact.html        # Contact Us page
+├── quote.html          # Interactive quote page with Google Maps
 ├── css/
-│   └── styles.css      # Main stylesheet
+│   ├── styles.css      # Main stylesheet
+│   └── quote.css       # Quote page styles
 ├── js/
-│   └── main.js         # JavaScript functionality
+│   ├── main.js         # JavaScript functionality
+│   └── quote-map.js    # Google Maps integration
 ├── images/             # Image assets (add your images here)
 ├── assets/
 │   └── icons/
@@ -39,6 +42,7 @@ SiliconeRoofPros/
 3. **Process** (`process.html`) - 6-step restoration process with timeline
 4. **Blog** (`blog.html`) - Blog post listings
 5. **Contact** (`contact.html`) - Contact form, location info, service areas
+6. **Get a Quote** (`quote.html`) - Interactive map for property location selection
 
 ## Deployment to Netlify
 
@@ -80,8 +84,47 @@ The contact forms are pre-configured to work with Netlify Forms. When deployed t
 
 ### Form Names
 - `quote` - Hero section quote request form
+- `roof-quote` - Interactive map quote form (quote.html)
 - `contact` - Contact page form
 - `newsletter` - Newsletter signup form (in footer)
+
+## Google Maps API Setup
+
+The quote page (`quote.html`) uses Google Maps for property location selection. To enable:
+
+### 1. Get a Google Maps API Key
+
+1. Go to [Google Cloud Console](https://console.cloud.google.com/)
+2. Create a new project or select an existing one
+3. Enable the following APIs:
+   - **Maps JavaScript API**
+   - **Places API**
+   - **Geocoding API**
+4. Go to "Credentials" and create an API key
+5. (Recommended) Restrict the API key to your domain
+
+### 2. Add Your API Key
+
+Open `quote.html` and find this line near the bottom:
+
+```javascript
+const GOOGLE_MAPS_API_KEY = 'YOUR_API_KEY';
+```
+
+Replace `YOUR_API_KEY` with your actual Google Maps API key.
+
+### 3. Pricing
+
+Google provides $200/month free credit which covers:
+- ~28,000 map loads per month
+- This is typically more than enough for a local business
+
+### Features
+- Address autocomplete search
+- Satellite view of property
+- Click-to-drop pin on roof location
+- Draggable marker for precise positioning
+- Coordinates captured with form submission
 
 ## Customization
 

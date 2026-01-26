@@ -1,0 +1,394 @@
+/* ===================================
+   Quote Page Styles
+   =================================== */
+
+/* Page Hero Small Variant */
+.page-hero-small {
+    padding: var(--spacing-2xl) 0;
+}
+
+/* Quote Section */
+.quote-section {
+    padding: var(--spacing-3xl) 0;
+    background-color: var(--gray-50);
+}
+
+.quote-layout {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: var(--spacing-2xl);
+    align-items: start;
+}
+
+/* Map Section */
+.map-section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.map-instructions {
+    display: flex;
+    gap: var(--spacing-lg);
+    padding: var(--spacing-lg);
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.instruction-step {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    flex: 1;
+}
+
+.instruction-step .step-number {
+    width: 28px;
+    height: 28px;
+    background: var(--primary);
+    color: var(--white);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: var(--font-size-sm);
+    flex-shrink: 0;
+}
+
+.instruction-step span:last-child {
+    font-size: var(--font-size-sm);
+    color: var(--gray-600);
+}
+
+/* Address Search */
+.address-search {
+    background: var(--white);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.search-input-wrapper {
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: center;
+    position: relative;
+}
+
+.search-icon {
+    position: absolute;
+    left: 1rem;
+    width: 20px;
+    height: 20px;
+    color: var(--gray-400);
+    pointer-events: none;
+}
+
+.search-input-wrapper input {
+    flex: 1;
+    padding: 0.875rem 1rem 0.875rem 2.75rem;
+    border: 2px solid var(--gray-200);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-base);
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.search-input-wrapper input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(0, 136, 223, 0.1);
+}
+
+.search-input-wrapper .btn {
+    flex-shrink: 0;
+    padding: 0.875rem 1.5rem;
+}
+
+.search-hint {
+    margin-top: var(--spacing-sm);
+    font-size: var(--font-size-xs);
+    color: var(--gray-500);
+    margin-bottom: 0;
+}
+
+/* Map Container */
+.map-container {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    background: var(--white);
+}
+
+#map {
+    width: 100%;
+    height: 400px;
+}
+
+.map-overlay {
+    position: absolute;
+    inset: 0;
+    background: var(--gray-100);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--gray-500);
+    text-align: center;
+    padding: var(--spacing-xl);
+}
+
+.map-overlay svg {
+    width: 48px;
+    height: 48px;
+    margin-bottom: var(--spacing-md);
+    opacity: 0.5;
+}
+
+.map-overlay p {
+    margin-bottom: 0;
+    font-size: var(--font-size-sm);
+}
+
+.map-overlay.hidden {
+    display: none;
+}
+
+/* Pin Info */
+.pin-info {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md) var(--spacing-lg);
+    background: #ecfdf5;
+    border: 1px solid #a7f3d0;
+    border-radius: var(--radius-md);
+    color: #065f46;
+}
+
+.pin-info svg {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    color: #10b981;
+}
+
+.pin-info strong {
+    display: block;
+    font-size: var(--font-size-sm);
+}
+
+.pin-info p {
+    margin-bottom: 0;
+    font-size: var(--font-size-xs);
+    opacity: 0.8;
+}
+
+/* Form Section */
+.form-section {
+    position: sticky;
+    top: 100px;
+}
+
+.quote-form-card {
+    background: var(--white);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+}
+
+.quote-form-card h3 {
+    margin-bottom: var(--spacing-sm);
+}
+
+.quote-form-card > p {
+    color: var(--gray-500);
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--spacing-xl);
+}
+
+.quote-form-card .form-group {
+    margin-bottom: var(--spacing-lg);
+}
+
+.quote-form-card select {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    border: 1px solid var(--gray-300);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-base);
+    font-family: inherit;
+    background-color: var(--white);
+    cursor: pointer;
+    transition: border-color var(--transition-fast);
+}
+
+.quote-form-card select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(0, 136, 223, 0.1);
+}
+
+.quote-form-card textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.quote-form-card input[readonly] {
+    background-color: var(--gray-50);
+    cursor: not-allowed;
+}
+
+.quote-form-card .btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+.form-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-lg);
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid var(--gray-200);
+    color: var(--gray-500);
+    font-size: var(--font-size-xs);
+}
+
+.form-footer svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+/* Quote Benefits */
+.quote-benefits {
+    padding: var(--spacing-3xl) 0;
+    background: var(--white);
+}
+
+.quote-benefits .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-xl);
+}
+
+.quote-benefits .benefit-item {
+    text-align: center;
+    padding: var(--spacing-xl);
+}
+
+.quote-benefits .benefit-icon {
+    width: 64px;
+    height: 64px;
+    background: var(--primary-light);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--spacing-md);
+}
+
+.quote-benefits .benefit-icon svg {
+    width: 28px;
+    height: 28px;
+    color: var(--primary);
+}
+
+.quote-benefits .benefit-item h4 {
+    margin-bottom: var(--spacing-sm);
+}
+
+.quote-benefits .benefit-item p {
+    color: var(--gray-600);
+    font-size: var(--font-size-sm);
+    margin-bottom: 0;
+}
+
+/* Google Places Autocomplete Dropdown */
+.pac-container {
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    border: none;
+    margin-top: 4px;
+    font-family: var(--font-family);
+}
+
+.pac-item {
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    border-top: 1px solid var(--gray-100);
+}
+
+.pac-item:first-child {
+    border-top: none;
+}
+
+.pac-item:hover {
+    background-color: var(--gray-50);
+}
+
+.pac-item-selected {
+    background-color: var(--primary-light);
+}
+
+.pac-icon {
+    display: none;
+}
+
+.pac-item-query {
+    font-size: var(--font-size-base);
+    color: var(--gray-900);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .quote-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .form-section {
+        position: static;
+    }
+
+    .map-instructions {
+        flex-wrap: wrap;
+    }
+
+    .instruction-step {
+        flex: 1 1 calc(50% - var(--spacing-md));
+    }
+}
+
+@media (max-width: 768px) {
+    .quote-section {
+        padding: var(--spacing-xl) 0;
+    }
+
+    .instruction-step {
+        flex: 1 1 100%;
+    }
+
+    .search-input-wrapper {
+        flex-direction: column;
+    }
+
+    .search-input-wrapper input {
+        width: 100%;
+    }
+
+    .search-input-wrapper .btn {
+        width: 100%;
+    }
+
+    #map {
+        height: 300px;
+    }
+
+    .quote-benefits .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+}
