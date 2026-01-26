@@ -358,10 +358,10 @@
         </div>
     </footer>
 
-    <!-- Google Maps API - Replace YOUR_API_KEY with your actual key -->
+    <!-- Google Maps API -->
     <script>
-        // Configuration - Replace with your Google Maps API key
-        const GOOGLE_MAPS_API_KEY = 'YOUR_API_KEY';
+        // Google Maps API Configuration
+        const GOOGLE_MAPS_API_KEY = 'AIzaSyBY2wmbbCDUfA2JWYh9M4n2x-cRJekyyHU';
 
         // Load Google Maps script dynamically
         function loadGoogleMaps() {
@@ -372,10 +372,8 @@
             document.head.appendChild(script);
         }
 
-        // Check if API key is set
-        if (GOOGLE_MAPS_API_KEY !== 'YOUR_API_KEY') {
-            loadGoogleMaps();
-        }
+        // Load Google Maps
+        loadGoogleMaps();
     </script>
     <script src="js/main.js"></script>
     <script src="js/quote-map.js"></script>
