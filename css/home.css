@@ -1137,3 +1137,106 @@
         padding: var(--spacing-lg);
     }
 }
+
+/* ===================================
+   Certified Installer Section
+   =================================== */
+.certified-installer {
+    padding: var(--spacing-3xl) 0;
+    background: linear-gradient(135deg, #0088df 0%, #0070b8 100%);
+}
+
+.certified-content {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-2xl);
+    text-align: left;
+}
+
+.certified-badge {
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.certified-badge svg {
+    width: 48px;
+    height: 48px;
+    color: white;
+}
+
+.certified-text h2 {
+    color: white;
+    font-size: 1.75rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.certified-text p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1rem;
+    margin: 0;
+    max-width: 700px;
+}
+
+.manufacturer-logos {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: var(--spacing-md);
+}
+
+.manufacturer-item {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg) var(--spacing-md);
+    text-align: center;
+    transition: all var(--transition-base);
+}
+
+.manufacturer-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+}
+
+.manufacturer-name {
+    display: block;
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.cert-label {
+    display: block;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+@media (max-width: 968px) {
+    .manufacturer-logos {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .certified-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .certified-text h2 {
+        font-size: 1.5rem;
+    }
+
+    .manufacturer-logos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
