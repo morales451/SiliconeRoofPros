@@ -367,6 +367,15 @@
     font-size: var(--font-size-base);
 }
 
+.problem-list li span,
+.solution-list li span {
+    flex: 1;
+}
+
+.solution-list li span strong {
+    display: inline;
+}
+
 .problem-list li svg {
     width: 24px;
     height: 24px;
