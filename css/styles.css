@@ -836,6 +836,33 @@ section {
     font-size: var(--font-size-sm);
 }
 
+/* Quick Contact Form */
+.quick-contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.quick-contact-form input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--gray-700);
+    border-radius: var(--radius-md);
+    background-color: var(--gray-800);
+    color: var(--white);
+    font-size: var(--font-size-sm);
+}
+
+.quick-contact-form input::placeholder {
+    color: var(--gray-500);
+}
+
+.quick-contact-form .btn {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: var(--font-size-sm);
+}
+
 .footer-bottom {
     display: flex;
     justify-content: space-between;

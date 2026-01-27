@@ -704,13 +704,15 @@
                         </li>
                     </ul>
                 </div>
-                <div class="footer-newsletter">
-                    <h4>Get Roofing Tips</h4>
-                    <p>Subscribe for maintenance tips and industry insights.</p>
-                    <form name="newsletter" method="POST" action="/thank-you/" data-netlify="true" class="newsletter-form">
-                        <input type="hidden" name="form-name" value="newsletter">
-                        <input type="email" name="email" placeholder="Enter your email" required>
-                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                <div class="footer-quick-contact">
+                    <h4>Quick Contact</h4>
+                    <p>Request a callback or ask a question.</p>
+                    <form name="quick-contact" method="POST" action="/thank-you/" data-netlify="true" netlify-honeypot="bot-field" class="quick-contact-form">
+                        <input type="hidden" name="form-name" value="quick-contact">
+                        <p class="hidden" style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="tel" name="phone" placeholder="Phone Number" required>
+                        <button type="submit" class="btn btn-primary">Call Me Back</button>
                     </form>
                 </div>
             </div>
