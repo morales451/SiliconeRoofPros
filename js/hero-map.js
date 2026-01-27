@@ -399,4 +399,103 @@
     // Check for Google Maps API after delay
     setTimeout(initFallback, 5000);
 
+    /**
+     * Initialize Service Area Map
+     */
+    window.initServiceAreaMap = function() {
+        const mapElement = document.getElementById('service-area-map');
+        if (!mapElement || typeof google === 'undefined') return;
+
+        // Houston center
+        const houstonCenter = { lat: 29.7604, lng: -95.3698 };
+
+        const serviceMap = new google.maps.Map(mapElement, {
+            center: houstonCenter,
+            zoom: 9,
+            mapTypeId: 'roadmap',
+            styles: [
+                {
+                    featureType: 'water',
+                    elementType: 'geometry',
+                    stylers: [{ color: '#e9e9e9' }, { lightness: 17 }]
+                },
+                {
+                    featureType: 'landscape',
+                    elementType: 'geometry',
+                    stylers: [{ color: '#f5f5f5' }, { lightness: 20 }]
+                },
+                {
+                    featureType: 'road.highway',
+                    elementType: 'geometry.fill',
+                    stylers: [{ color: '#ffffff' }, { lightness: 17 }]
+                },
+                {
+                    featureType: 'road.highway',
+                    elementType: 'geometry.stroke',
+                    stylers: [{ color: '#ffffff' }, { lightness: 29 }, { weight: 0.2 }]
+                },
+                {
+                    featureType: 'poi',
+                    elementType: 'geometry',
+                    stylers: [{ color: '#f5f5f5' }, { lightness: 21 }]
+                }
+            ],
+            mapTypeControl: false,
+            streetViewControl: false,
+            fullscreenControl: false
+        });
+
+        // Service area locations
+        const serviceAreas = [
+            { name: 'Houston', lat: 29.7604, lng: -95.3698 },
+            { name: 'The Woodlands', lat: 30.1658, lng: -95.4613 },
+            { name: 'Sugar Land', lat: 29.6197, lng: -95.6349 },
+            { name: 'Katy', lat: 29.7858, lng: -95.8245 },
+            { name: 'Pearland', lat: 29.5636, lng: -95.2860 },
+            { name: 'Cypress', lat: 29.9691, lng: -95.6970 },
+            { name: 'Spring', lat: 30.0799, lng: -95.4172 },
+            { name: 'League City', lat: 29.5075, lng: -95.0950 },
+            { name: 'Conroe', lat: 30.3119, lng: -95.4561 },
+            { name: 'Pasadena', lat: 29.6911, lng: -95.2091 },
+            { name: 'Baytown', lat: 29.7355, lng: -94.9774 },
+            { name: 'Missouri City', lat: 29.6186, lng: -95.5377 }
+        ];
+
+        // Add markers for each service area
+        serviceAreas.forEach(function(area) {
+            new google.maps.Marker({
+                position: { lat: area.lat, lng: area.lng },
+                map: serviceMap,
+                title: area.name,
+                icon: {
+                    path: google.maps.SymbolPath.CIRCLE,
+                    scale: 8,
+                    fillColor: '#0088df',
+                    fillOpacity: 0.9,
+                    strokeColor: '#ffffff',
+                    strokeWeight: 2
+                }
+            });
+        });
+
+        // Draw service area circle
+        new google.maps.Circle({
+            strokeColor: '#0088df',
+            strokeOpacity: 0.3,
+            strokeWeight: 2,
+            fillColor: '#0088df',
+            fillOpacity: 0.1,
+            map: serviceMap,
+            center: houstonCenter,
+            radius: 80000 // 80km radius
+        });
+    };
+
+    // Initialize service area map after hero map loads
+    var originalInitHeroMap = window.initHeroMap;
+    window.initHeroMap = function() {
+        originalInitHeroMap();
+        setTimeout(window.initServiceAreaMap, 500);
+    };
+
 })();

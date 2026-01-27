@@ -887,3 +887,138 @@
         transform: rotate(90deg);
     }
 }
+
+/* ===================================
+   Service Areas Map Section
+   =================================== */
+.service-areas-map {
+    padding: var(--spacing-4xl) 0;
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+}
+
+.service-areas-map .section-header {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+}
+
+.service-areas-map .section-header h2 {
+    font-size: 2.5rem;
+    color: var(--gray-900);
+    margin-bottom: var(--spacing-sm);
+}
+
+.service-areas-map .section-header p {
+    font-size: 1.125rem;
+    color: var(--gray-600);
+}
+
+.service-map-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-2xl);
+    align-items: start;
+}
+
+.service-map-container {
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+}
+
+#service-area-map {
+    width: 100%;
+    height: 450px;
+    background: var(--gray-200);
+}
+
+.service-areas-info {
+    padding: var(--spacing-lg);
+}
+
+.service-areas-info h3 {
+    font-size: 1.25rem;
+    color: var(--gray-900);
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 2px solid var(--primary);
+}
+
+.areas-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+}
+
+.area-column ul {
+    list-style: none;
+}
+
+.area-column li {
+    padding: 0.5rem 0;
+    color: var(--gray-700);
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.area-column li::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--primary);
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.major-cities {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+}
+
+.city-badge {
+    background: linear-gradient(135deg, var(--primary) 0%, #0070b8 100%);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-full);
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.service-note {
+    font-size: 0.875rem;
+    color: var(--gray-600);
+    font-style: italic;
+    margin-bottom: var(--spacing-md);
+}
+
+@media (max-width: 968px) {
+    .service-map-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #service-area-map {
+        height: 350px;
+    }
+}
+
+@media (max-width: 480px) {
+    .service-areas-map .section-header h2 {
+        font-size: 1.875rem;
+    }
+
+    .areas-list {
+        grid-template-columns: 1fr;
+    }
+
+    .major-cities {
+        flex-direction: column;
+    }
+
+    .city-badge {
+        text-align: center;
+    }
+}
