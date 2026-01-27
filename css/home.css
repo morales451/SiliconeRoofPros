@@ -1186,8 +1186,13 @@
 }
 
 .certified-badge svg {
-    width: 48px;
-    height: 48px;
+    width: 48px !important;
+    height: 48px !important;
+    max-width: 48px !important;
+    max-height: 48px !important;
+    min-width: 48px;
+    min-height: 48px;
+    flex-shrink: 0;
     color: white;
 }
 
@@ -1250,6 +1255,20 @@
     .certified-content {
         flex-direction: column;
         text-align: center;
+    }
+
+    .certified-badge {
+        width: 64px !important;
+        height: 64px !important;
+        max-width: 64px !important;
+        max-height: 64px !important;
+    }
+
+    .certified-badge svg {
+        width: 36px !important;
+        height: 36px !important;
+        max-width: 36px !important;
+        max-height: 36px !important;
     }
 
     .certified-text h2 {
