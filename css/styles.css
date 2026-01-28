@@ -239,16 +239,16 @@ p {
 }
 
 .logo-img {
-    height: 50px;
+    height: 36px;
     width: auto;
-    max-width: 160px;
+    max-width: 36px;
     object-fit: contain;
 }
 
 @media (max-width: 768px) {
     .logo-img {
-        height: 40px;
-        max-width: 120px;
+        height: 32px;
+        max-width: 32px;
     }
 }
 
