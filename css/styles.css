@@ -750,6 +750,9 @@ section {
     width: auto;
     max-width: 180px;
     object-fit: contain;
+    background-color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
 }
 
 .footer-logo .logo-icon svg {
