@@ -239,16 +239,23 @@ p {
 }
 
 .logo-img {
-    height: 36px;
-    width: auto;
-    max-width: 36px;
-    object-fit: contain;
+    height: 36px !important;
+    width: 36px !important;
+    max-width: 36px !important;
+    max-height: 36px !important;
+    min-width: 36px !important;
+    min-height: 36px !important;
+    object-fit: contain !important;
 }
 
 @media (max-width: 768px) {
     .logo-img {
-        height: 32px;
-        max-width: 32px;
+        height: 32px !important;
+        width: 32px !important;
+        max-width: 32px !important;
+        max-height: 32px !important;
+        min-width: 32px !important;
+        min-height: 32px !important;
     }
 }
 
