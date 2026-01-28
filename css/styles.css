@@ -238,6 +238,11 @@ p {
     gap: var(--spacing-md);
 }
 
+.logo-img {
+    height: 50px;
+    width: auto;
+}
+
 .logo-icon svg {
     width: 40px;
     height: 40px;
@@ -722,6 +727,12 @@ section {
     align-items: center;
     gap: var(--spacing-md);
     margin-bottom: var(--spacing-lg);
+}
+
+.footer-logo-img {
+    height: 60px;
+    width: auto;
+    filter: brightness(0) invert(1);
 }
 
 .footer-logo .logo-icon svg {
