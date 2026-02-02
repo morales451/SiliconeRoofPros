@@ -1235,6 +1235,15 @@
     border-radius: var(--radius-full);
     font-size: 0.875rem;
     font-weight: 600;
+    text-decoration: none;
+    transition: all var(--transition-fast);
+    display: inline-block;
+}
+
+a.city-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 136, 223, 0.4);
+    background: linear-gradient(135deg, #0070b8 0%, var(--primary-dark) 100%);
 }
 
 .service-note {
