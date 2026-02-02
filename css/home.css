@@ -314,94 +314,283 @@
     color: var(--gray-500);
 }
 
-/* Problem/Solution Section */
-.problem-solution {
+/* ===================================
+   Flat Roof Pain Point Section
+   =================================== */
+.flat-roof-pain {
     padding: var(--spacing-4xl) 0;
-    background: var(--gray-50);
+    background: linear-gradient(180deg, #1a1a2e 0%, #2d1f3d 100%);
+    color: white;
 }
 
-.ps-grid {
+.pain-header {
+    text-align: center;
+    margin-bottom: var(--spacing-3xl);
+}
+
+.pain-header h2 {
+    font-size: 3rem;
+    font-weight: 900;
+    color: white;
+    line-height: 1.2;
+}
+
+.pain-highlight {
+    color: #ef4444;
+    display: block;
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+}
+
+.problem-intro {
+    max-width: 800px;
+    margin: 0 auto var(--spacing-3xl);
+    text-align: center;
+}
+
+.problem-intro h3 {
+    font-size: 1.75rem;
+    color: white;
+    margin-bottom: var(--spacing-lg);
+}
+
+.problem-intro h3 .underline {
+    text-decoration: underline;
+    text-decoration-color: #ef4444;
+    text-underline-offset: 4px;
+}
+
+.problem-intro p {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.8;
+    margin-bottom: var(--spacing-md);
+}
+
+.problem-intro .cost-callout {
+    font-size: 1.5rem;
+    color: #fbbf24;
+    font-weight: 700;
+    margin: var(--spacing-xl) 0;
+}
+
+.problem-intro strong {
+    color: white;
+}
+
+.problem-intro em {
+    color: #ef4444;
+    font-style: italic;
+}
+
+.pain-columns {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-3xl);
+    gap: var(--spacing-2xl);
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
-.ps-problem,
-.ps-solution {
-    padding: var(--spacing-2xl);
+.pain-column {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: var(--radius-xl);
+    padding: var(--spacing-2xl);
+    position: relative;
+    overflow: hidden;
 }
 
-.ps-problem {
-    background: #fef2f2;
-    border: 1px solid #fecaca;
+.pain-column::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #ef4444 0%, #dc2626 100%);
 }
 
-.ps-solution {
-    background: #ecfdf5;
-    border: 1px solid #a7f3d0;
-}
-
-.ps-problem h2 {
-    color: #dc2626;
-    margin-bottom: var(--spacing-xl);
-}
-
-.ps-solution h2 {
-    color: #059669;
-    margin-bottom: var(--spacing-xl);
-}
-
-.problem-list,
-.solution-list {
+.pain-icon {
+    width: 64px;
+    height: 64px;
+    background: rgba(239, 68, 68, 0.15);
+    border-radius: var(--radius-lg);
     display: flex;
-    flex-direction: column;
-    gap: var(--spacing-md);
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--spacing-lg);
 }
 
-.problem-list li,
-.solution-list li {
+.pain-icon svg {
+    width: 32px;
+    height: 32px;
+    color: #ef4444;
+}
+
+.pain-column h4 {
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.3;
+}
+
+.pain-column h4 .red {
+    color: #ef4444;
+    font-weight: 900;
+}
+
+.pain-column p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: var(--spacing-md);
+}
+
+.pain-column p:last-child {
+    margin-bottom: 0;
+}
+
+.pain-column strong {
+    color: white;
+}
+
+.pain-column em {
+    color: #fbbf24;
+    font-style: italic;
+}
+
+/* ===================================
+   The Solution Section
+   =================================== */
+.the-solution {
+    padding: var(--spacing-4xl) 0;
+    background: linear-gradient(180deg, #ecfdf5 0%, #f0fdf4 100%);
+}
+
+.solution-header {
+    text-align: center;
+    margin-bottom: var(--spacing-3xl);
+}
+
+.solution-header h2 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--gray-900);
+    margin-bottom: var(--spacing-md);
+}
+
+.solution-highlight {
+    color: #059669;
+    background: linear-gradient(180deg, transparent 60%, rgba(16, 185, 129, 0.3) 60%);
+    padding: 0 0.25rem;
+}
+
+.solution-subtitle {
+    font-size: 1.25rem;
+    color: var(--gray-600);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.solution-subtitle strong {
+    color: #059669;
+}
+
+.solution-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-xl);
+    max-width: 900px;
+    margin: 0 auto var(--spacing-2xl);
+}
+
+.solution-item {
     display: flex;
     align-items: flex-start;
-    gap: var(--spacing-md);
-    font-size: var(--font-size-base);
+    gap: var(--spacing-lg);
+    background: white;
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid #10b981;
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
 }
 
-.problem-list li span,
-.solution-list li span {
+.solution-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.solution-item svg {
+    width: 28px;
+    height: 28px;
+    color: #10b981;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.solution-item div {
     flex: 1;
 }
 
-.solution-list li span strong {
-    display: inline;
+.solution-item strong {
+    display: block;
+    font-size: 1.125rem;
+    color: var(--gray-900);
+    margin-bottom: 0.25rem;
 }
 
-.problem-list li svg {
-    width: 24px;
-    height: 24px;
-    color: #dc2626;
-    flex-shrink: 0;
-    margin-top: 2px;
+.solution-item span {
+    font-size: 0.95rem;
+    color: var(--gray-600);
+    line-height: 1.5;
 }
 
-.solution-list li svg {
-    width: 24px;
-    height: 24px;
-    color: #059669;
-    flex-shrink: 0;
-    margin-top: 2px;
+.solution-cta {
+    text-align: center;
 }
 
-.problem-list li {
-    color: #7f1d1d;
+.solution-note {
+    margin-top: var(--spacing-md);
+    color: var(--gray-500);
+    font-size: var(--font-size-sm);
+    margin-bottom: 0;
 }
 
-.solution-list li {
-    color: #064e3b;
-}
+/* Responsive for Pain/Solution Sections */
+@media (max-width: 768px) {
+    .pain-header h2 {
+        font-size: 2rem;
+    }
 
-.solution-list li strong {
-    color: #059669;
+    .pain-highlight {
+        font-size: 2.5rem;
+    }
+
+    .problem-intro h3 {
+        font-size: 1.5rem;
+    }
+
+    .problem-intro .cost-callout {
+        font-size: 1.25rem;
+    }
+
+    .pain-columns {
+        grid-template-columns: 1fr;
+    }
+
+    .pain-column h4 {
+        font-size: 1.25rem;
+    }
+
+    .solution-header h2 {
+        font-size: 2rem;
+    }
+
+    .solution-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* How It Works */
@@ -709,10 +898,6 @@
 
     .hero-benefits {
         align-items: center;
-    }
-
-    .ps-grid {
-        grid-template-columns: 1fr;
     }
 
     .steps-grid {
