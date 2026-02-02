@@ -12,6 +12,7 @@
         initSmoothScroll();
         initHeaderScroll();
         initFormValidation();
+        initPhoneMasking();
         initAnimateOnScroll();
         initCounterAnimation();
     });
@@ -188,12 +189,13 @@
             }
         }
 
-        // Phone validation
+        // Phone validation - accepts (XXX) XXX-XXXX format or 10 digits
         if (input.type === 'tel' && value) {
-            const phoneRegex = /^[\d\s\-\(\)\+]{10,}$/;
-            if (!phoneRegex.test(value)) {
+            // Extract digits to validate we have 10
+            const digits = value.replace(/\D/g, '');
+            if (digits.length !== 10) {
                 isValid = false;
-                errorMessage = 'Please enter a valid phone number';
+                errorMessage = 'Please enter a valid 10-digit phone number';
             }
         }
 
@@ -229,6 +231,134 @@
         const errorEl = input.parentNode.querySelector('.error-message');
         if (errorEl) {
             errorEl.remove();
+        }
+    }
+
+    /**
+     * Phone Number Input Masking
+     * Auto-formats phone numbers as (XXX) XXX-XXXX
+     */
+    function initPhoneMasking() {
+        // Apply to all existing phone inputs
+        const phoneInputs = document.querySelectorAll('input[type="tel"]');
+        phoneInputs.forEach(function(input) {
+            applyPhoneMask(input);
+        });
+
+        // Watch for dynamically added phone inputs (e.g., modals, popups)
+        const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                mutation.addedNodes.forEach(function(node) {
+                    if (node.nodeType === 1) { // Element node
+                        // Check if the added node is a phone input
+                        if (node.matches && node.matches('input[type="tel"]')) {
+                            applyPhoneMask(node);
+                        }
+                        // Check for phone inputs within added nodes
+                        if (node.querySelectorAll) {
+                            node.querySelectorAll('input[type="tel"]').forEach(function(input) {
+                                applyPhoneMask(input);
+                            });
+                        }
+                    }
+                });
+            });
+        });
+
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
+    }
+
+    /**
+     * Apply phone mask to a single input
+     */
+    function applyPhoneMask(input) {
+        // Skip if already masked
+        if (input.dataset.phoneMasked) return;
+        input.dataset.phoneMasked = 'true';
+
+        // Set placeholder to show expected format
+        if (!input.placeholder) {
+            input.placeholder = '(555) 123-4567';
+        }
+
+        input.addEventListener('input', function(e) {
+            formatPhoneInput(e.target);
+        });
+
+        input.addEventListener('paste', function(e) {
+            // Allow paste to complete, then format
+            setTimeout(function() {
+                formatPhoneInput(e.target);
+            }, 0);
+        });
+
+        // Format any existing value
+        if (input.value) {
+            formatPhoneInput(input);
+        }
+    }
+
+    /**
+     * Format phone input value as (XXX) XXX-XXXX
+     */
+    function formatPhoneInput(input) {
+        // Get cursor position before formatting
+        const cursorPos = input.selectionStart;
+        const oldValue = input.value;
+        const oldLength = oldValue.length;
+
+        // Strip all non-digits
+        let digits = input.value.replace(/\D/g, '');
+
+        // Limit to 10 digits (US phone number)
+        digits = digits.substring(0, 10);
+
+        // Format the number
+        let formatted = '';
+        if (digits.length > 0) {
+            formatted = '(' + digits.substring(0, 3);
+        }
+        if (digits.length >= 3) {
+            formatted += ') ';
+        }
+        if (digits.length > 3) {
+            formatted += digits.substring(3, 6);
+        }
+        if (digits.length >= 6) {
+            formatted += '-';
+        }
+        if (digits.length > 6) {
+            formatted += digits.substring(6, 10);
+        }
+
+        // Update value
+        input.value = formatted;
+
+        // Adjust cursor position
+        const newLength = formatted.length;
+        const lengthDiff = newLength - oldLength;
+
+        // Calculate new cursor position
+        let newCursorPos = cursorPos + lengthDiff;
+
+        // Handle special cases for cursor positioning
+        if (cursorPos <= 1 && digits.length >= 1) {
+            newCursorPos = 2; // After opening paren
+        } else if (cursorPos === 4 && lengthDiff > 0) {
+            newCursorPos = 6; // After ") "
+        } else if (cursorPos === 9 && lengthDiff > 0) {
+            newCursorPos = 10; // After "-"
+        }
+
+        // Ensure cursor doesn't go out of bounds
+        newCursorPos = Math.max(0, Math.min(newCursorPos, formatted.length));
+
+        // Set cursor position
+        if (input === document.activeElement) {
+            input.setSelectionRange(newCursorPos, newCursorPos);
         }
     }
 
