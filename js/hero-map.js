@@ -110,6 +110,15 @@
             clearDrawingBtn.addEventListener('click', clearDrawing);
         }
 
+        // Skip drawing link - opens quote modal directly
+        const skipDrawingBtn = document.getElementById('hero-skip-drawing-btn');
+        if (skipDrawingBtn) {
+            skipDrawingBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                openQuoteModal();
+            });
+        }
+
         // Get estimate button
         const getEstimateBtn = document.getElementById('hero-get-estimate-btn');
         if (getEstimateBtn) {
