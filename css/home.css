@@ -1572,6 +1572,22 @@ a.city-badge:hover {
     font-style: italic;
 }
 
+.hero-skip-drawing {
+    margin-top: var(--spacing-md);
+    font-size: var(--font-size-sm);
+    margin-bottom: 0;
+}
+
+.hero-skip-drawing a {
+    color: var(--gray-500);
+    text-decoration: underline;
+    transition: color var(--transition-fast);
+}
+
+.hero-skip-drawing a:hover {
+    color: var(--primary);
+}
+
 /* ===================================
    Hero Measurement Display
    =================================== */
@@ -1672,53 +1688,73 @@ a.city-badge:hover {
     color: var(--gray-700);
 }
 
-/* Estimate Form Step */
-.estimate-form-step {
+.estimate-modal-close svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Estimate Step Container */
+.estimate-step {
     text-align: center;
 }
 
-.estimate-form-step h3 {
+.estimate-step-header {
+    margin-bottom: var(--spacing-xl);
+}
+
+.estimate-step-icon {
+    width: 64px;
+    height: 64px;
+    background: var(--primary-light);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--spacing-md);
+}
+
+.estimate-step-icon svg {
+    width: 32px;
+    height: 32px;
+    color: var(--primary);
+}
+
+.estimate-step-header h3 {
     font-size: 1.5rem;
     margin-bottom: var(--spacing-sm);
     color: var(--gray-900);
 }
 
-.estimate-form-step > p {
-    color: var(--gray-500);
-    font-size: var(--font-size-sm);
-    margin-bottom: var(--spacing-xl);
-}
-
-.estimate-sqft-preview {
-    display: inline-flex;
-    align-items: baseline;
-    gap: 0.25rem;
-    background: var(--gray-100);
-    padding: var(--spacing-md) var(--spacing-xl);
-    border-radius: var(--radius-lg);
-    margin-bottom: var(--spacing-xl);
-}
-
-.estimate-sqft-preview .sqft-value {
-    font-size: 2rem;
+.estimate-roof-size {
+    font-size: 1.75rem;
     font-weight: 900;
     color: var(--primary);
+    background: var(--gray-100);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    display: inline-block;
 }
 
-.estimate-sqft-preview .sqft-unit {
-    font-size: var(--font-size-sm);
-    color: var(--gray-500);
+.estimate-roof-size span {
+    font-size: 2rem;
 }
 
-.estimate-form {
+/* Estimate Step Body */
+.estimate-step-body {
     text-align: left;
 }
 
-.estimate-form .form-group {
+.estimate-prompt {
+    text-align: center;
+    color: var(--gray-600);
+    margin-bottom: var(--spacing-xl);
+}
+
+.estimate-step-body .form-group {
     margin-bottom: var(--spacing-lg);
 }
 
-.estimate-form label {
+.estimate-step-body label {
     display: block;
     font-size: var(--font-size-sm);
     font-weight: 600;
@@ -1726,7 +1762,7 @@ a.city-badge:hover {
     margin-bottom: var(--spacing-xs);
 }
 
-.estimate-form input {
+.estimate-step-body input {
     width: 100%;
     padding: 0.875rem 1rem;
     border: 2px solid var(--gray-200);
@@ -1735,19 +1771,32 @@ a.city-badge:hover {
     transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
-.estimate-form input:focus {
+.estimate-step-body input:focus {
     outline: none;
     border-color: var(--primary);
     box-shadow: 0 0 0 4px rgba(0, 136, 223, 0.1);
 }
 
-.estimate-form .btn {
+.estimate-step-body .btn {
     width: 100%;
     padding: 1rem;
     font-size: var(--font-size-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
 }
 
-.estimate-form-note {
+.estimate-step-body .btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+.estimate-privacy {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
     text-align: center;
     font-size: var(--font-size-xs);
     color: var(--gray-400);
@@ -1755,38 +1804,75 @@ a.city-badge:hover {
     margin-bottom: 0;
 }
 
-/* Estimate Result Step */
-.estimate-result-step {
-    display: none;
-    text-align: center;
+.estimate-privacy svg {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
 }
 
-.estimate-result-step.active {
-    display: block;
+/* Estimate Result Header */
+.estimate-result-header {
+    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+    margin: calc(-1 * var(--spacing-2xl));
+    margin-bottom: var(--spacing-xl);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
 }
 
-.estimate-form-step.hidden {
-    display: none;
+.estimate-checkmark {
+    width: 64px;
+    height: 64px;
+    background: #10b981;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--spacing-md);
 }
 
-.estimate-result-step h3 {
-    font-size: 1.5rem;
-    margin-bottom: var(--spacing-xs);
-    color: var(--gray-900);
+.estimate-checkmark svg {
+    width: 32px;
+    height: 32px;
+    color: white;
 }
 
-.estimate-result-step > p {
-    color: var(--gray-500);
-    font-size: var(--font-size-sm);
+/* Estimate Breakdown */
+.estimate-breakdown {
+    background: var(--gray-50);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
     margin-bottom: var(--spacing-xl);
 }
 
+.estimate-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-sm) 0;
+    font-size: var(--font-size-sm);
+    color: var(--gray-600);
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.estimate-line:last-child {
+    border-bottom: none;
+}
+
+.estimate-address {
+    max-width: 200px;
+    text-align: right;
+    font-size: var(--font-size-xs);
+    color: var(--gray-500);
+}
+
+/* Estimate Price Box */
 .estimate-price-box {
     background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
     border: 2px solid #10b981;
     border-radius: var(--radius-xl);
     padding: var(--spacing-xl);
     margin-bottom: var(--spacing-xl);
+    text-align: center;
 }
 
 .estimate-price-label {
@@ -1797,10 +1883,22 @@ a.city-badge:hover {
 }
 
 .estimate-price-range {
-    font-size: 2.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+.estimate-price {
+    font-size: 2rem;
     font-weight: 900;
     color: #059669;
-    line-height: 1.2;
+}
+
+.estimate-price-divider {
+    font-size: var(--font-size-base);
+    color: var(--gray-500);
 }
 
 .estimate-price-note {
@@ -1810,40 +1908,76 @@ a.city-badge:hover {
     margin-bottom: 0;
 }
 
-.estimate-details {
-    background: var(--gray-50);
+/* Estimate Factors */
+.estimate-factors {
+    background: #fffbeb;
+    border: 1px solid #fcd34d;
     border-radius: var(--radius-lg);
     padding: var(--spacing-lg);
     margin-bottom: var(--spacing-xl);
     text-align: left;
 }
 
-.estimate-details p {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: var(--spacing-sm);
+.estimate-factors p {
     font-size: var(--font-size-sm);
-    color: var(--gray-600);
+    color: var(--gray-700);
+    margin-bottom: var(--spacing-sm);
 }
 
-.estimate-details p:last-child {
+.estimate-factors ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.estimate-factors li {
+    font-size: var(--font-size-sm);
+    color: var(--gray-600);
+    padding-left: 1.25rem;
+    position: relative;
+    margin-bottom: var(--spacing-xs);
+}
+
+.estimate-factors li:last-child {
     margin-bottom: 0;
 }
 
-.estimate-details strong {
-    color: var(--gray-900);
+.estimate-factors li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #f59e0b;
 }
 
-.estimate-cta-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-md);
+/* Estimate CTA */
+.estimate-cta {
+    text-align: center;
 }
 
-.estimate-cta-buttons .btn {
+.estimate-cta > p {
+    font-size: var(--font-size-sm);
+    color: var(--gray-600);
+    margin-bottom: var(--spacing-lg);
+}
+
+.estimate-cta .btn {
     width: 100%;
     padding: 1rem;
     font-size: var(--font-size-base);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.estimate-cta .btn:last-child {
+    margin-bottom: 0;
+}
+
+.estimate-cta .btn svg {
+    width: 20px;
+    height: 20px;
 }
 
 .btn-success {
@@ -1868,11 +2002,21 @@ a.city-badge:hover {
         padding: var(--spacing-xl);
     }
 
-    .estimate-price-range {
-        font-size: 1.75rem;
+    .estimate-result-header {
+        margin: calc(-1 * var(--spacing-xl));
+        margin-bottom: var(--spacing-lg);
+        padding: var(--spacing-lg);
     }
 
-    .estimate-sqft-preview .sqft-value {
+    .estimate-price {
         font-size: 1.5rem;
+    }
+
+    .estimate-roof-size {
+        font-size: 1.5rem;
+    }
+
+    .estimate-roof-size span {
+        font-size: 1.75rem;
     }
 }
