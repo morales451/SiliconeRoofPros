@@ -1,16 +1,23 @@
 /**
  * Silicone Roof Pros - Quote Map Functionality
- * Google Maps integration for property location selection
+ * Google Maps integration with polygon drawing for roof measurement
  */
 
 (function() {
     'use strict';
+
+    // Pricing constants
+    const PRICE_PER_SQFT_LOW = 3.50;
+    const PRICE_PER_SQFT_HIGH = 5.00;
 
     // State
     let map = null;
     let marker = null;
     let autocomplete = null;
     let geocoder = null;
+    let drawingManager = null;
+    let roofPolygon = null;
+    let roofAreaSqFt = 0;
 
     // Default center (Houston, TX)
     const DEFAULT_CENTER = { lat: 29.7604, lng: -95.3698 };
@@ -27,7 +34,39 @@
     const formLatitude = document.getElementById('form-latitude');
     const formLongitude = document.getElementById('form-longitude');
     const formFormattedAddress = document.getElementById('form-formatted-address');
+    const formRoofSqft = document.getElementById('form-roof-sqft');
+    const formEstimateLow = document.getElementById('form-estimate-low');
+    const formEstimateHigh = document.getElementById('form-estimate-high');
     const quoteForm = document.getElementById('quote-form');
+
+    // Drawing controls
+    const drawingControls = document.getElementById('drawing-controls');
+    const drawRoofBtn = document.getElementById('draw-roof-btn');
+    const clearDrawingBtn = document.getElementById('clear-drawing-btn');
+    const drawingHint = document.getElementById('drawing-hint');
+
+    // Measurement display
+    const measurementDisplay = document.getElementById('measurement-display');
+    const roofSqftDisplay = document.getElementById('roof-sqft');
+    const getEstimateBtn = document.getElementById('get-estimate-btn');
+
+    // Estimate modal
+    const estimateModal = document.getElementById('estimate-modal');
+    const estimateModalBackdrop = document.getElementById('estimate-modal-backdrop');
+    const estimateModalClose = document.getElementById('estimate-modal-close');
+    const estimateContactForm = document.getElementById('estimate-contact-form');
+    const estimateStepContact = document.getElementById('estimate-step-contact');
+    const estimateStepResult = document.getElementById('estimate-step-result');
+    const modalSqft = document.getElementById('modal-sqft');
+    const resultSqft = document.getElementById('result-sqft');
+    const resultAddress = document.getElementById('result-address');
+    const estimateLow = document.getElementById('estimate-low');
+    const estimateHigh = document.getElementById('estimate-high');
+    const requestExactQuote = document.getElementById('request-exact-quote');
+    const closeEstimate = document.getElementById('close-estimate');
+
+    // Phone input in modal
+    const estimatePhone = document.getElementById('estimate-phone');
 
     /**
      * Initialize Google Map
@@ -60,11 +99,29 @@
             types: ['address']
         });
 
+        // Initialize Drawing Manager
+        drawingManager = new google.maps.drawing.DrawingManager({
+            drawingMode: null,
+            drawingControl: false, // We use custom controls
+            polygonOptions: {
+                fillColor: '#0088df',
+                fillOpacity: 0.35,
+                strokeColor: '#0088df',
+                strokeWeight: 3,
+                editable: true,
+                draggable: true
+            }
+        });
+        drawingManager.setMap(map);
+
         // Autocomplete listener
         autocomplete.addListener('place_changed', handlePlaceSelect);
 
-        // Map click listener for dropping pin
+        // Map click listener for dropping pin (only when not drawing)
         map.addListener('click', handleMapClick);
+
+        // Drawing complete listener
+        google.maps.event.addListener(drawingManager, 'polygoncomplete', handlePolygonComplete);
 
         // Search button click
         if (searchBtn) {
@@ -81,10 +138,58 @@
             });
         }
 
+        // Draw roof button
+        if (drawRoofBtn) {
+            drawRoofBtn.addEventListener('click', startDrawing);
+        }
+
+        // Clear drawing button
+        if (clearDrawingBtn) {
+            clearDrawingBtn.addEventListener('click', clearDrawing);
+        }
+
+        // Get estimate button
+        if (getEstimateBtn) {
+            getEstimateBtn.addEventListener('click', openEstimateModal);
+        }
+
+        // Modal interactions
+        if (estimateModalBackdrop) {
+            estimateModalBackdrop.addEventListener('click', closeEstimateModal);
+        }
+        if (estimateModalClose) {
+            estimateModalClose.addEventListener('click', closeEstimateModal);
+        }
+        if (closeEstimate) {
+            closeEstimate.addEventListener('click', closeEstimateModal);
+        }
+
+        // Estimate contact form submission
+        if (estimateContactForm) {
+            estimateContactForm.addEventListener('submit', handleEstimateFormSubmit);
+        }
+
+        // Request exact quote button
+        if (requestExactQuote) {
+            requestExactQuote.addEventListener('click', handleRequestExactQuote);
+        }
+
         // Form submission validation
         if (quoteForm) {
             quoteForm.addEventListener('submit', handleFormSubmit);
         }
+
+        // Phone masking for modal
+        if (estimatePhone) {
+            estimatePhone.addEventListener('input', formatPhoneNumber);
+        }
+
+        // Escape key closes modal
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && estimateModal.classList.contains('active')) {
+                closeEstimateModal();
+            }
+        });
     };
 
     /**
@@ -142,6 +247,11 @@
             mapOverlay.classList.add('hidden');
         }
 
+        // Show drawing controls
+        if (drawingControls) {
+            drawingControls.style.display = 'flex';
+        }
+
         // Center and zoom map
         map.setCenter(location);
         map.setZoom(PROPERTY_ZOOM);
@@ -152,14 +262,19 @@
         // Update form fields
         updateFormFields(location, address);
 
-        // Show pin info
-        showPinInfo(address);
+        // Show notification about drawing
+        showNotification('Property found! Click "Draw Roof Outline" to measure your roof.', 'success');
     }
 
     /**
      * Handle map click to drop/move pin
      */
     function handleMapClick(event) {
+        // Don't handle clicks if drawing mode is active
+        if (drawingManager.getDrawingMode() !== null) {
+            return;
+        }
+
         const location = event.latLng;
 
         // Reverse geocode to get address
@@ -177,8 +292,13 @@
             // Update form fields
             updateFormFields(location, address);
 
-            // Show pin info
-            showPinInfo(address);
+            // Show drawing controls if hidden
+            if (drawingControls && drawingControls.style.display === 'none') {
+                drawingControls.style.display = 'flex';
+                if (mapOverlay) {
+                    mapOverlay.classList.add('hidden');
+                }
+            }
         });
     }
 
@@ -225,11 +345,267 @@
 
                 // Update form fields
                 updateFormFields(newLocation, address);
-
-                // Update pin info
-                showPinInfo(address);
             });
         });
+    }
+
+    /**
+     * Start drawing mode
+     */
+    function startDrawing() {
+        // Clear existing polygon if any
+        if (roofPolygon) {
+            roofPolygon.setMap(null);
+            roofPolygon = null;
+        }
+
+        // Hide measurement display
+        if (measurementDisplay) {
+            measurementDisplay.style.display = 'none';
+        }
+
+        // Set drawing mode
+        drawingManager.setDrawingMode(google.maps.drawing.OverlayType.POLYGON);
+
+        // Update UI
+        if (drawRoofBtn) {
+            drawRoofBtn.style.display = 'none';
+        }
+        if (clearDrawingBtn) {
+            clearDrawingBtn.style.display = 'inline-flex';
+        }
+        if (drawingHint) {
+            drawingHint.textContent = 'Click corners of your roof to outline it. Double-click or click the first point to complete.';
+            drawingHint.classList.add('active');
+        }
+
+        showNotification('Drawing mode active. Click to place points around your roof.', 'success');
+    }
+
+    /**
+     * Clear drawing and reset
+     */
+    function clearDrawing() {
+        // Remove polygon
+        if (roofPolygon) {
+            roofPolygon.setMap(null);
+            roofPolygon = null;
+        }
+
+        // Reset area
+        roofAreaSqFt = 0;
+
+        // Hide measurement display
+        if (measurementDisplay) {
+            measurementDisplay.style.display = 'none';
+        }
+
+        // Reset drawing mode
+        drawingManager.setDrawingMode(null);
+
+        // Update UI
+        if (drawRoofBtn) {
+            drawRoofBtn.style.display = 'inline-flex';
+        }
+        if (clearDrawingBtn) {
+            clearDrawingBtn.style.display = 'none';
+        }
+        if (drawingHint) {
+            drawingHint.textContent = 'Click corners of your roof to outline it. Double-click or click the first point to complete.';
+            drawingHint.classList.remove('active');
+        }
+
+        // Clear form fields
+        if (formRoofSqft) formRoofSqft.value = '';
+        if (formEstimateLow) formEstimateLow.value = '';
+        if (formEstimateHigh) formEstimateHigh.value = '';
+    }
+
+    /**
+     * Handle polygon drawing complete
+     */
+    function handlePolygonComplete(polygon) {
+        // Store the polygon
+        roofPolygon = polygon;
+
+        // Stop drawing mode
+        drawingManager.setDrawingMode(null);
+
+        // Calculate area
+        calculateAndDisplayArea();
+
+        // Update UI
+        if (drawRoofBtn) {
+            drawRoofBtn.style.display = 'none';
+        }
+        if (clearDrawingBtn) {
+            clearDrawingBtn.style.display = 'inline-flex';
+        }
+        if (drawingHint) {
+            drawingHint.textContent = 'Roof outlined! Drag corners to adjust, or click "Clear & Redraw" to start over.';
+        }
+
+        // Add listeners for polygon edits
+        google.maps.event.addListener(polygon.getPath(), 'set_at', calculateAndDisplayArea);
+        google.maps.event.addListener(polygon.getPath(), 'insert_at', calculateAndDisplayArea);
+        google.maps.event.addListener(polygon, 'dragend', calculateAndDisplayArea);
+    }
+
+    /**
+     * Calculate area and display results
+     */
+    function calculateAndDisplayArea() {
+        if (!roofPolygon) return;
+
+        // Calculate area in square meters
+        const areaSquareMeters = google.maps.geometry.spherical.computeArea(roofPolygon.getPath());
+
+        // Convert to square feet (1 sq meter = 10.7639 sq feet)
+        roofAreaSqFt = Math.round(areaSquareMeters * 10.7639);
+
+        // Calculate estimates
+        const lowEstimate = roofAreaSqFt * PRICE_PER_SQFT_LOW;
+        const highEstimate = roofAreaSqFt * PRICE_PER_SQFT_HIGH;
+
+        // Update display
+        if (roofSqftDisplay) {
+            roofSqftDisplay.textContent = roofAreaSqFt.toLocaleString();
+        }
+
+        // Show measurement display
+        if (measurementDisplay) {
+            measurementDisplay.style.display = 'block';
+        }
+
+        // Update form hidden fields
+        if (formRoofSqft) formRoofSqft.value = roofAreaSqFt;
+        if (formEstimateLow) formEstimateLow.value = lowEstimate.toFixed(2);
+        if (formEstimateHigh) formEstimateHigh.value = highEstimate.toFixed(2);
+
+        showNotification(`Roof measured: ${roofAreaSqFt.toLocaleString()} sq ft. Click "Get My Price Estimate" to continue!`, 'success');
+    }
+
+    /**
+     * Open estimate modal
+     */
+    function openEstimateModal() {
+        if (!roofAreaSqFt || roofAreaSqFt === 0) {
+            showNotification('Please draw your roof outline first.', 'error');
+            return;
+        }
+
+        // Update modal sqft display
+        if (modalSqft) {
+            modalSqft.textContent = roofAreaSqFt.toLocaleString();
+        }
+
+        // Reset to contact step
+        if (estimateStepContact) estimateStepContact.style.display = 'block';
+        if (estimateStepResult) estimateStepResult.style.display = 'none';
+
+        // Show modal
+        if (estimateModal) {
+            estimateModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Focus first input
+        const nameInput = document.getElementById('estimate-name');
+        if (nameInput) {
+            setTimeout(() => nameInput.focus(), 100);
+        }
+    }
+
+    /**
+     * Close estimate modal
+     */
+    function closeEstimateModal() {
+        if (estimateModal) {
+            estimateModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    }
+
+    /**
+     * Handle estimate form submission
+     */
+    function handleEstimateFormSubmit(e) {
+        e.preventDefault();
+
+        const name = document.getElementById('estimate-name').value.trim();
+        const email = document.getElementById('estimate-email').value.trim();
+        const phone = document.getElementById('estimate-phone').value.trim();
+
+        if (!name || !email || !phone) {
+            showNotification('Please fill in all fields.', 'error');
+            return;
+        }
+
+        // Calculate estimates
+        const lowEstimate = roofAreaSqFt * PRICE_PER_SQFT_LOW;
+        const highEstimate = roofAreaSqFt * PRICE_PER_SQFT_HIGH;
+
+        // Update result display
+        if (resultSqft) resultSqft.textContent = roofAreaSqFt.toLocaleString();
+        if (resultAddress) resultAddress.textContent = addressInput.value || 'Property location';
+        if (estimateLow) estimateLow.textContent = '$' + lowEstimate.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+        if (estimateHigh) estimateHigh.textContent = '$' + highEstimate.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+
+        // Pre-fill the main form with captured info
+        const mainName = document.getElementById('name');
+        const mainEmail = document.getElementById('email');
+        const mainPhone = document.getElementById('phone');
+        if (mainName) mainName.value = name;
+        if (mainEmail) mainEmail.value = email;
+        if (mainPhone) mainPhone.value = phone;
+
+        // Switch to result step
+        if (estimateStepContact) estimateStepContact.style.display = 'none';
+        if (estimateStepResult) estimateStepResult.style.display = 'block';
+
+        // Send lead data to Netlify form (background submission)
+        submitLeadToNetlify(name, email, phone, roofAreaSqFt, lowEstimate, highEstimate);
+    }
+
+    /**
+     * Submit lead data to Netlify in background
+     */
+    function submitLeadToNetlify(name, email, phone, sqft, lowEstimate, highEstimate) {
+        const formData = new FormData();
+        formData.append('form-name', 'instant-estimate');
+        formData.append('name', name);
+        formData.append('email', email);
+        formData.append('phone', phone);
+        formData.append('roof-sqft', sqft);
+        formData.append('estimate-low', lowEstimate.toFixed(2));
+        formData.append('estimate-high', highEstimate.toFixed(2));
+        formData.append('property-address', addressInput.value || '');
+        formData.append('latitude', formLatitude ? formLatitude.value : '');
+        formData.append('longitude', formLongitude ? formLongitude.value : '');
+
+        // Submit in background
+        fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams(formData).toString()
+        }).catch(err => console.log('Background form submission:', err));
+    }
+
+    /**
+     * Handle request exact quote button
+     */
+    function handleRequestExactQuote() {
+        // Close modal
+        closeEstimateModal();
+
+        // Scroll to form
+        const formSection = document.querySelector('.form-section');
+        if (formSection) {
+            formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // Show notification
+        showNotification('Complete the form below to request your exact quote!', 'success');
     }
 
     /**
@@ -284,6 +660,27 @@
     }
 
     /**
+     * Format phone number as user types
+     */
+    function formatPhoneNumber(e) {
+        let value = e.target.value.replace(/\D/g, '');
+
+        if (value.length > 10) {
+            value = value.slice(0, 10);
+        }
+
+        if (value.length >= 6) {
+            value = '(' + value.slice(0, 3) + ') ' + value.slice(3, 6) + '-' + value.slice(6);
+        } else if (value.length >= 3) {
+            value = '(' + value.slice(0, 3) + ') ' + value.slice(3);
+        } else if (value.length > 0) {
+            value = '(' + value;
+        }
+
+        e.target.value = value;
+    }
+
+    /**
      * Show notification message
      */
     function showNotification(message, type) {
@@ -325,6 +722,8 @@
             z-index: 9999;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             animation: slideDown 0.3s ease;
+            max-width: 90%;
+            text-align: center;
         `;
 
         notification.querySelector('svg').style.cssText = `

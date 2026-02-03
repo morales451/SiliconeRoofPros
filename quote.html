@@ -65,8 +65,8 @@
     <!-- Page Hero -->
     <section class="page-hero page-hero-small">
         <div class="container">
-            <h1>Get Your Free Roof Quote</h1>
-            <p>Locate your property on the map and we'll provide a free estimate</p>
+            <h1>Get Your Instant Roof Estimate</h1>
+            <p>Outline your roof on the satellite map and get an instant price estimate</p>
         </div>
     </section>
 
@@ -83,11 +83,11 @@
                         </div>
                         <div class="instruction-step">
                             <span class="step-number">2</span>
-                            <span>Click on the map to drop a pin on your roof</span>
+                            <span>Click "Draw Roof" and outline your roof</span>
                         </div>
                         <div class="instruction-step">
                             <span class="step-number">3</span>
-                            <span>Fill out your contact info and submit</span>
+                            <span>Get your instant price estimate</span>
                         </div>
                     </div>
 
@@ -123,7 +123,53 @@
                         </div>
                     </div>
 
-                    <!-- Pin Confirmation -->
+                    <!-- Drawing Controls -->
+                    <div class="drawing-controls" id="drawing-controls" style="display: none;">
+                        <button type="button" id="draw-roof-btn" class="btn btn-primary">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                                <polyline points="2 17 12 22 22 17"/>
+                                <polyline points="2 12 12 17 22 12"/>
+                            </svg>
+                            <span>Draw Roof Outline</span>
+                        </button>
+                        <button type="button" id="clear-drawing-btn" class="btn btn-outline" style="display: none;">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 6h18"/>
+                                <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/>
+                                <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>
+                            </svg>
+                            <span>Clear & Redraw</span>
+                        </button>
+                        <p class="drawing-hint" id="drawing-hint">Click corners of your roof to outline it. Double-click or click the first point to complete.</p>
+                    </div>
+
+                    <!-- Roof Measurement Display -->
+                    <div class="measurement-display" id="measurement-display" style="display: none;">
+                        <div class="measurement-card">
+                            <div class="measurement-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="3" width="18" height="18" rx="2"/>
+                                    <path d="M3 9h18"/>
+                                    <path d="M9 21V9"/>
+                                </svg>
+                            </div>
+                            <div class="measurement-info">
+                                <span class="measurement-label">Estimated Roof Size</span>
+                                <span class="measurement-value" id="roof-sqft">0</span>
+                                <span class="measurement-unit">square feet</span>
+                            </div>
+                            <button type="button" id="get-estimate-btn" class="btn btn-primary btn-lg">
+                                Get My Price Estimate
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="5" y1="12" x2="19" y2="12"/>
+                                    <polyline points="12 5 19 12 12 19"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Pin Confirmation (hidden, kept for backwards compatibility) -->
                     <div class="pin-info" id="pin-info" style="display: none;">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
@@ -147,6 +193,9 @@
                             <input type="hidden" name="latitude" id="form-latitude">
                             <input type="hidden" name="longitude" id="form-longitude">
                             <input type="hidden" name="formatted-address" id="form-formatted-address">
+                            <input type="hidden" name="roof-sqft" id="form-roof-sqft">
+                            <input type="hidden" name="estimate-low" id="form-estimate-low">
+                            <input type="hidden" name="estimate-high" id="form-estimate-high">
 
                             <p class="hidden" style="display:none;">
                                 <label>Don't fill this out: <input name="bot-field"></label>
@@ -351,6 +400,134 @@
         </div>
     </footer>
 
+    <!-- Hidden form for Netlify to detect instant-estimate submissions -->
+    <form name="instant-estimate" data-netlify="true" netlify-honeypot="bot-field" hidden>
+        <input type="hidden" name="form-name" value="instant-estimate">
+        <input type="text" name="name">
+        <input type="email" name="email">
+        <input type="tel" name="phone">
+        <input type="text" name="roof-sqft">
+        <input type="text" name="estimate-low">
+        <input type="text" name="estimate-high">
+        <input type="text" name="property-address">
+        <input type="text" name="latitude">
+        <input type="text" name="longitude">
+    </form>
+
+    <!-- Estimate Modal (Option B - Capture contact first) -->
+    <div class="estimate-modal" id="estimate-modal">
+        <div class="estimate-modal-backdrop" id="estimate-modal-backdrop"></div>
+        <div class="estimate-modal-content">
+            <button type="button" class="estimate-modal-close" id="estimate-modal-close">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </button>
+
+            <!-- Step 1: Contact Form -->
+            <div class="estimate-step" id="estimate-step-contact">
+                <div class="estimate-step-header">
+                    <div class="estimate-step-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2"/>
+                            <path d="M3 9h18"/>
+                            <path d="M9 21V9"/>
+                        </svg>
+                    </div>
+                    <h3>Your Roof Measurement</h3>
+                    <p class="estimate-roof-size"><span id="modal-sqft">0</span> sq ft</p>
+                </div>
+                <div class="estimate-step-body">
+                    <p class="estimate-prompt">Enter your contact info to reveal your instant price estimate:</p>
+                    <form id="estimate-contact-form">
+                        <div class="form-group">
+                            <label for="estimate-name">Full Name *</label>
+                            <input type="text" id="estimate-name" name="name" required placeholder="John Smith">
+                        </div>
+                        <div class="form-group">
+                            <label for="estimate-email">Email Address *</label>
+                            <input type="email" id="estimate-email" name="email" required placeholder="john@company.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="estimate-phone">Phone Number *</label>
+                            <input type="tel" id="estimate-phone" name="phone" required placeholder="(555) 123-4567">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block btn-lg">
+                            <span>Reveal My Estimate</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"/>
+                                <polyline points="12 5 19 12 12 19"/>
+                            </svg>
+                        </button>
+                    </form>
+                    <p class="estimate-privacy">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                        </svg>
+                        Your information is secure and will never be shared.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Step 2: Estimate Reveal -->
+            <div class="estimate-step" id="estimate-step-result" style="display: none;">
+                <div class="estimate-step-header estimate-result-header">
+                    <div class="estimate-checkmark">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
+                    </div>
+                    <h3>Your Instant Estimate</h3>
+                </div>
+                <div class="estimate-step-body">
+                    <div class="estimate-breakdown">
+                        <div class="estimate-line">
+                            <span>Roof Size:</span>
+                            <span id="result-sqft">0</span> sq ft
+                        </div>
+                        <div class="estimate-line">
+                            <span>Property:</span>
+                            <span id="result-address" class="estimate-address">--</span>
+                        </div>
+                    </div>
+                    <div class="estimate-price-box">
+                        <span class="estimate-price-label">Estimated Cost Range</span>
+                        <div class="estimate-price-range">
+                            <span class="estimate-price" id="estimate-low">$0</span>
+                            <span class="estimate-price-divider">to</span>
+                            <span class="estimate-price" id="estimate-high">$0</span>
+                        </div>
+                        <p class="estimate-price-note">*Based on $3.50 - $5.00 per sq ft for silicone roof coating</p>
+                    </div>
+                    <div class="estimate-factors">
+                        <p><strong>Final price depends on:</strong></p>
+                        <ul>
+                            <li>Current roof condition & repairs needed</li>
+                            <li>Roof accessibility & equipment requirements</li>
+                            <li>Coating thickness & warranty level selected</li>
+                        </ul>
+                    </div>
+                    <div class="estimate-cta">
+                        <p>Ready for your exact quote? We'll review your roof and contact you within 24 hours.</p>
+                        <button type="button" id="request-exact-quote" class="btn btn-primary btn-block btn-lg">
+                            <span>Request Exact Quote</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"/>
+                                <polyline points="12 5 19 12 12 19"/>
+                            </svg>
+                        </button>
+                        <button type="button" id="close-estimate" class="btn btn-outline btn-block">
+                            I'll think about it
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Google Maps API -->
     <script>
         // Google Maps API Configuration
@@ -359,7 +536,7 @@
         // Load Google Maps script dynamically
         function loadGoogleMaps() {
             const script = document.createElement('script');
-            script.src = `https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAPS_API_KEY}&libraries=places&callback=initMap`;
+            script.src = `https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAPS_API_KEY}&libraries=places,drawing,geometry&callback=initMap`;
             script.async = true;
             script.defer = true;
             document.head.appendChild(script);
