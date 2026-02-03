@@ -1537,3 +1537,342 @@ a.city-badge:hover {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
+/* ===================================
+   Hero Drawing Controls
+   =================================== */
+.hero-drawing-controls {
+    margin-top: var(--spacing-lg);
+    text-align: center;
+}
+
+.hero-drawing-controls .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    padding: 0.75rem 1.5rem;
+    font-size: var(--font-size-base);
+    margin-right: var(--spacing-sm);
+}
+
+.hero-drawing-controls .btn:last-child {
+    margin-right: 0;
+}
+
+.hero-drawing-controls .btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+.hero-drawing-hint {
+    margin-top: var(--spacing-md);
+    font-size: var(--font-size-sm);
+    color: var(--gray-500);
+    font-style: italic;
+}
+
+/* ===================================
+   Hero Measurement Display
+   =================================== */
+.hero-measurement {
+    margin-top: var(--spacing-lg);
+    padding: var(--spacing-lg);
+    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+    border: 2px solid #10b981;
+    border-radius: var(--radius-lg);
+    text-align: center;
+}
+
+.hero-measurement-value {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #059669;
+    line-height: 1;
+    margin-bottom: var(--spacing-xs);
+}
+
+.hero-measurement-label {
+    display: block;
+    font-size: var(--font-size-sm);
+    color: var(--gray-600);
+    margin-bottom: var(--spacing-md);
+}
+
+.hero-measurement-unit {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+#hero-get-estimate-btn {
+    width: 100%;
+    padding: 1rem;
+    font-size: var(--font-size-lg);
+    margin-top: var(--spacing-sm);
+}
+
+/* ===================================
+   Estimate Modal (Homepage)
+   =================================== */
+.estimate-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-lg);
+}
+
+.estimate-modal.active {
+    display: flex;
+}
+
+.estimate-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+}
+
+.estimate-modal-content {
+    position: relative;
+    background: var(--white);
+    padding: var(--spacing-2xl);
+    border-radius: var(--radius-xl);
+    max-width: 480px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.estimate-modal-close {
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    width: 36px;
+    height: 36px;
+    background: var(--gray-100);
+    border: none;
+    border-radius: var(--radius-full);
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gray-500);
+    transition: background-color var(--transition-fast);
+}
+
+.estimate-modal-close:hover {
+    background: var(--gray-200);
+    color: var(--gray-700);
+}
+
+/* Estimate Form Step */
+.estimate-form-step {
+    text-align: center;
+}
+
+.estimate-form-step h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--gray-900);
+}
+
+.estimate-form-step > p {
+    color: var(--gray-500);
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--spacing-xl);
+}
+
+.estimate-sqft-preview {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.25rem;
+    background: var(--gray-100);
+    padding: var(--spacing-md) var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.estimate-sqft-preview .sqft-value {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--primary);
+}
+
+.estimate-sqft-preview .sqft-unit {
+    font-size: var(--font-size-sm);
+    color: var(--gray-500);
+}
+
+.estimate-form {
+    text-align: left;
+}
+
+.estimate-form .form-group {
+    margin-bottom: var(--spacing-lg);
+}
+
+.estimate-form label {
+    display: block;
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--gray-700);
+    margin-bottom: var(--spacing-xs);
+}
+
+.estimate-form input {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    border: 2px solid var(--gray-200);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-base);
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.estimate-form input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(0, 136, 223, 0.1);
+}
+
+.estimate-form .btn {
+    width: 100%;
+    padding: 1rem;
+    font-size: var(--font-size-lg);
+}
+
+.estimate-form-note {
+    text-align: center;
+    font-size: var(--font-size-xs);
+    color: var(--gray-400);
+    margin-top: var(--spacing-lg);
+    margin-bottom: 0;
+}
+
+/* Estimate Result Step */
+.estimate-result-step {
+    display: none;
+    text-align: center;
+}
+
+.estimate-result-step.active {
+    display: block;
+}
+
+.estimate-form-step.hidden {
+    display: none;
+}
+
+.estimate-result-step h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-xs);
+    color: var(--gray-900);
+}
+
+.estimate-result-step > p {
+    color: var(--gray-500);
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--spacing-xl);
+}
+
+.estimate-price-box {
+    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+    border: 2px solid #10b981;
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+}
+
+.estimate-price-label {
+    font-size: var(--font-size-sm);
+    color: var(--gray-600);
+    margin-bottom: var(--spacing-sm);
+    display: block;
+}
+
+.estimate-price-range {
+    font-size: 2.25rem;
+    font-weight: 900;
+    color: #059669;
+    line-height: 1.2;
+}
+
+.estimate-price-note {
+    font-size: var(--font-size-xs);
+    color: var(--gray-500);
+    margin-top: var(--spacing-md);
+    margin-bottom: 0;
+}
+
+.estimate-details {
+    background: var(--gray-50);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+    text-align: left;
+}
+
+.estimate-details p {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-sm);
+    font-size: var(--font-size-sm);
+    color: var(--gray-600);
+}
+
+.estimate-details p:last-child {
+    margin-bottom: 0;
+}
+
+.estimate-details strong {
+    color: var(--gray-900);
+}
+
+.estimate-cta-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.estimate-cta-buttons .btn {
+    width: 100%;
+    padding: 1rem;
+    font-size: var(--font-size-base);
+}
+
+.btn-success {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    border: none;
+}
+
+.btn-success:hover {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+}
+
+/* Responsive for Drawing/Estimate */
+@media (max-width: 768px) {
+    .hero-measurement-value {
+        font-size: 2rem;
+    }
+
+    .estimate-modal-content {
+        padding: var(--spacing-xl);
+    }
+
+    .estimate-price-range {
+        font-size: 1.75rem;
+    }
+
+    .estimate-sqft-preview .sqft-value {
+        font-size: 1.5rem;
+    }
+}
