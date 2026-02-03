@@ -297,7 +297,7 @@ p {
     color: var(--primary);
 }
 
-/* Active underline - exclude dropdown parent links which use ::after for arrow */
+/* Active underline - only for non-dropdown links */
 .nav-menu > li:not(.has-dropdown) > a.active::after {
     content: '';
     position: absolute;
@@ -306,6 +306,11 @@ p {
     right: 0;
     height: 2px;
     background-color: var(--primary);
+}
+
+/* For dropdown parent with active state - just show text color, no underline conflict */
+.nav-menu li.has-dropdown > a.active {
+    color: var(--primary);
 }
 
 .nav-cta {
