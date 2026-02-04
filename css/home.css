@@ -797,6 +797,23 @@
     color: var(--primary);
 }
 
+.coatings-note {
+    text-align: center;
+    margin-top: var(--spacing-lg);
+    margin-bottom: 0;
+    font-size: var(--font-size-sm);
+    color: var(--gray-500);
+}
+
+.coatings-note a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.coatings-note a:hover {
+    text-decoration: underline;
+}
+
 /* ===================================
    Warranty Certificate Banner
    =================================== */

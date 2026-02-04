@@ -1,0 +1,332 @@
+/* ===================================
+   Coatings Comparison Page
+   =================================== */
+
+/* Intro */
+.coatings-intro {
+    background: var(--gray-50);
+}
+
+.coatings-intro-content {
+    max-width: 780px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.coatings-intro-content h2 {
+    margin-bottom: var(--spacing-lg);
+}
+
+.coatings-intro-content p {
+    color: var(--gray-600);
+    font-size: var(--font-size-lg);
+    line-height: 1.8;
+    margin-bottom: 0;
+}
+
+/* Comparison Table Section */
+.comparison-section {
+    padding: var(--spacing-4xl) 0;
+    background: var(--white);
+}
+
+.scroll-hint {
+    display: none;
+    font-size: var(--font-size-sm);
+    color: var(--gray-500);
+    text-align: center;
+    margin-bottom: var(--spacing-sm);
+}
+
+.comparison-table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.comparison-table {
+    width: 100%;
+    min-width: 700px;
+    border-collapse: collapse;
+}
+
+/* ---- Header row ---- */
+.comparison-table thead th {
+    padding: var(--spacing-xl) var(--spacing-lg);
+    text-align: center;
+    border-bottom: 2px solid var(--gray-200);
+    vertical-align: bottom;
+    position: relative;
+    background: var(--white);
+}
+
+/* Empty top-left cell */
+.comp-label-col {
+    width: 160px;
+    min-width: 130px;
+}
+
+/* Column header icons */
+.comp-header-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--spacing-md);
+}
+
+.comp-header-icon svg {
+    width: 28px;
+    height: 28px;
+}
+
+.comp-icon-silicone {
+    background: var(--primary-light);
+}
+
+.comp-icon-silicone svg {
+    color: var(--primary);
+}
+
+.comp-icon-acrylic {
+    background: #ecfdf5;
+}
+
+.comp-icon-acrylic svg {
+    color: #059669;
+}
+
+.comp-icon-aluminum {
+    background: #fffbeb;
+}
+
+.comp-icon-aluminum svg {
+    color: #d97706;
+}
+
+.comparison-table thead th h3 {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-xs);
+}
+
+.comp-price {
+    font-size: var(--font-size-sm);
+    color: var(--gray-500);
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+/* "Most Popular" badge */
+.comp-badge {
+    position: absolute;
+    top: -13px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary);
+    color: var(--white);
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 3px 14px;
+    border-radius: var(--radius-full);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+}
+
+/* Silicone column highlight (2nd column) */
+.comparison-table thead th:nth-child(2) {
+    background: #f0f7ff;
+    border-top: 3px solid var(--primary);
+}
+
+.comparison-table tbody td:nth-child(2) {
+    background: #f8fbff;
+}
+
+.comparison-table tbody tr:nth-child(even) td:nth-child(2) {
+    background: #f0f5fc;
+}
+
+/* ---- Body rows ---- */
+.comparison-table tbody tr {
+    border-bottom: 1px solid var(--gray-100);
+}
+
+.comparison-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.comparison-table tbody tr:nth-child(even) {
+    background: var(--gray-50);
+}
+
+/* Row label — first column */
+.comparison-table tbody td:first-child {
+    font-weight: 700;
+    color: var(--gray-800);
+    text-align: left;
+    padding-left: var(--spacing-xl);
+    background: var(--white);
+}
+
+.comparison-table tbody tr:nth-child(even) td:first-child {
+    background: var(--gray-50);
+}
+
+/* Cell layout */
+.comparison-table tbody td {
+    padding: var(--spacing-lg);
+    text-align: center;
+    vertical-align: middle;
+}
+
+.comp-cell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+/* ---- Rating badges ---- */
+.comp-rating {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: var(--radius-full);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+}
+
+.comp-rating-excellent {
+    background: #d1fae5;
+    color: #059669;
+}
+
+.comp-rating-good {
+    background: #dbeafe;
+    color: #2563eb;
+}
+
+.comp-rating-moderate {
+    background: #fef3c7;
+    color: #d97706;
+}
+
+.comp-rating-limited {
+    background: var(--gray-100);
+    color: var(--gray-600);
+}
+
+/* ---- Value text (numbers like "Up to 35%") ---- */
+.comp-value {
+    font-size: var(--font-size-base);
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.comp-value-best {
+    color: #059669;
+}
+
+.comp-value-mid {
+    color: var(--primary);
+}
+
+.comp-value-low {
+    color: #d97706;
+}
+
+/* Detail text below badge or value */
+.comp-detail {
+    font-size: var(--font-size-sm);
+    color: var(--gray-500);
+    line-height: 1.4;
+    max-width: 160px;
+}
+
+/* ===================================
+   Why Silicone Section
+   =================================== */
+.why-silicone {
+    background: linear-gradient(180deg, #f0f7ff 0%, #e8f4fc 100%);
+}
+
+.why-silicone-content {
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+.why-silicone-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+}
+
+.why-silicone-card {
+    background: var(--white);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.why-silicone-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--primary-light);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.why-silicone-icon svg {
+    width: 24px;
+    height: 24px;
+    color: var(--primary);
+}
+
+.why-silicone-card h4 {
+    margin-bottom: var(--spacing-xs);
+}
+
+.why-silicone-card p {
+    font-size: var(--font-size-sm);
+    color: var(--gray-600);
+    margin-bottom: 0;
+}
+
+/* ===================================
+   Responsive
+   =================================== */
+@media (max-width: 768px) {
+    .scroll-hint {
+        display: block;
+    }
+
+    .comparison-table {
+        min-width: 580px;
+    }
+
+    .why-silicone-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .comparison-table {
+        min-width: 480px;
+    }
+
+    .comp-detail {
+        max-width: none;
+    }
+}
