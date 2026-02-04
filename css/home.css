@@ -1712,6 +1712,177 @@ a.city-badge:hover {
 }
 
 /* ===================================
+   IRS Section 179 Tax Savings
+   =================================== */
+.tax-savings {
+    padding: var(--spacing-4xl) 0;
+    background: #f0f7ff;
+}
+
+.tax-savings-inner {
+    max-width: 780px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.tax-badge {
+    display: inline-block;
+    background: var(--primary);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 20px;
+    margin-bottom: var(--spacing-md);
+}
+
+.tax-savings-inner h2 {
+    font-size: 2rem;
+    color: var(--secondary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.tax-savings-desc {
+    color: var(--gray-600);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin: 0 auto var(--spacing-xl);
+    max-width: 640px;
+}
+
+/* Restoration vs New Roof comparison cards */
+.tax-compare {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.tax-compare-card {
+    flex: 1;
+    max-width: 260px;
+    border-radius: 14px;
+    padding: 32px 24px;
+    text-align: center;
+}
+
+.tax-compare-good {
+    background: #ecfdf5;
+    border: 2px solid #10b981;
+}
+
+.tax-compare-bad {
+    background: #fef2f2;
+    border: 2px solid #ef4444;
+}
+
+.tax-compare-type {
+    font-weight: 700;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 14px;
+}
+
+.tax-compare-good .tax-compare-type {
+    color: #059669;
+}
+
+.tax-compare-bad .tax-compare-type {
+    color: #dc2626;
+}
+
+.tax-compare-icon {
+    width: 44px;
+    height: 44px;
+    margin: 0 auto 14px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tax-compare-good .tax-compare-icon {
+    background: #10b981;
+}
+
+.tax-compare-bad .tax-compare-icon {
+    background: #ef4444;
+}
+
+.tax-compare-icon svg {
+    width: 22px;
+    height: 22px;
+    stroke: #fff;
+}
+
+.tax-compare-value {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--secondary);
+    margin-bottom: 4px;
+}
+
+.tax-compare-detail {
+    font-size: 0.85rem;
+    color: var(--gray-500);
+}
+
+.tax-compare-vs {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--gray-400);
+    text-transform: uppercase;
+    flex-shrink: 0;
+}
+
+/* Dollar example callout */
+.tax-example {
+    background: #fff;
+    border: 1px solid #dbeafe;
+    border-radius: 10px;
+    padding: 18px 28px;
+    margin-bottom: var(--spacing-xl);
+    display: inline-block;
+}
+
+.tax-example p {
+    margin: 0;
+    color: var(--gray-600);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.tax-highlight {
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+    .tax-savings-inner h2 {
+        font-size: 1.6rem;
+    }
+
+    .tax-compare {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+
+    .tax-compare-card {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .tax-example {
+        padding: 16px 20px;
+    }
+}
+
+/* ===================================
    Certified Installer Section
    =================================== */
 .certified-installer {
