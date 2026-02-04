@@ -906,25 +906,11 @@
     box-shadow: 0 4px 12px rgba(201, 168, 76, 0.2);
 }
 
-.warranty-tier-featured {
-    width: 120px;
-    height: 120px;
-    background: linear-gradient(145deg, #1a1a2e 0%, #0f1626 100%);
-    border-width: 3px;
-    border-color: #fbbf24;
-    box-shadow: 0 6px 24px rgba(26, 26, 46, 0.35);
-}
-
 .tier-years {
     font-size: 1.875rem;
     font-weight: 900;
     color: #1a1a2e;
     line-height: 1;
-}
-
-.warranty-tier-featured .tier-years {
-    font-size: 2.25rem;
-    color: #fbbf24;
 }
 
 .tier-label {
@@ -935,8 +921,15 @@
     color: var(--gray-500);
 }
 
-.warranty-tier-featured .tier-label {
-    color: rgba(255, 255, 255, 0.7);
+/* "Choose Your Warranty" label above tiers */
+.warranty-tiers-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #c9a84c;
+    margin-bottom: var(--spacing-sm);
 }
 
 /* Gold rule divider */
@@ -1036,17 +1029,8 @@
         height: 80px;
     }
 
-    .warranty-tier-featured {
-        width: 100px;
-        height: 100px;
-    }
-
     .tier-years {
         font-size: 1.5rem;
-    }
-
-    .warranty-tier-featured .tier-years {
-        font-size: 1.875rem;
     }
 
     .warranty-details p {
@@ -1076,17 +1060,8 @@
         height: 72px;
     }
 
-    .warranty-tier-featured {
-        width: 90px;
-        height: 90px;
-    }
-
     .tier-years {
         font-size: 1.25rem;
-    }
-
-    .warranty-tier-featured .tier-years {
-        font-size: 1.5rem;
     }
 
     .tier-label {
