@@ -726,6 +726,90 @@
     text-align: center;
 }
 
+/* Performance Data */
+.performance-data {
+    padding: var(--spacing-4xl) 0;
+    background: #fff;
+}
+
+.perf-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-lg);
+}
+
+.perf-card {
+    background: #fff;
+    border: 1px solid var(--gray-200);
+    border-radius: 14px;
+    padding: 32px 24px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: box-shadow var(--transition-base), transform var(--transition-base);
+}
+
+.perf-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    transform: translateY(-3px);
+}
+
+.perf-number {
+    font-size: 2.6rem;
+    font-weight: 900;
+    color: var(--primary);
+    line-height: 1;
+    margin-bottom: 6px;
+}
+
+.perf-label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 12px;
+}
+
+.perf-why {
+    font-size: 0.9rem;
+    color: var(--gray-600);
+    line-height: 1.5;
+    margin: 0 0 auto;
+    flex-grow: 1;
+}
+
+.perf-vs {
+    margin-top: 16px;
+    background: var(--gray-100);
+    border-radius: 20px;
+    padding: 5px 14px;
+    font-size: 0.78rem;
+    color: var(--gray-500);
+    white-space: nowrap;
+}
+
+.perf-vs strong {
+    color: var(--gray-700);
+}
+
+@media (max-width: 900px) {
+    .perf-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 520px) {
+    .perf-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .perf-number {
+        font-size: 2.2rem;
+    }
+}
+
 /* Benefits Section */
 .benefits-section {
     padding: var(--spacing-4xl) 0;
