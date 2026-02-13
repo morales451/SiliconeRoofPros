@@ -1338,6 +1338,7 @@ section {
 }
 
 .blog-image {
+    display: block;
     aspect-ratio: 16/10;
     overflow: hidden;
 }
