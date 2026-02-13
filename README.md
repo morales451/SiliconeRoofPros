@@ -184,7 +184,7 @@ Then open `http://localhost:8000` in your browser.
 
 ## License
 
-Copyright 2025 Silicone Roof Pros. All rights reserved.
+Copyright 2026 Silicone Roof Pros. All rights reserved.
 
 ## Contact
 
