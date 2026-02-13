@@ -39,12 +39,15 @@
 }
 
 .comparison-table-wrapper {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
     border: 1px solid var(--gray-200);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
     padding-top: 16px;
+}
+
+.comparison-table-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .comparison-table {
