@@ -617,22 +617,41 @@ section {
    =================================== */
 .trusted-by {
     background-color: var(--gray-50);
+    overflow: hidden;
 }
 
-.logos-grid {
+.logos-carousel {
+    position: relative;
+    overflow: hidden;
+    /* fade edges */
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+.logos-track {
     display: flex;
-    justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-    gap: var(--spacing-2xl) var(--spacing-3xl);
+    gap: 56px;
+    width: max-content;
+    animation: logo-scroll 28s linear infinite;
+}
+
+.logos-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes logo-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
 }
 
 .logo-item {
-    opacity: 0.55;
-    transition: opacity var(--transition-base);
+    flex: 0 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
+    opacity: 0.55;
+    transition: opacity var(--transition-base);
 }
 
 .logo-item:hover {
@@ -640,9 +659,9 @@ section {
 }
 
 .logo-item img {
-    height: 40px;
+    height: 36px;
     width: auto;
-    max-width: 140px;
+    max-width: 120px;
     object-fit: contain;
     display: block;
 }
@@ -1845,9 +1864,6 @@ a.area-tag:hover {
         grid-template-columns: 1fr;
     }
 
-    .logos-grid {
-        gap: var(--spacing-xl);
-    }
 
     .hero-form {
         padding: var(--spacing-lg);
