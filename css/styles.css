@@ -624,16 +624,27 @@ section {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: var(--spacing-3xl);
+    gap: var(--spacing-2xl) var(--spacing-3xl);
 }
 
 .logo-item {
-    opacity: 0.6;
+    opacity: 0.55;
     transition: opacity var(--transition-base);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .logo-item:hover {
     opacity: 1;
+}
+
+.logo-item img {
+    height: 40px;
+    width: auto;
+    max-width: 140px;
+    object-fit: contain;
+    display: block;
 }
 
 .client-logo {
