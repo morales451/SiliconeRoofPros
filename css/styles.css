@@ -1206,6 +1206,14 @@ section {
     color: var(--primary);
 }
 
+.step-img {
+    width: 100%;
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-md);
+    object-fit: cover;
+    max-height: 280px;
+}
+
 .step-content h3 {
     margin-bottom: var(--spacing-md);
 }
