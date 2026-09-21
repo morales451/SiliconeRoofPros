@@ -144,7 +144,7 @@ Edit the CSS variables in `css/styles.css`:
 
 Update contact details in each HTML file:
 - Phone: `(832) 303-3183`
-- Email: `sales@siliconeroofpros.com`
+- Email: `siliconeroofpros@gmail.com`
 - Address: `1445 North Loop W, 242F #1034, Houston, Texas 77008`
 
 ### Adding Images
@@ -189,5 +189,5 @@ Copyright 2026 Silicone Roof Pros. All rights reserved.
 ## Contact
 
 For questions about this website:
-- Email: sales@siliconeroofpros.com
+- Email: siliconeroofpros@gmail.com
 - Phone: (832) 303-3183
