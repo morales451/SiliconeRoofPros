@@ -1214,22 +1214,57 @@
         </div>
     </div>
 
-    <!-- Google Maps API -->
+    <script src="js/main.js"></script>
+    <script src="js/hero-map.js"></script>
+    <script src="js/exit-intent.js"></script>
+
+    <!-- Google Maps API.
+         Loaded AFTER the map script above so that window.initHeroMap is guaranteed to
+         exist by the time Google fires the callback. Loading it first is a race:
+         on a warm cache Google can win and the callback throws "not a function",
+         leaving the widget dead with no address autocomplete and no map. -->
     <script>
         const GOOGLE_MAPS_API_KEY = '__GOOGLE_MAPS_API_KEY__';
 
+        function showMapUnavailable(reason) {
+            console.error('[maps] Satellite quote widget unavailable: ' + reason);
+            var overlay = document.getElementById('hero-map-overlay');
+            if (!overlay || overlay.getAttribute('data-map-failed')) return;
+            overlay.setAttribute('data-map-failed', '1');
+            var msg = overlay.querySelector('.map-placeholder p');
+            if (msg) {
+                msg.innerHTML = '<strong>Map Unavailable</strong><br>'
+                    + 'We can still measure your roof from satellite &mdash; '
+                    + '<a href="contact.html">send us your address</a>'
+                    + ' or call <a href="tel:8323033183">(832) 303-3183</a>.';
+            }
+        }
+
+        // Google calls this when it refuses the key: an HTTP-referrer restriction
+        // that does not cover this domain, billing switched off, or the Maps
+        // JavaScript API / Places API not enabled on the project.
+        window.gm_authFailure = function () {
+            showMapUnavailable('Google rejected the API key (referrer restriction, billing, or API not enabled)');
+        };
+
         function loadGoogleMaps() {
-            const script = document.createElement('script');
-            script.src = `https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAPS_API_KEY}&libraries=places,drawing,geometry&callback=initHeroMap`;
+            // build.sh swaps the placeholder for the real key at deploy time.
+            // If that step is skipped the literal placeholder ships and every
+            // Maps request fails, so fail loudly here instead.
+            if (!GOOGLE_MAPS_API_KEY || GOOGLE_MAPS_API_KEY.charAt(0) === '_') {
+                showMapUnavailable('API key was not injected at build time (GOOGLE_MAPS_API_KEY env var missing)');
+                return;
+            }
+            var script = document.createElement('script');
+            script.src = 'https://maps.googleapis.com/maps/api/js?key=' + GOOGLE_MAPS_API_KEY
+                + '&libraries=places,drawing,geometry&callback=initHeroMap';
             script.async = true;
             script.defer = true;
+            script.onerror = function () { showMapUnavailable('the Google Maps script could not be downloaded'); };
             document.head.appendChild(script);
         }
 
         loadGoogleMaps();
     </script>
-    <script src="js/main.js"></script>
-    <script src="js/hero-map.js"></script>
-    <script src="js/exit-intent.js"></script>
 </body>
 </html>

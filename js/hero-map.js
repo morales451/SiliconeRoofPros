@@ -777,19 +777,29 @@
      */
     function initFallback() {
         const overlay = document.getElementById('hero-map-overlay');
-        if (overlay && typeof google === 'undefined') {
-            overlay.innerHTML = `
-                <div class="map-placeholder">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <circle cx="12" cy="12" r="10"/>
-                        <line x1="12" y1="8" x2="12" y2="12"/>
-                        <line x1="12" y1="16" x2="12.01" y2="16"/>
-                    </svg>
-                    <p><strong>Map Loading...</strong></p>
-                    <p style="font-size: 0.75rem; margin-top: 0.5rem;">Or call us at (832) 303-3183</p>
-                </div>
-            `;
-        }
+        if (!overlay || typeof google !== 'undefined') return;
+        // The inline loader in the page may already have reported a specific
+        // reason (rejected key, missing key). Don't overwrite a better message.
+        if (overlay.getAttribute('data-map-failed')) return;
+        overlay.setAttribute('data-map-failed', '1');
+        // Previously this said "Map Loading..." and never changed, so a failed
+        // map looked like a slow one forever. Say what happened and give the
+        // visitor a way through instead.
+        overlay.innerHTML = `
+            <div class="map-placeholder">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="12" cy="12" r="10"/>
+                    <line x1="12" y1="8" x2="12" y2="12"/>
+                    <line x1="12" y1="16" x2="12.01" y2="16"/>
+                </svg>
+                <p><strong>Map Unavailable</strong></p>
+                <p style="font-size: 0.8rem; margin-top: 0.5rem;">
+                    We can still measure your roof from satellite &mdash;
+                    <a href="contact.html">send us your address</a>
+                    or call <a href="tel:8323033183">(832) 303-3183</a>.
+                </p>
+            </div>
+        `;
     }
 
     // Check for Google Maps API after delay

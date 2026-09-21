@@ -763,7 +763,11 @@
     function initFallback() {
         if (typeof google === 'undefined' || !google.maps) {
             const mapContainer = document.getElementById('map');
+            // The page's inline loader may already have reported a specific
+            // reason. Don't replace a better message with a vaguer one.
+            if (mapOverlay && mapOverlay.getAttribute('data-map-failed')) return;
             if (mapContainer && mapOverlay) {
+                mapOverlay.setAttribute('data-map-failed', '1');
                 mapOverlay.innerHTML = `
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <circle cx="12" cy="12" r="10"/>
@@ -771,7 +775,7 @@
                         <line x1="12" y1="16" x2="12.01" y2="16"/>
                     </svg>
                     <p><strong>Map Unavailable</strong></p>
-                    <p style="font-size: 0.75rem;">Please enter your address manually in the form below, or contact us at (832) 303-3183</p>
+                    <p style="font-size: 0.75rem;">Enter your address in the form below, or call <a href="tel:8323033183">(832) 303-3183</a> and we will measure your roof from satellite for you.</p>
                 `;
 
                 // Make address input editable
