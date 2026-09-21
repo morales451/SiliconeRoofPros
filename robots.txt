@@ -1,0 +1,8 @@
+# robots.txt for siliconeroofpros.com
+User-agent: *
+Allow: /
+
+# Note: /thank-you.html and /thank-you/ are kept crawlable on purpose so that
+# their "noindex" meta tag can be read. Blocking them here would hide the tag.
+
+Sitemap: https://siliconeroofpros.com/sitemap.xml

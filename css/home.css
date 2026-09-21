@@ -59,6 +59,15 @@
     display: inline;
 }
 
+.hero-subhead {
+    font-size: var(--font-size-lg);
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.88);
+    max-width: 62ch;
+    margin-top: calc(-1 * var(--spacing-md));
+    margin-bottom: var(--spacing-xl);
+}
+
 .hero-benefits {
     display: flex;
     flex-direction: column;
@@ -1279,6 +1288,11 @@
 
     .hero-map-text h1 {
         font-size: 2rem;
+    }
+
+    .hero-subhead {
+        font-size: var(--font-size-base);
+        margin-top: 0;
     }
 
     .badges-grid {
