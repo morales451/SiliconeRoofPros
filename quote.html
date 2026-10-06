@@ -168,11 +168,13 @@
                     <div class="map-container">
                         <div id="map"></div>
                         <div class="map-overlay" id="map-overlay">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                                <circle cx="12" cy="10" r="3"/>
-                            </svg>
-                            <p>Enter an address above to view the satellite map</p>
+                            <div class="map-overlay-card">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                    <circle cx="12" cy="10" r="3"/>
+                                </svg>
+                                <p>Enter your address above &mdash; we'll zoom to your roof so you can outline it.</p>
+                            </div>
                         </div>
                     </div>
 
@@ -593,6 +595,7 @@
             var overlay = document.getElementById('map-overlay');
             if (!overlay || overlay.getAttribute('data-map-failed')) return;
             overlay.setAttribute('data-map-failed', '1');
+            overlay.classList.remove('is-live');   // auth can fail after the map loaded
             var msg = overlay.querySelector('p');
             if (msg) {
                 msg.innerHTML = '<strong>Map Unavailable</strong><br>'
