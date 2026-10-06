@@ -2269,9 +2269,22 @@ a.area-tag:hover {
 
 .location-hero p {
     font-size: var(--font-size-lg);
-    color: var(--gray-600);
+    /* Every city page sets a dark photo overlay on this hero, so the
+       light-background grey was close to invisible. */
+    color: rgba(255, 255, 255, 0.88);
     max-width: 700px;
     margin: 0 auto var(--spacing-xl);
+}
+
+.location-hero .btn-outline {
+    color: var(--white);
+    border-color: rgba(255, 255, 255, 0.7);
+}
+
+.location-hero .btn-outline:hover {
+    color: var(--white);
+    border-color: var(--white);
+    background: rgba(255, 255, 255, 0.12);
 }
 
 .hero-ctas {
@@ -2477,6 +2490,26 @@ a.area-tag:hover {
     line-height: 1.8;
     margin-bottom: var(--spacing-xl);
     opacity: 0.95;
+}
+
+.testimonial-featured .partner-label {
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.8;
+    margin-bottom: var(--spacing-md);
+}
+
+.testimonial-featured .partner-intro {
+    font-size: var(--font-size-xl);
+    line-height: 1.8;
+    margin-bottom: var(--spacing-xl);
+    opacity: 0.95;
+}
+
+.testimonial-featured .partner-call {
+    margin-top: var(--spacing-xl);
 }
 
 .testimonial-featured .testimonial-author {

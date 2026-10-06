@@ -143,7 +143,8 @@ Edit the CSS variables in `css/styles.css`:
 ### Contact Information
 
 Update contact details in each HTML file:
-- Phone: `(832) 303-3183`
+- Phone: `(832) 303-3183` (Texas)
+- Pennsylvania partner (Jimmy): `(484) 401-8586` — shown on `locations/pennsylvania.html`
 - Email: `siliconeroofpros@gmail.com`
 
 ### Adding Images
