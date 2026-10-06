@@ -145,7 +145,6 @@ Edit the CSS variables in `css/styles.css`:
 Update contact details in each HTML file:
 - Phone: `(832) 303-3183`
 - Email: `siliconeroofpros@gmail.com`
-- Address: `1445 North Loop W, 242F #1034, Houston, Texas 77008`
 
 ### Adding Images
 

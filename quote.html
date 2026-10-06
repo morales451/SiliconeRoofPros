@@ -413,13 +413,6 @@
                     <ul>
                         <li>
                             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                                <circle cx="12" cy="10" r="3"/>
-                            </svg>
-                            <span>1445 North Loop W, 242F #1034<br>Houston, Texas 77008</span>
-                        </li>
-                        <li>
-                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
                             </svg>
                             <a href="tel:8323033183">(832) 303-3183</a>
@@ -581,25 +574,63 @@
         </div>
     </div>
 
-    <!-- Google Maps API -->
-    <script>
-        // Google Maps API Configuration
-        const GOOGLE_MAPS_API_KEY = '__GOOGLE_MAPS_API_KEY__';
-
-        // Load Google Maps script dynamically
-        function loadGoogleMaps() {
-            const script = document.createElement('script');
-            script.src = `https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAPS_API_KEY}&libraries=places,drawing,geometry&callback=initMap`;
-            script.async = true;
-            script.defer = true;
-            document.head.appendChild(script);
-        }
-
-        // Load Google Maps
-        loadGoogleMaps();
-    </script>
     <script src="js/main.js"></script>
     <script src="js/quote-map.js"></script>
     <script src="js/exit-intent.js"></script>
+
+    <!-- Google Maps API.
+         Loaded AFTER the map script above so that window.initMap is guaranteed to
+         exist by the time Google fires the callback. Loading it first is a race:
+         on a warm cache Google can win and the callback throws "not a function",
+         leaving the widget dead with no address autocomplete and no map. -->
+    <script>
+        const GOOGLE_MAPS_API_KEY = '__GOOGLE_MAPS_API_KEY__';
+
+        function showMapUnavailable(reason) {
+            console.error('[maps] Satellite quote widget unavailable: ' + reason);
+            var overlay = document.getElementById('map-overlay');
+            if (!overlay || overlay.getAttribute('data-map-failed')) return;
+            overlay.setAttribute('data-map-failed', '1');
+            var msg = overlay.querySelector('p');
+            if (msg) {
+                msg.innerHTML = '<strong>Map Unavailable</strong><br>'
+                    + 'Enter your address in the quote form below,'
+                    + ' or call <a href="tel:8323033183">(832) 303-3183</a>'
+                    + ' and we will measure your roof from satellite for you.';
+            }
+            // Let visitors type the address themselves when the map cannot fill it in.
+            var addr = document.getElementById('property-address');
+            if (addr) {
+                addr.removeAttribute('readonly');
+                addr.placeholder = 'Enter your property address';
+            }
+        }
+
+        // Google calls this when it refuses the key: an HTTP-referrer restriction
+        // that does not cover this domain, billing switched off, or the Maps
+        // JavaScript API / Places API not enabled on the project.
+        window.gm_authFailure = function () {
+            showMapUnavailable('Google rejected the API key (referrer restriction, billing, or API not enabled)');
+        };
+
+        function loadGoogleMaps() {
+            // build.sh swaps the placeholder for the real key at deploy time.
+            // If that step is skipped the literal placeholder ships and every
+            // Maps request fails, so fail loudly here instead.
+            if (!GOOGLE_MAPS_API_KEY || GOOGLE_MAPS_API_KEY.charAt(0) === '_') {
+                showMapUnavailable('API key was not injected at build time (GOOGLE_MAPS_API_KEY env var missing)');
+                return;
+            }
+            var script = document.createElement('script');
+            script.src = 'https://maps.googleapis.com/maps/api/js?key=' + GOOGLE_MAPS_API_KEY
+                + '&libraries=places,drawing,geometry&callback=initMap';
+            script.async = true;
+            script.defer = true;
+            script.onerror = function () { showMapUnavailable('the Google Maps script could not be downloaded'); };
+            document.head.appendChild(script);
+        }
+
+        loadGoogleMaps();
+    </script>
 </body>
 </html>
