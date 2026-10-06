@@ -575,6 +575,7 @@
     </div>
 
     <script src="js/main.js"></script>
+    <script src="js/polygon-drawer.js"></script>
     <script src="js/quote-map.js"></script>
     <script src="js/exit-intent.js"></script>
 
@@ -623,7 +624,7 @@
             }
             var script = document.createElement('script');
             script.src = 'https://maps.googleapis.com/maps/api/js?key=' + GOOGLE_MAPS_API_KEY
-                + '&libraries=places,drawing,geometry&callback=initMap';
+                + '&libraries=places,geometry&callback=initMap';
             script.async = true;
             script.defer = true;
             script.onerror = function () { showMapUnavailable('the Google Maps script could not be downloaded'); };

@@ -51,7 +51,9 @@
         });
 
         // Initialize Drawing Manager
-        drawingManager = new google.maps.drawing.DrawingManager({
+        // google.maps.drawing.DrawingManager was removed from the Maps JS API (v3.65);
+        // constructing it now throws and aborted the rest of this setup.
+        drawingManager = window.createPolygonDrawer({
             drawingMode: null,
             drawingControl: false,
             polygonOptions: {
@@ -335,7 +337,7 @@
         }
 
         // Set drawing mode
-        drawingManager.setDrawingMode(google.maps.drawing.OverlayType.POLYGON);
+        drawingManager.setDrawingMode('polygon');
 
         // Update UI
         const drawRoofBtn = document.getElementById('hero-draw-roof-btn');
