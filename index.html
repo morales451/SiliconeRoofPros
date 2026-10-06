@@ -269,7 +269,7 @@
                                     <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
                                     <circle cx="12" cy="10" r="3"/>
                                 </svg>
-                                <p>Your satellite roof view will appear here</p>
+                                <p>Enter your address above &mdash; we'll zoom to your roof so you can outline it.</p>
                             </div>
                         </div>
                     </div>
@@ -1240,6 +1240,7 @@
             var overlay = document.getElementById('hero-map-overlay');
             if (!overlay || overlay.getAttribute('data-map-failed')) return;
             overlay.setAttribute('data-map-failed', '1');
+            overlay.classList.remove('is-live');   // auth can fail after the map loaded
             var msg = overlay.querySelector('.map-placeholder p');
             if (msg) {
                 msg.innerHTML = '<strong>Map Unavailable</strong><br>'

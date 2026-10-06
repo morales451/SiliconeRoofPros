@@ -899,10 +899,26 @@
         });
     };
 
+
+    /**
+     * Once the live map exists, swap the placeholder picture for the real
+     * satellite view and keep only a small instruction label on top.
+     * Skipped if an address was already chosen (overlay hidden) or the map
+     * failed (data-map-failed), so neither state is overwritten.
+     */
+    function showLiveMapHint(overlayId) {
+        const overlay = document.getElementById(overlayId);
+        if (!overlay || overlay.classList.contains('hidden') || overlay.getAttribute('data-map-failed')) return;
+        const text = overlay.querySelector('p');
+        if (text) text.textContent = 'Type your address above to zoom to your roof';
+        overlay.classList.add('is-live');
+    }
+
     // Initialize service area map after hero map loads
     var originalInitHeroMap = window.initHeroMap;
     window.initHeroMap = function() {
         originalInitHeroMap();
+        showLiveMapHint('hero-map-overlay');
         setTimeout(window.initServiceAreaMap, 500);
     };
 

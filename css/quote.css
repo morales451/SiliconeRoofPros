@@ -127,32 +127,61 @@
     height: 400px;
 }
 
+/* Placeholder: a stylised satellite view so the box reads as "a map of
+   your roof goes here" before the live map loads (or if it can't). */
 .map-overlay {
     position: absolute;
     inset: 0;
-    background: var(--gray-100);
+    background: var(--gray-200) url('../assets/icons/map-placeholder.svg') center / cover no-repeat;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    color: var(--gray-500);
+    justify-content: flex-end;   /* keep the outlined example roof visible above the card */
+    color: var(--gray-700);
     text-align: center;
     padding: var(--spacing-xl);
 }
 
+.map-overlay-card {
+    background: rgba(255, 255, 255, 0.94);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    padding: var(--spacing-lg) var(--spacing-xl);
+    max-width: 360px;
+}
+
 .map-overlay svg {
-    width: 48px;
-    height: 48px;
-    margin-bottom: var(--spacing-md);
-    opacity: 0.5;
+    width: 32px;
+    height: 32px;
+    margin-bottom: var(--spacing-sm);
+    color: var(--primary);
 }
 
 .map-overlay p {
     margin-bottom: 0;
     font-size: var(--font-size-sm);
+    line-height: 1.5;
 }
 
 .map-overlay.hidden {
+    display: none;
+}
+
+/* Live: the real satellite map is loaded, so let it show and keep only a
+   small instruction label. Clicks pass through to the map. */
+.map-overlay.is-live {
+    background: none;
+    justify-content: flex-end;
+    pointer-events: none;
+}
+
+.map-overlay.is-live .map-overlay-card {
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: 999px;
+    max-width: none;
+}
+
+.map-overlay.is-live svg {
     display: none;
 }
 

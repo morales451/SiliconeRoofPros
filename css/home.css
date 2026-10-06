@@ -204,13 +204,16 @@
     height: 250px;
 }
 
+/* Placeholder: a stylised satellite view so the box reads as "a map of
+   your roof goes here" before the live map loads (or if it can't). */
 .map-widget-overlay {
     position: absolute;
     inset: 0;
     display: flex;
-    align-items: center;
+    align-items: flex-end;   /* keep the outlined example roof visible above the card */
     justify-content: center;
-    background: linear-gradient(135deg, var(--gray-100) 0%, var(--gray-200) 100%);
+    padding: var(--spacing-md);
+    background: var(--gray-200) url('../assets/icons/map-placeholder.svg') center / cover no-repeat;
 }
 
 .map-widget-overlay.hidden {
@@ -219,19 +222,43 @@
 
 .map-placeholder {
     text-align: center;
-    color: var(--gray-500);
+    color: var(--gray-700);
+    background: rgba(255, 255, 255, 0.94);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    padding: var(--spacing-sm) var(--spacing-md);
+    max-width: 340px;
 }
 
 .map-placeholder svg {
-    width: 48px;
-    height: 48px;
-    margin-bottom: var(--spacing-md);
-    opacity: 0.5;
+    width: 28px;
+    height: 28px;
+    margin-bottom: var(--spacing-xs);
+    color: var(--primary);
 }
 
 .map-placeholder p {
     margin-bottom: 0;
     font-size: var(--font-size-sm);
+    line-height: 1.5;
+}
+
+/* Live: the real satellite map is loaded, so let it show and keep only a
+   small instruction label. Clicks pass through to the map. */
+.map-widget-overlay.is-live {
+    background: none;
+    align-items: flex-end;
+    pointer-events: none;
+}
+
+.map-widget-overlay.is-live .map-placeholder {
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: 999px;
+    max-width: none;
+}
+
+.map-widget-overlay.is-live .map-placeholder svg {
+    display: none;
 }
 
 /* Pin Info */

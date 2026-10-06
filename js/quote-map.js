@@ -770,7 +770,9 @@
             if (mapOverlay && mapOverlay.getAttribute('data-map-failed')) return;
             if (mapContainer && mapOverlay) {
                 mapOverlay.setAttribute('data-map-failed', '1');
+                mapOverlay.classList.remove('is-live');
                 mapOverlay.innerHTML = `
+                    <div class="map-overlay-card">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <circle cx="12" cy="12" r="10"/>
                         <line x1="12" y1="8" x2="12" y2="12"/>
@@ -778,6 +780,7 @@
                     </svg>
                     <p><strong>Map Unavailable</strong></p>
                     <p style="font-size: 0.75rem;">Enter your address in the form below, or call <a href="tel:8323033183">(832) 303-3183</a> and we will measure your roof from satellite for you.</p>
+                    </div>
                 `;
 
                 // Make address input editable
@@ -788,6 +791,26 @@
             }
         }
     }
+
+    /**
+     * Once the live map exists, swap the placeholder picture for the real
+     * satellite view and keep only a small instruction label on top.
+     * Skipped if an address was already chosen (overlay hidden) or the map
+     * failed (data-map-failed), so neither state is overwritten.
+     */
+    function showLiveMapHint(overlayId) {
+        const overlay = document.getElementById(overlayId);
+        if (!overlay || overlay.classList.contains('hidden') || overlay.getAttribute('data-map-failed')) return;
+        const text = overlay.querySelector('p');
+        if (text) text.textContent = 'Type your address above to zoom to your roof';
+        overlay.classList.add('is-live');
+    }
+
+    var originalInitMap = window.initMap;
+    window.initMap = function() {
+        originalInitMap();
+        showLiveMapHint('map-overlay');
+    };
 
     // Check for Google Maps API after page load
     document.addEventListener('DOMContentLoaded', function() {
