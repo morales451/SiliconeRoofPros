@@ -13,4 +13,12 @@ else
     echo "API key injection complete"
 fi
 
+# Netlify publishes the repo root, so tooling folders would otherwise be
+# downloadable from the live site. Strip them from the deploy only - the
+# NETLIFY check keeps a local run of this script from deleting them.
+if [ "$NETLIFY" = "true" ]; then
+    rm -rf .claude
+    echo "Removed .claude/ from the deploy"
+fi
+
 echo "Build complete"
