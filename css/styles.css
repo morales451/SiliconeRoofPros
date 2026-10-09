@@ -25,6 +25,7 @@
     --wet: #d4232a;             /* hatch red: wet / failing */
     --wet-ink: #b51d23;
     --wet-tint: #fbecec;
+    --wet-on-dark: #ff8a8f;     /* wet text on graphite (7.5:1) */
     --dry: #0a5f96;             /* dry / sound */
     --dry-tint: #e7eef3;
     --action: #f4a21c;          /* amber: the one action colour */

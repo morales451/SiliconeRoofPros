@@ -1056,7 +1056,7 @@
     margin: var(--spacing-lg) auto 0;
     line-height: 1.6;
     padding-top: var(--spacing-md);
-    border-top: 1px solid rgba(201, 168, 76, 0.25);
+    border-top: 1px solid var(--rule);
 }
 
 /* Warranty banner responsive */
@@ -2647,8 +2647,8 @@ a.city-badge:hover {
     background-image: repeating-linear-gradient(135deg, rgba(212, 35, 42, 0.32) 0 2px, transparent 2px 8px);
 }
 
-.readout-wet dt { color: #f1a5a8; }
-.readout-wet .readout-num { color: #ffd2d3; }
+.readout-wet dt { color: var(--wet-on-dark); }
+.readout-wet .readout-num { color: var(--white); }
 
 /* Phone: the second, equal door */
 .hero-call .hero-cta-text {
@@ -3088,9 +3088,9 @@ main:has(> .final-cta:last-child) + .footer::before { display: none; }
 
 .flat-roof-pain .pain-header { border-top-color: rgba(255, 255, 255, 0.45); }
 .flat-roof-pain .pain-header h2 { color: var(--white); }
-.flat-roof-pain .pain-highlight { color: #ff8a8f; display: block; font-size: inherit; }
+.flat-roof-pain .pain-highlight { color: var(--wet-on-dark); display: block; font-size: inherit; }
 .problem-intro .cost-callout { color: var(--white); }
-.problem-intro em { color: #ff8a8f; }
+.problem-intro em { color: var(--wet-on-dark); }
 
 .flat-roof-pain .pain-column {
     background: var(--survey-2);
@@ -3101,10 +3101,10 @@ main:has(> .final-cta:last-child) + .footer::before { display: none; }
 .flat-roof-pain .pain-column h4 { color: var(--white); }
 .flat-roof-pain .pain-column p { color: var(--gray-300); }
 .flat-roof-pain .pain-column strong { color: var(--white); }
-.flat-roof-pain .pain-column em { color: #ff8a8f; }
+.flat-roof-pain .pain-column em { color: var(--wet-on-dark); }
 .flat-roof-pain .red,
-.flat-roof-pain .pain-column h4 .red { color: #ff8a8f; }
-.flat-roof-pain .pain-icon { color: #ff8a8f; }
+.flat-roof-pain .pain-column h4 .red { color: var(--wet-on-dark); }
+.flat-roof-pain .pain-icon { color: var(--wet-on-dark); }
 
 .the-solution, .how-it-works, .tax-savings, .trusted-by {
     background: var(--sheet);
@@ -3506,3 +3506,264 @@ main:has(> .final-cta:last-child) + .footer::before { display: none; }
     .tax-ledger th { width: auto; }
     .tax-ledger td { border-top: 0; }
 }
+
+/* ===================================
+   Estimate modal: a survey sheet with the range shown openly
+   =================================== */
+.estimate-modal-content {
+    border-radius: 0;
+    border: 1px solid var(--ink);
+    border-top: 4px solid transparent;
+    border-image: linear-gradient(90deg, var(--heat-0), var(--heat-1) 20%, var(--heat-2) 42%, var(--heat-3) 62%, var(--heat-4) 82%, var(--heat-5)) 4 0 0 0;
+    box-shadow: 0 24px 48px -24px rgba(0, 0, 0, 0.7);
+    padding: 0;
+    max-width: 560px;
+}
+
+.estimate-modal-close {
+    border-radius: 0;
+    background: transparent;
+    color: var(--ink);
+}
+
+.estimate-sheet-head {
+    padding: 1.25rem 3.5rem 0.75rem 1.5rem;
+    text-align: left;
+}
+
+.estimate-sheet-head h3 {
+    font-size: 1.375rem;
+    margin: 0 0 0.25rem;
+}
+
+.estimate-address {
+    color: var(--gray-600);
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+.estimate-readouts {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    margin: 0 1.5rem;
+    border-top: 1px solid var(--ink);
+    border-left: 1px solid var(--rule);
+}
+
+.estimate-readout {
+    padding: 0.75rem 0.9rem;
+    border-right: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+}
+
+.estimate-readout dt { font-size: 0.8125rem; color: var(--gray-600); }
+.estimate-readout dd { margin: 0; display: flex; align-items: baseline; gap: 0.3rem; }
+.estimate-readout .readout-num {
+    font-size: 1.6rem;
+    font-weight: 700;
+    font-stretch: 75%;
+    color: var(--ink);
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+}
+.estimate-readout .readout-unit { color: var(--gray-600); font-size: 0.875rem; }
+.estimate-readout-range { background: rgba(244, 162, 28, 0.14); }
+
+.estimate-price-note {
+    margin: 0.6rem 1.5rem 0;
+    font-size: 0.8125rem;
+    color: var(--gray-600);
+    max-width: 60ch;
+}
+
+.estimate-modal .estimate-step-body {
+    padding: 1.1rem 1.5rem 1.5rem;
+    text-align: left;
+}
+
+.estimate-form-title { font-size: 1.0625rem; margin: 0 0 0.3rem; }
+.estimate-modal .estimate-prompt { color: var(--gray-700); font-size: 0.9375rem; text-align: left; }
+.estimate-modal .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+.estimate-modal .estimate-privacy { color: var(--gray-600); font-size: 0.8125rem; margin: 0.75rem 0 0; text-align: left; }
+.estimate-modal .estimate-privacy a { color: var(--primary); text-decoration: underline; }
+
+.estimate-call-lines .call-line { color: var(--ink); }
+.estimate-call-lines .call-region { color: var(--gray-600); }
+.estimate-call-lines { margin-bottom: 1rem; }
+
+@media (max-width: 480px) {
+    .estimate-readouts { grid-template-columns: 1fr; }
+    .estimate-modal .form-row { grid-template-columns: 1fr; }
+    .estimate-sheet-head, .estimate-modal .estimate-step-body { padding-left: 1rem; padding-right: 1rem; }
+    .estimate-readouts, .estimate-price-note { margin-left: 1rem; margin-right: 1rem; }
+}
+
+.warranty-renewal {
+    margin: -0.5rem 0 var(--spacing-md);
+    padding: 0.6rem 0.9rem;
+    border: 1px solid var(--rule);
+    border-top: 0;
+    color: var(--gray-700);
+    font-size: 0.9375rem;
+}
+
+/* ===================================
+   Pain section, rebuilt: left-set report on graphite
+   =================================== */
+.flat-roof-pain .pain-header { text-align: left; }
+
+.pain-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
+    gap: clamp(1.5rem, 4vw, 3.5rem);
+    align-items: start;
+    margin: var(--spacing-xl) 0 var(--spacing-2xl);
+}
+
+.flat-roof-pain .problem-intro {
+    text-align: left;
+    max-width: 60ch;
+    margin: 0;
+}
+
+.flat-roof-pain .problem-intro h3 {
+    color: var(--white);
+    font-size: clamp(1.25rem, 1rem + 0.8vw, 1.6rem);
+    text-align: left;
+    margin-bottom: var(--spacing-md);
+}
+
+.flat-roof-pain .problem-intro p {
+    color: var(--gray-300);
+    text-align: left;
+    max-width: 60ch;
+}
+
+.flat-roof-pain .cost-callout {
+    color: var(--white);
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.85rem 1rem;
+    border: 1px solid rgba(212, 35, 42, 0.6);
+    background-color: rgba(212, 35, 42, 0.1);
+    background-image: none;
+}
+
+.pain-plates {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.pain-plate {
+    margin: 0;
+    background: #121417;
+    padding: 6px;
+    border: 1px solid var(--survey-line);
+}
+
+.pain-plate img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+.pain-plate figcaption {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    color: var(--gray-300);
+    font-size: 0.8125rem;
+    line-height: 1.4;
+    padding: 0.5rem 0.2rem 0.15rem;
+}
+
+.pain-plate .key { width: 14px; height: 14px; flex-basis: 14px; margin-top: 2px; }
+
+.pain-ledger {
+    width: 100%;
+    min-width: 640px;
+    border-collapse: collapse;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.pain-ledger th,
+.pain-ledger td {
+    border: 0;
+    border-bottom: 1px solid var(--survey-line);
+    padding: 0.9rem 1rem;
+    text-align: left;
+    vertical-align: top;
+    background: transparent;
+    color: var(--gray-300);
+    font-size: 0.9375rem;
+}
+
+.pain-ledger thead th {
+    background-image: repeating-linear-gradient(135deg, rgba(212, 35, 42, 0.28) 0 2px, transparent 2px 8px);
+    border-bottom: 1px solid var(--wet);
+    vertical-align: bottom;
+}
+
+.pain-ledger thead th:first-child { background-image: none; border-bottom-color: var(--survey-line); }
+
+.pain-ledger h4 { color: var(--white); font-size: 1.0625rem; margin: 0; }
+.ledger-sub { display: block; color: var(--wet-on-dark); font-size: 0.8125rem; font-weight: 600; margin-top: 0.15rem; }
+
+.pain-ledger tbody th {
+    color: var(--white);
+    font-weight: 700;
+    font-stretch: 87.5%;
+    width: 11rem;
+}
+
+.pain-ledger .readout-num { color: var(--white); font-weight: 700; font-stretch: 75%; font-size: 1.125rem; white-space: nowrap; }
+
+@media (max-width: 900px) {
+    .pain-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+    .pain-plates { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+    .pain-ledger { min-width: 0; }
+    .pain-ledger thead { display: none; }
+    .pain-ledger tr { display: block; border-bottom: 1px solid var(--survey-line); padding: 0.5rem 0; }
+    .pain-ledger th, .pain-ledger td { display: block; border: 0; padding: 0.35rem 0; width: auto; }
+    .pain-ledger tbody th { font-size: 1rem; }
+    .pain-ledger td::before {
+        display: block;
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: var(--wet-on-dark);
+    }
+    .pain-ledger td:nth-child(2)::before { content: "Keep patching"; }
+    .pain-ledger td:nth-child(3)::before { content: "Tear off & replace"; }
+}
+
+/* Amber is the action, not a headline colour */
+.hero-map-text h1 .highlight { color: var(--gray-300); }
+
+.ba-legend {
+    max-width: 1000px;
+    margin: var(--spacing-lg) auto 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: var(--spacing-xl);
+    border-top: 1px solid var(--ink);
+}
+
+.ba-legend .legend-row { grid-template-columns: 6rem 1fr; }
+
+@media (max-width: 700px) {
+    .ba-legend { grid-template-columns: 1fr; }
+}
+
+/* Reading measure: supporting paragraphs stay near 60 characters */
+.warranty-sheet .warranty-details p,
+.certified-text p,
+.tax-savings-desc,
+.final-cta-content p { max-width: 60ch; }
+.final-cta-content p { margin-left: auto; margin-right: auto; }

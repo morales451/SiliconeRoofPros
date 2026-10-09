@@ -863,3 +863,133 @@ table td, table th {
 }
 
 .timeline-info .spec-table { margin-top: 0; }
+
+/* ---------- Two equal doors: regional phone lines ---------- */
+.top-bar-phones {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.25rem;
+}
+
+.top-bar-phones .emergency-phone {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    min-height: 44px;
+}
+
+.phone-region {
+    color: var(--gray-400);
+    font-weight: 600;
+    margin-right: 0.15rem;
+}
+
+.service-call-lines { margin-top: var(--spacing-md); }
+
+/* Sticky call bar on phones: Call TX / Call PA / Quote */
+.mobile-callbar { display: none; }
+
+@media (max-width: 768px) {
+    .mobile-callbar {
+        display: grid;
+        grid-template-columns: 1fr 1fr auto;
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 900;
+        background: var(--survey);
+        border-top: 4px solid transparent;
+        border-image: linear-gradient(90deg, var(--heat-0), var(--heat-1) 20%, var(--heat-2) 42%, var(--heat-3) 62%, var(--heat-4) 82%, var(--heat-5)) 4 0 0 0;
+        padding-bottom: env(safe-area-inset-bottom, 0);
+    }
+
+    .callbar-call, .callbar-quote {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 56px;
+        padding: 0.4rem 0.75rem;
+        color: var(--white);
+    }
+
+    .callbar-call + .callbar-call { border-left: 1px solid var(--survey-line); }
+
+    .callbar-region { font-size: 0.75rem; color: var(--gray-400); }
+    .callbar-num { font-size: 0.9375rem; font-weight: 700; font-stretch: 87.5%; font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+    .callbar-quote {
+        background: var(--action);
+        color: var(--ink);
+        font-weight: 700;
+        padding: 0 1.1rem;
+    }
+
+    body { padding-bottom: calc(60px + env(safe-area-inset-bottom, 0)); }
+
+    /* Both numbers live in the call bar on phones, so the top bar can stay short */
+    .top-bar-phones .emergency-phone + .emergency-phone { display: none; }
+}
+
+@media (max-width: 360px) {
+    .callbar-num { font-size: 0.8125rem; }
+}
+
+/* ---------- Mobile menu: the toggle stays above the drawer and becomes a close ---------- */
+@media (max-width: 768px) {
+    .mobile-menu-btn {
+        position: relative;
+        z-index: 1002;
+        min-width: 44px;
+        min-height: 44px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .mobile-menu-btn.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .mobile-menu-btn.active span:nth-child(2) { opacity: 0; }
+    .mobile-menu-btn.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .nav-menu {
+        border-radius: 0;
+        border-left: 1px solid var(--ink);
+        box-shadow: 0 24px 48px -24px rgba(0, 0, 0, 0.6);
+        padding-top: 5rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .mobile-menu-btn span, .nav-menu { transition: none !important; }
+}
+
+.area-links--stack { grid-template-columns: 1fr; margin-top: 0.5rem; }
+.area-links--stack .area-link + .area-link,
+.area-links--stack .area-link:nth-child(even) { padding-left: 0; border-left: 0; }
+
+.area-towns {
+    margin: var(--spacing-md) 0;
+    border-bottom: 1px solid var(--rule);
+}
+
+.area-towns summary {
+    cursor: pointer;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.area-towns ul {
+    columns: 2;
+    column-gap: var(--spacing-xl);
+    padding: 0 0 var(--spacing-md);
+    color: var(--gray-700);
+}
+
+.area-towns li { padding: 0.15rem 0; }
+
+/* Call lines on light grounds (service areas) */
+.service-call-lines .call-line { color: var(--ink); }
+.service-call-lines .call-region { color: var(--gray-600); }
+.service-call-lines .call-line:hover .call-num { color: var(--primary); }

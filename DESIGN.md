@@ -317,6 +317,15 @@ A white sheet (max 860px) lifted off the graphite band with the sheet lift and a
 ### Tax Ledger
 A two-row ledger table: graphite row-header cells (9rem) against paper cells holding condensed readouts. The new-roof row carries the red hatch at 10%. Both tables collapse to stacked grids at 480px.
 
+### Estimate Sheet (modal)
+The homepage price pop-up is a white report sheet with the thermal top rule. It opens on the measured area and the price range in a two-cell readout (the range cell tinted amber at 14%), then offers one form: "Send my itemised quote". The range is never hidden behind the form. After submit it confirms and shows both regional call lines.
+
+### Pain Ledger
+On graphite, the patch-vs-replace comparison is a ruled table: hatched column heads (wet notation, because both options leave the roof failing), white row labels, wet-on-graphite (#ff8a8f, CSS `--wet-on-dark`) sub-labels. Below 640px it stacks into labelled blocks.
+
+### Regional Call Lines and Mobile Call Bar
+Every phone route shows both regions: Texas (832) 303-3183 and Pennsylvania (484) 401-8586, Pennsylvania first on the Pennsylvania page. Below 768px a fixed graphite call bar (thermal top rule) carries Call TX, Call PA and an amber Quote cell; the body reserves 60px for it.
+
 ### Thermal Strip Rule
 The 4px horizontal thermal gradient (see The Thermal Edge Rule). It is the world's signature and is never thicker, never vertical except as the scale bar on infrared imagery, and never used as a fill.
 
@@ -333,7 +342,7 @@ One authored motion: on load, a single amber scan-line band (38% of the viewport
 
 ### Do:
 - **Do** set every figure as a condensed tabular readout with its unit (75% width, 700, tnum).
-- **Do** use amber only for the action, the measured outline, the measured HUD state and focus; put ink text on it.
+- **Do** use amber only for the action, the measured outline, the measured HUD state and focus; put ink text on it. Never use it as a headline highlight.
 - **Do** mark wet or failing with the 135-degree red hatch (2px in 8px), and dry with grey or blue.
 - **Do** open or close each dark run with one 4px thermal strip.
 - **Do** join panels with shared 1px hairlines and zero gap; hover by darkening the border to ink.

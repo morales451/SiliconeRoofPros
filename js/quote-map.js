@@ -377,7 +377,7 @@
             clearDrawingBtn.style.display = 'inline-flex';
         }
         if (drawingHint) {
-            drawingHint.textContent = 'Click corners of your roof to outline it. Double-click or click the first point to complete.';
+            drawingHint.textContent = 'Tap or click each corner of your roof, then tap the first corner again to finish.';
             drawingHint.classList.add('active');
         }
 
@@ -413,7 +413,7 @@
             clearDrawingBtn.style.display = 'none';
         }
         if (drawingHint) {
-            drawingHint.textContent = 'Click corners of your roof to outline it. Double-click or click the first point to complete.';
+            drawingHint.textContent = 'Tap or click each corner of your roof, then tap the first corner again to finish.';
             drawingHint.classList.remove('active');
         }
 
@@ -779,7 +779,7 @@
                         <line x1="12" y1="16" x2="12.01" y2="16"/>
                     </svg>
                     <p><strong>Map Unavailable</strong></p>
-                    <p style="font-size: 0.75rem;">Enter your address in the form below, or call <a href="tel:8323033183">(832) 303-3183</a> and we will measure your roof from satellite for you.</p>
+                    <p style="font-size: 0.75rem;">Enter your address in the form below, or call Texas <a href="tel:8323033183">(832) 303-3183</a> or Pennsylvania <a href="tel:4844018586">(484) 401-8586</a>, and we will measure your roof from satellite for you.</p>
                     </div>
                 `;
 

@@ -347,7 +347,7 @@
         if (drawRoofBtn) drawRoofBtn.style.display = 'none';
         if (clearDrawingBtn) clearDrawingBtn.style.display = 'inline-flex';
         if (drawingHint) {
-            drawingHint.textContent = 'Click corners of your roof. Double-click to complete.';
+            drawingHint.textContent = 'Tap or click each corner of your roof, then tap the first corner again to finish.';
             drawingHint.classList.add('active');
         }
 
@@ -385,7 +385,7 @@
         if (drawRoofBtn) drawRoofBtn.style.display = 'inline-flex';
         if (clearDrawingBtn) clearDrawingBtn.style.display = 'none';
         if (drawingHint) {
-            drawingHint.textContent = 'Click corners of your roof to outline it';
+            drawingHint.textContent = 'Tap or click each corner of your roof to outline it';
             drawingHint.classList.remove('active');
         }
     }
@@ -477,7 +477,6 @@
         const closeBtn = document.getElementById('hero-estimate-modal-close');
         const backdrop = document.getElementById('hero-estimate-modal-backdrop');
         const form = document.getElementById('hero-estimate-contact-form');
-        const requestQuoteBtn = document.getElementById('hero-request-exact-quote');
         const closeEstimateBtn = document.getElementById('hero-close-estimate');
         const phoneInput = document.getElementById('hero-estimate-phone');
 
@@ -489,9 +488,6 @@
         }
         if (closeEstimateBtn) {
             closeEstimateBtn.addEventListener('click', closeEstimateModal);
-        }
-        if (requestQuoteBtn) {
-            requestQuoteBtn.addEventListener('click', handleRequestExactQuote);
         }
         if (form) {
             form.addEventListener('submit', handleEstimateFormSubmit);
@@ -522,10 +518,15 @@
         const stepContact = document.getElementById('hero-estimate-step-contact');
         const stepResult = document.getElementById('hero-estimate-step-result');
 
-        // Update sqft display
-        if (modalSqft) {
-            modalSqft.textContent = roofAreaSqFt.toLocaleString();
-        }
+        // The measured range is shown openly; the form only requests the written quote
+        const money = (n) => '$' + Math.round(n).toLocaleString();
+        if (modalSqft) modalSqft.textContent = roofAreaSqFt.toLocaleString();
+        const estimateLow = document.getElementById('hero-estimate-low');
+        const estimateHigh = document.getElementById('hero-estimate-high');
+        const resultAddress = document.getElementById('hero-result-address');
+        if (estimateLow) estimateLow.textContent = money(roofAreaSqFt * PRICE_PER_SQFT_LOW);
+        if (estimateHigh) estimateHigh.textContent = money(roofAreaSqFt * PRICE_PER_SQFT_HIGH);
+        if (resultAddress) resultAddress.textContent = currentAddress || 'Property location';
 
         // Reset to contact step
         if (stepContact) stepContact.style.display = 'block';
@@ -570,26 +571,19 @@
             return;
         }
 
-        // Calculate estimates
         const lowEstimate = roofAreaSqFt * PRICE_PER_SQFT_LOW;
         const highEstimate = roofAreaSqFt * PRICE_PER_SQFT_HIGH;
 
-        // Update result display
         const resultSqft = document.getElementById('hero-result-sqft');
-        const resultAddress = document.getElementById('hero-result-address');
-        const estimateLow = document.getElementById('hero-estimate-low');
-        const estimateHigh = document.getElementById('hero-estimate-high');
-
         if (resultSqft) resultSqft.textContent = roofAreaSqFt.toLocaleString();
-        if (resultAddress) resultAddress.textContent = currentAddress || 'Property location';
-        if (estimateLow) estimateLow.textContent = '$' + lowEstimate.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 });
-        if (estimateHigh) estimateHigh.textContent = '$' + highEstimate.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 });
 
-        // Switch to result step
+        // Switch to the confirmation step
         const stepContact = document.getElementById('hero-estimate-step-contact');
         const stepResult = document.getElementById('hero-estimate-step-result');
         if (stepContact) stepContact.style.display = 'none';
         if (stepResult) stepResult.style.display = 'block';
+        const doneBtn = document.getElementById('hero-close-estimate');
+        if (doneBtn) doneBtn.focus();
 
         // Submit lead to Netlify
         submitLeadToNetlify(name, email, phone, roofAreaSqFt, lowEstimate, highEstimate);
@@ -616,30 +610,6 @@
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body: new URLSearchParams(formData).toString()
         }).catch(err => console.log('Background form submission:', err));
-    }
-
-    /**
-     * Handle request exact quote
-     */
-    function handleRequestExactQuote() {
-        closeEstimateModal();
-
-        // Open the main quote modal with pre-filled info
-        const name = document.getElementById('hero-estimate-name').value;
-        const email = document.getElementById('hero-estimate-email').value;
-        const phone = document.getElementById('hero-estimate-phone').value;
-
-        // Pre-fill the quote modal
-        const modalName = document.getElementById('modal-name');
-        const modalEmail = document.getElementById('modal-email');
-        const modalPhone = document.getElementById('modal-phone');
-
-        if (modalName) modalName.value = name;
-        if (modalEmail) modalEmail.value = email;
-        if (modalPhone) modalPhone.value = phone;
-
-        // Open quote modal
-        openQuoteModal();
     }
 
     /**
@@ -702,11 +672,26 @@
         }
     }
 
+    // "Send us your address" links in the map-unavailable message open the
+    // quote form with the typed address carried over, instead of a new page.
+    document.addEventListener('click', function(e) {
+        const link = e.target.closest && e.target.closest('[data-open-quote]');
+        if (!link) return;
+        e.preventDefault();
+        openQuoteModal();
+    });
+
     /**
      * Open Quote Modal
      */
     function openQuoteModal() {
         const modal = document.getElementById('quote-modal');
+        // Carry over whatever address the visitor already typed or picked
+        const addressField = document.getElementById('modal-address');
+        const typed = document.getElementById('hero-address-input');
+        if (addressField && !addressField.value) {
+            addressField.value = currentAddress || (typed ? typed.value.trim() : '');
+        }
         if (modal) {
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
@@ -820,8 +805,8 @@
                 <p><strong>Map Unavailable</strong></p>
                 <p style="font-size: 0.8rem; margin-top: 0.5rem;">
                     We can still measure your roof from satellite &mdash;
-                    <a href="contact.html">send us your address</a>
-                    or call <a href="tel:8323033183">(832) 303-3183</a>.
+                    <a href="#satellite-quote" data-open-quote>send us your address</a>
+                    or call Texas <a href="tel:8323033183">(832) 303-3183</a> &middot; Pennsylvania <a href="tel:4844018586">(484) 401-8586</a>.
                 </p>
             </div>
         `;
