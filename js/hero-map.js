@@ -265,9 +265,9 @@
                         <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
                             <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.3"/>
                         </filter>
-                        <path d="M24 0C10.745 0 0 10.745 0 24c0 16.8 24 32 24 32s24-15.2 24-32C48 10.745 37.255 0 24 0z" fill="#0088df" filter="url(#shadow)"/>
+                        <path d="M24 0C10.745 0 0 10.745 0 24c0 16.8 24 32 24 32s24-15.2 24-32C48 10.745 37.255 0 24 0z" fill="#f4a21c" filter="url(#shadow)"/>
                         <circle cx="24" cy="22" r="10" fill="white"/>
-                        <circle cx="24" cy="22" r="5" fill="#0088df"/>
+                        <circle cx="24" cy="22" r="5" fill="#f4a21c"/>
                     </svg>
                 `),
                 scaledSize: new google.maps.Size(48, 56),
@@ -901,7 +901,7 @@
                 icon: {
                     path: google.maps.SymbolPath.CIRCLE,
                     scale: 8,
-                    fillColor: '#0088df',
+                    fillColor: '#f4a21c',
                     fillOpacity: 0.9,
                     strokeColor: '#ffffff',
                     strokeWeight: 2
@@ -911,10 +911,10 @@
 
         // Draw service area circle
         new google.maps.Circle({
-            strokeColor: '#0088df',
+            strokeColor: '#f4a21c',
             strokeOpacity: 0.3,
             strokeWeight: 2,
-            fillColor: '#0088df',
+            fillColor: '#f4a21c',
             fillOpacity: 0.1,
             map: serviceMap,
             center: houstonCenter,

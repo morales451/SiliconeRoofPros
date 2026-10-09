@@ -49,7 +49,7 @@
             return {
                 map: map,
                 clickable: false, // let clicks fall through to the map
-                strokeColor: polygonOptions.strokeColor || '#0088df',
+                strokeColor: polygonOptions.strokeColor || '#f4a21c',
                 strokeWeight: polygonOptions.strokeWeight || 3,
                 strokeOpacity: opacity
             };

@@ -323,7 +323,7 @@
             icon: {
                 url: 'data:image/svg+xml,' + encodeURIComponent(`
                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="48" viewBox="0 0 40 48">
-                        <path d="M20 0C8.954 0 0 8.954 0 20c0 14 20 28 20 28s20-14 20-28C40 8.954 31.046 0 20 0z" fill="#0088df"/>
+                        <path d="M20 0C8.954 0 0 8.954 0 20c0 14 20 28 20 28s20-14 20-28C40 8.954 31.046 0 20 0z" fill="#f4a21c"/>
                         <circle cx="20" cy="18" r="8" fill="white"/>
                     </svg>
                 `),

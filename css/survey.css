@@ -699,3 +699,20 @@ table td, table th {
 
 /* The quote page's assurances are statements, not a sequence: no numbering */
 .assurance-strip .procedure-step h3::before { content: none; }
+
+/* Focus ring: amber with an ink halo, so it clears 3:1 on white sheets
+   (ink) and on graphite grounds (amber). */
+:focus-visible {
+    outline: 3px solid var(--action);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 5px var(--ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .exit-intent-popup, .exit-intent-content, .exit-intent-backdrop,
+    .quote-modal, .quote-modal-content, .estimate-modal, .estimate-modal-content {
+        animation: none !important;
+        transition: none !important;
+    }
+}

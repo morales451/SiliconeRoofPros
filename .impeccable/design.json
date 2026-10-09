@@ -1,0 +1,937 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-09T00:00:00Z",
+  "title": "Design System: Silicone Roof Pros",
+  "tokens": {
+    "colors": {
+      "survey-graphite": "#1b1d21",
+      "survey-graphite-raised": "#26292e",
+      "survey-line": "#3b3f46",
+      "survey-glass": "#121417",
+      "viewport-ground": "#2a2d31",
+      "report-sheet": "#eef0f1",
+      "paper": "#ffffff",
+      "ink": "#15171a",
+      "rule": "#c9cdd1",
+      "body-text": "#33373c",
+      "secondary-text": "#4d5258",
+      "muted-text": "#5f656c",
+      "label-on-graphite": "#9aa0a6",
+      "text-on-graphite": "#c9cdd1",
+      "wet-hatch": "#d4232a",
+      "wet-ink": "#b51d23",
+      "wet-on-graphite": "#ff8a8f",
+      "dry-survey-blue": "#0a5f96",
+      "dry-tint": "#e7eef3",
+      "dry-key-grey": "#8d9298",
+      "amber-action": "#f4a21c",
+      "amber-action-hover": "#ffb43d",
+      "amber-ink": "#8a4f00",
+      "heat-0": "#160b33",
+      "heat-1": "#4c1182",
+      "heat-2": "#a3207c",
+      "heat-3": "#e14b2b",
+      "heat-4": "#f59a1b",
+      "heat-5": "#fde9a3"
+    },
+    "typography": {
+      "display": {
+        "fontFamily": "Archivo, 'Archivo Fallback', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+        "fontSize": "clamp(2.1rem, 1.1rem + 2.2vw, 3.05rem)",
+        "fontWeight": 800,
+        "lineHeight": 0.98,
+        "letterSpacing": "-0.03em",
+        "fontVariation": "'wdth' 87.5"
+      },
+      "headline": {
+        "fontFamily": "Archivo, 'Archivo Fallback', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+        "fontSize": "clamp(1.75rem, 1.2rem + 2.2vw, 2.75rem)",
+        "fontWeight": 750,
+        "lineHeight": 1.05,
+        "letterSpacing": "-0.018em",
+        "fontVariation": "'wdth' 87.5"
+      },
+      "title": {
+        "fontFamily": "Archivo, 'Archivo Fallback', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+        "fontSize": "1.125rem",
+        "fontWeight": 750,
+        "lineHeight": 1.2,
+        "letterSpacing": "-0.018em",
+        "fontVariation": "'wdth' 87.5"
+      },
+      "body": {
+        "fontFamily": "Archivo, 'Archivo Fallback', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+        "fontSize": "1rem",
+        "fontWeight": 400,
+        "lineHeight": 1.6
+      },
+      "readout": {
+        "fontFamily": "Archivo, 'Archivo Fallback', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+        "fontSize": "clamp(1.35rem, 1rem + 1vw, 1.75rem)",
+        "fontWeight": 700,
+        "lineHeight": 1.15,
+        "letterSpacing": "-0.01em",
+        "fontFeature": "'tnum' 1, 'lnum' 1",
+        "fontVariation": "'wdth' 75"
+      },
+      "label": {
+        "fontFamily": "Archivo, 'Archivo Fallback', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+        "fontSize": "0.8125rem",
+        "fontWeight": 400,
+        "lineHeight": 1.3
+      }
+    },
+    "rounded": {
+      "none": "0px",
+      "control": "2px"
+    },
+    "spacing": {
+      "xs": "0.25rem",
+      "sm": "0.5rem",
+      "md": "1rem",
+      "lg": "1.5rem",
+      "xl": "2rem",
+      "2xl": "3rem",
+      "3xl": "4rem",
+      "4xl": "6rem",
+      "thermal-strip": "4px",
+      "touch-target": "44px"
+    },
+    "components": {
+      "button-primary": {
+        "backgroundColor": "{colors.amber-action}",
+        "textColor": "{colors.ink}",
+        "rounded": "{rounded.control}",
+        "padding": "0.75rem 1.5rem"
+      },
+      "button-primary-hover": {
+        "backgroundColor": "{colors.amber-action-hover}",
+        "textColor": "{colors.ink}"
+      },
+      "button-primary-large": {
+        "backgroundColor": "{colors.amber-action}",
+        "textColor": "{colors.ink}",
+        "rounded": "{rounded.control}",
+        "padding": "1rem 2rem"
+      },
+      "button-outline": {
+        "backgroundColor": "transparent",
+        "textColor": "{colors.ink}",
+        "rounded": "{rounded.control}",
+        "padding": "0.75rem 1.5rem"
+      },
+      "button-outline-hover": {
+        "backgroundColor": "{colors.ink}",
+        "textColor": "{colors.paper}"
+      },
+      "button-outline-on-graphite": {
+        "backgroundColor": "transparent",
+        "textColor": "{colors.paper}",
+        "rounded": "{rounded.control}"
+      },
+      "button-outline-on-graphite-hover": {
+        "backgroundColor": "{colors.paper}",
+        "textColor": "{colors.ink}"
+      },
+      "input-field": {
+        "backgroundColor": "{colors.paper}",
+        "textColor": "{colors.ink}",
+        "rounded": "{rounded.control}"
+      },
+      "survey-search-input": {
+        "backgroundColor": "{colors.paper}",
+        "textColor": "{colors.ink}",
+        "rounded": "{rounded.none}",
+        "height": "56px"
+      },
+      "survey-frame": {
+        "backgroundColor": "{colors.survey-glass}",
+        "rounded": "{rounded.none}"
+      },
+      "survey-viewport": {
+        "backgroundColor": "{colors.viewport-ground}",
+        "rounded": "{rounded.none}",
+        "height": "clamp(320px, 36vw, 470px)"
+      },
+      "survey-hud": {
+        "backgroundColor": "{colors.survey-glass}",
+        "textColor": "{colors.paper}",
+        "rounded": "{rounded.none}",
+        "padding": "0.45rem 0.8rem"
+      },
+      "readout-cell": {
+        "backgroundColor": "{colors.survey-graphite}",
+        "textColor": "{colors.paper}",
+        "typography": "{typography.readout}",
+        "padding": "0.7rem 0.9rem 0.8rem"
+      },
+      "scan-legend-key": {
+        "rounded": "{rounded.none}",
+        "size": "22px"
+      },
+      "spec-row": {
+        "backgroundColor": "{colors.paper}",
+        "textColor": "{colors.ink}",
+        "padding": "1rem 0"
+      },
+      "procedure-step": {
+        "backgroundColor": "{colors.paper}",
+        "textColor": "{colors.ink}",
+        "padding": "1.25rem 1.25rem 1rem"
+      },
+      "warranty-sheet": {
+        "backgroundColor": "{colors.paper}",
+        "textColor": "{colors.ink}",
+        "rounded": "{rounded.none}",
+        "padding": "clamp(1.5rem, 4vw, 2.75rem)",
+        "width": "860px"
+      },
+      "ledger-header-cell": {
+        "backgroundColor": "{colors.survey-graphite}",
+        "textColor": "{colors.paper}",
+        "padding": "0.9rem 1rem",
+        "width": "9rem"
+      },
+      "thermal-strip": {
+        "height": "4px"
+      },
+      "wordmark": {
+        "textColor": "{colors.ink}",
+        "typography": "{typography.title}"
+      }
+    }
+  },
+  "extensions": {
+    "colorMeta": {
+      "survey-graphite": {
+        "role": "neutral",
+        "displayName": "Survey Graphite",
+        "canonical": "#1b1d21",
+        "tonalRamp": [
+          "#15171a",
+          "#23262a",
+          "#33373c",
+          "#4d5258",
+          "#9aa0a6",
+          "#c9cdd1",
+          "#dfe2e4",
+          "#f6f7f8"
+        ]
+      },
+      "survey-graphite-raised": {
+        "role": "neutral",
+        "displayName": "Graphite Raised",
+        "canonical": "#26292e",
+        "tonalRamp": [
+          "#15171a",
+          "#23262a",
+          "#33373c",
+          "#4d5258",
+          "#9aa0a6",
+          "#c9cdd1",
+          "#dfe2e4",
+          "#f6f7f8"
+        ]
+      },
+      "survey-line": {
+        "role": "neutral",
+        "displayName": "Survey Line",
+        "canonical": "#3b3f46",
+        "tonalRamp": [
+          "#15171a",
+          "#23262a",
+          "#33373c",
+          "#4d5258",
+          "#9aa0a6",
+          "#c9cdd1",
+          "#dfe2e4",
+          "#f6f7f8"
+        ]
+      },
+      "survey-glass": {
+        "role": "neutral",
+        "displayName": "Survey Glass",
+        "canonical": "#121417",
+        "tonalRamp": [
+          "#15171a",
+          "#23262a",
+          "#33373c",
+          "#4d5258",
+          "#9aa0a6",
+          "#c9cdd1",
+          "#dfe2e4",
+          "#f6f7f8"
+        ]
+      },
+      "viewport-ground": {
+        "role": "neutral",
+        "displayName": "Viewport Ground",
+        "canonical": "#2a2d31",
+        "tonalRamp": [
+          "#15171a",
+          "#23262a",
+          "#33373c",
+          "#4d5258",
+          "#9aa0a6",
+          "#c9cdd1",
+          "#dfe2e4",
+          "#f6f7f8"
+        ]
+      },
+      "report-sheet": {
+        "role": "neutral",
+        "displayName": "Report Sheet",
+        "canonical": "#eef0f1",
+        "tonalRamp": [
+          "#15171a",
+          "#23262a",
+          "#33373c",
+          "#4d5258",
+          "#9aa0a6",
+          "#c9cdd1",
+          "#dfe2e4",
+          "#f6f7f8"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "#15171a",
+          "#23262a",
+          "#33373c",
+          "#4d5258",
+          "#9aa0a6",
+          "#c9cdd1",
+          "#dfe2e4",
+          "#f6f7f8"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#15171a",
+        "tonalRamp": [
+          "#15171a",
+          "#23262a",
+          "#33373c",
+          "#4d5258",
+          "#9aa0a6",
+          "#c9cdd1",
+          "#dfe2e4",
+          "#f6f7f8"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Rule",
+        "canonical": "#c9cdd1",
+        "tonalRamp": [
+          "#15171a",
+          "#23262a",
+          "#33373c",
+          "#4d5258",
+          "#9aa0a6",
+          "#c9cdd1",
+          "#dfe2e4",
+          "#f6f7f8"
+        ]
+      },
+      "body-text": {
+        "role": "neutral",
+        "displayName": "Body Text",
+        "canonical": "#33373c",
+        "tonalRamp": [
+          "#15171a",
+          "#23262a",
+          "#33373c",
+          "#4d5258",
+          "#9aa0a6",
+          "#c9cdd1",
+          "#dfe2e4",
+          "#f6f7f8"
+        ]
+      },
+      "secondary-text": {
+        "role": "neutral",
+        "displayName": "Secondary Text",
+        "canonical": "#4d5258",
+        "tonalRamp": [
+          "#15171a",
+          "#23262a",
+          "#33373c",
+          "#4d5258",
+          "#9aa0a6",
+          "#c9cdd1",
+          "#dfe2e4",
+          "#f6f7f8"
+        ]
+      },
+      "muted-text": {
+        "role": "neutral",
+        "displayName": "Muted Text",
+        "canonical": "#5f656c",
+        "tonalRamp": [
+          "#15171a",
+          "#23262a",
+          "#33373c",
+          "#4d5258",
+          "#9aa0a6",
+          "#c9cdd1",
+          "#dfe2e4",
+          "#f6f7f8"
+        ]
+      },
+      "label-on-graphite": {
+        "role": "neutral",
+        "displayName": "Label on Graphite",
+        "canonical": "#9aa0a6",
+        "tonalRamp": [
+          "#15171a",
+          "#23262a",
+          "#33373c",
+          "#4d5258",
+          "#9aa0a6",
+          "#c9cdd1",
+          "#dfe2e4",
+          "#f6f7f8"
+        ]
+      },
+      "text-on-graphite": {
+        "role": "neutral",
+        "displayName": "Text on Graphite",
+        "canonical": "#c9cdd1",
+        "tonalRamp": [
+          "#15171a",
+          "#23262a",
+          "#33373c",
+          "#4d5258",
+          "#9aa0a6",
+          "#c9cdd1",
+          "#dfe2e4",
+          "#f6f7f8"
+        ]
+      },
+      "wet-hatch": {
+        "role": "tertiary",
+        "displayName": "Hatch Red",
+        "canonical": "#d4232a",
+        "tonalRamp": [
+          "#220000",
+          "#530000",
+          "#8b0000",
+          "#bb0012",
+          "#e53839",
+          "#ff625b",
+          "#ff968b",
+          "#ffcec4"
+        ]
+      },
+      "wet-ink": {
+        "role": "tertiary",
+        "displayName": "Wet Ink",
+        "canonical": "#b51d23",
+        "tonalRamp": [
+          "#200000",
+          "#4f0002",
+          "#840007",
+          "#b31a21",
+          "#db4743",
+          "#ff6d65",
+          "#ff9d93",
+          "#ffd3c9"
+        ]
+      },
+      "wet-on-graphite": {
+        "role": "tertiary",
+        "displayName": "Wet on Graphite",
+        "canonical": "#ff8a8f",
+        "tonalRamp": [
+          "#1c0204",
+          "#460c14",
+          "#761a27",
+          "#a23641",
+          "#c95a61",
+          "#f17d83",
+          "#ffa8ab",
+          "#ffd9d9"
+        ]
+      },
+      "dry-survey-blue": {
+        "role": "secondary",
+        "displayName": "Dry Survey Blue",
+        "canonical": "#0a5f96",
+        "tonalRamp": [
+          "#000c1b",
+          "#002745",
+          "#004574",
+          "#16669d",
+          "#3f88c2",
+          "#63ace8",
+          "#93d0ff",
+          "#caf4ff"
+        ]
+      },
+      "dry-tint": {
+        "role": "secondary",
+        "displayName": "Dry Tint",
+        "canonical": "#e7eef3",
+        "tonalRamp": [
+          "#0a0b0c",
+          "#222628",
+          "#3e4346",
+          "#5c6266",
+          "#7d8388",
+          "#9fa6ab",
+          "#c4cace",
+          "#ebeff2"
+        ]
+      },
+      "dry-key-grey": {
+        "role": "secondary",
+        "displayName": "Dry Key Grey",
+        "canonical": "#8d9298",
+        "tonalRamp": [
+          "#0a0b0d",
+          "#232528",
+          "#3f4247",
+          "#5d6267",
+          "#7e8389",
+          "#a0a6ac",
+          "#c5cacf",
+          "#eceff3"
+        ]
+      },
+      "amber-action": {
+        "role": "primary",
+        "displayName": "Survey Amber",
+        "canonical": "#f4a21c",
+        "tonalRamp": [
+          "#190600",
+          "#411800",
+          "#6d2e00",
+          "#974b00",
+          "#bc6d00",
+          "#e29100",
+          "#ffb95c",
+          "#ffe5a9"
+        ]
+      },
+      "amber-action-hover": {
+        "role": "primary",
+        "displayName": "Amber Lift",
+        "canonical": "#ffb43d",
+        "tonalRamp": [
+          "#180600",
+          "#3f1a00",
+          "#6a3100",
+          "#924e00",
+          "#b77100",
+          "#dd9400",
+          "#fbbc60",
+          "#ffe6ab"
+        ]
+      },
+      "amber-ink": {
+        "role": "primary",
+        "displayName": "Amber Ink",
+        "canonical": "#8a4f00",
+        "tonalRamp": [
+          "#160700",
+          "#3b1c00",
+          "#653400",
+          "#8c5104",
+          "#b07233",
+          "#d69557",
+          "#f5bc88",
+          "#ffe6c2"
+        ]
+      },
+      "heat-0": {
+        "role": "tertiary",
+        "displayName": "Thermal 0 Violet-Black",
+        "canonical": "#160b33",
+        "tonalRamp": [
+          "#160b33",
+          "#4c1182",
+          "#a3207c",
+          "#e14b2b",
+          "#f59a1b",
+          "#fde9a3"
+        ],
+        "note": "Thermal ramp stop; the ramp itself is the scale."
+      },
+      "heat-1": {
+        "role": "tertiary",
+        "displayName": "Thermal 1 Violet",
+        "canonical": "#4c1182",
+        "tonalRamp": [
+          "#160b33",
+          "#4c1182",
+          "#a3207c",
+          "#e14b2b",
+          "#f59a1b",
+          "#fde9a3"
+        ],
+        "note": "Thermal ramp stop; the ramp itself is the scale."
+      },
+      "heat-2": {
+        "role": "tertiary",
+        "displayName": "Thermal 2 Magenta",
+        "canonical": "#a3207c",
+        "tonalRamp": [
+          "#160b33",
+          "#4c1182",
+          "#a3207c",
+          "#e14b2b",
+          "#f59a1b",
+          "#fde9a3"
+        ],
+        "note": "Thermal ramp stop; the ramp itself is the scale."
+      },
+      "heat-3": {
+        "role": "tertiary",
+        "displayName": "Thermal 3 Vermilion",
+        "canonical": "#e14b2b",
+        "tonalRamp": [
+          "#160b33",
+          "#4c1182",
+          "#a3207c",
+          "#e14b2b",
+          "#f59a1b",
+          "#fde9a3"
+        ],
+        "note": "Thermal ramp stop; the ramp itself is the scale."
+      },
+      "heat-4": {
+        "role": "tertiary",
+        "displayName": "Thermal 4 Orange",
+        "canonical": "#f59a1b",
+        "tonalRamp": [
+          "#160b33",
+          "#4c1182",
+          "#a3207c",
+          "#e14b2b",
+          "#f59a1b",
+          "#fde9a3"
+        ],
+        "note": "Thermal ramp stop; the ramp itself is the scale."
+      },
+      "heat-5": {
+        "role": "tertiary",
+        "displayName": "Thermal 5 Pale Amber",
+        "canonical": "#fde9a3",
+        "tonalRamp": [
+          "#160b33",
+          "#4c1182",
+          "#a3207c",
+          "#e14b2b",
+          "#f59a1b",
+          "#fde9a3"
+        ],
+        "note": "Thermal ramp stop; the ramp itself is the scale."
+      }
+    },
+    "gradients": [
+      {
+        "name": "thermal-strip",
+        "value": "linear-gradient(90deg, var(--heat-0), var(--heat-1) 20%, var(--heat-2) 42%, var(--heat-3) 62%, var(--heat-4) 82%, var(--heat-5))",
+        "purpose": "The 4px signature rule at the seams of dark runs and atop the survey frame, map frame and warranty sheet."
+      },
+      {
+        "name": "heat-ramp",
+        "value": "linear-gradient(0deg, var(--heat-0), var(--heat-1) 22%, var(--heat-2) 44%, var(--heat-3) 64%, var(--heat-4) 82%, var(--heat-5))",
+        "purpose": "Vertical thermal scale bar (12px) on the infrared moisture-survey figure only."
+      },
+      {
+        "name": "wet-hatch",
+        "value": "repeating-linear-gradient(135deg, var(--wet) 0 2px, transparent 2px 8px)",
+        "purpose": "Marks wet or failing: legend key, pain-column band. Alpha variants rgba(212, 35, 42, 0.32) on the tear-off readout and 0.1 on the new-roof ledger row."
+      },
+      {
+        "name": "scan-pass",
+        "value": "linear-gradient(180deg, transparent, rgba(244, 162, 28, 0.08) 70%, rgba(244, 162, 28, 0.55) 99%, transparent)",
+        "purpose": "The amber scan-line band that passes once over the hero viewport."
+      }
+    ],
+    "shadows": [
+      {
+        "name": "sheet-lift",
+        "value": "0 24px 48px -24px rgba(0, 0, 0, 0.7)",
+        "purpose": "The one shadow: a white report sheet lifted off graphite (warranty schedule sheet)."
+      }
+    ],
+    "focus": [
+      {
+        "name": "focus-ring",
+        "value": "outline: 3px solid var(--action); outline-offset: 2px",
+        "purpose": "Every :focus-visible element."
+      },
+      {
+        "name": "field-focus",
+        "value": "border-color: var(--ink); box-shadow: 0 0 0 3px rgba(244, 162, 28, 0.45)",
+        "purpose": "Form fields on light grounds."
+      },
+      {
+        "name": "survey-search-focus",
+        "value": "box-shadow: inset 0 0 0 2px var(--action)",
+        "purpose": "The address input on the survey frame's top edge."
+      }
+    ],
+    "borders": [
+      {
+        "name": "hairline",
+        "value": "1px solid var(--rule)",
+        "purpose": "Row, panel and cell dividers on light grounds."
+      },
+      {
+        "name": "hairline-graphite",
+        "value": "1px solid var(--survey-line)",
+        "purpose": "Dividers on graphite and instrument chrome."
+      },
+      {
+        "name": "heading-rule",
+        "value": "1px solid var(--ink)",
+        "purpose": "Top rule of section headings, legends, spec tables; control borders."
+      },
+      {
+        "name": "registration-mark",
+        "value": "2px solid rgba(255, 255, 255, 0.85)",
+        "purpose": "22px corner marks, 12px inset, on survey viewports."
+      },
+      {
+        "name": "procedure-output",
+        "value": "1px dashed var(--rule)",
+        "purpose": "Separates a procedure step from its output readout."
+      }
+    ],
+    "motion": [
+      {
+        "name": "scan-pass",
+        "value": "survey-scan 1.8s cubic-bezier(0.45, 0, 0.2, 1) 0.35s 1 both",
+        "purpose": "The one authored motion: a single pass down the hero viewport on load; display: none under prefers-reduced-motion."
+      },
+      {
+        "name": "control-state",
+        "value": "160ms ease (colour); 160ms cubic-bezier(0.16, 1, 0.3, 1) (transform)",
+        "purpose": "Button colour change and 1px active press."
+      },
+      {
+        "name": "nav-underline",
+        "value": "transform 220ms cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "2px amber nav underline scaling in from the left; no transition under reduced motion."
+      },
+      {
+        "name": "hud-measured",
+        "value": "color 300ms ease",
+        "purpose": "HUD values turning amber when the roof is measured."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "narrow",
+        "value": "480px"
+      },
+      {
+        "name": "phone",
+        "value": "560px"
+      },
+      {
+        "name": "tablet",
+        "value": "860px"
+      },
+      {
+        "name": "scan-stack",
+        "value": "900px"
+      },
+      {
+        "name": "hero-stack",
+        "value": "1024px"
+      },
+      {
+        "name": "container",
+        "value": "1200px"
+      }
+    ],
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero H1 only (interior H1s and the final CTA step down; see DESIGN.md)."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section H2s, left-set on a 1px ink top rule."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "H3s in spec rows and procedure steps, survey frame header, wordmark."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running copy; supporting paragraphs held to 48-60ch."
+      },
+      "readout": {
+        "displayName": "Readout",
+        "purpose": "Every measured figure: area, $/sq ft, days, years, percentages. Units follow at 0.75-0.875rem, weight 400-500."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Readout and HUD labels, call regions, thermal ticks. Sentence case."
+      }
+    }
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one action: amber, ink text, ink hairline, near-square.",
+      "html": "<button class=\"ds-btn-primary\">Get My Free Satellite Quote</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; font-family: Archivo, Arial, sans-serif; font-size: 1rem; font-weight: 700; font-stretch: 93%; letter-spacing: 0.005em; background: #f4a21c; color: #15171a; border: 1px solid #15171a; border-radius: 2px; cursor: pointer; transition: background-color 160ms ease, transform 160ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-primary:hover { background: #ffb43d; } .ds-btn-primary:active { transform: translateY(1px); } .ds-btn-primary:focus-visible { outline: 3px solid #f4a21c; outline-offset: 2px; box-shadow: 0 0 0 5px #15171a; }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Secondary action on paper; fills ink on hover.",
+      "html": "<button class=\"ds-btn-outline\">See the process</button>",
+      "css": ".ds-btn-outline { display: inline-flex; align-items: center; padding: 0.75rem 1.5rem; font-family: Archivo, Arial, sans-serif; font-size: 1rem; font-weight: 700; font-stretch: 93%; background: transparent; color: #15171a; border: 1px solid #15171a; border-radius: 2px; cursor: pointer; transition: background-color 160ms ease, color 160ms ease; } .ds-btn-outline:hover { background: #15171a; color: #ffffff; } .ds-btn-outline:focus-visible { outline: 3px solid #f4a21c; outline-offset: 2px; box-shadow: 0 0 0 5px #15171a; }"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input-field",
+      "description": "Paper field, grey hairline, amber halo on focus.",
+      "html": "<label class=\"ds-field\"><span>Property address</span><input type=\"text\" placeholder=\"123 Main St\"></label>",
+      "css": ".ds-field { display: grid; gap: 0.35rem; font-family: Archivo, Arial, sans-serif; } .ds-field span { color: #15171a; font-weight: 600; } .ds-field input { padding: 0.75rem 0.9rem; font: inherit; background: #ffffff; color: #15171a; border: 1px solid #9aa0a6; border-radius: 2px; } .ds-field input::placeholder { color: #5f656c; } .ds-field input:focus { outline: none; border-color: #15171a; box-shadow: 0 0 0 3px rgba(244, 162, 28, 0.45); }"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": "wordmark",
+      "description": "Paper title block with wordmark, ink links, amber underline on hover and active.",
+      "html": "<nav class=\"ds-nav\"><span class=\"ds-wordmark\">Silicone Roof Pros</span><a href=\"#\" class=\"ds-nav-link is-active\">Process</a><a href=\"#\" class=\"ds-nav-link\">Coatings</a><a href=\"#\" class=\"ds-nav-cta\">Free Quote</a></nav>",
+      "css": ".ds-nav { display: flex; align-items: center; gap: 1rem; padding: 0.75rem 1rem; background: #ffffff; border-bottom: 1px solid #15171a; font-family: Archivo, Arial, sans-serif; } .ds-wordmark { margin-right: auto; font-size: 1.1875rem; font-weight: 750; font-stretch: 87.5%; letter-spacing: -0.015em; color: #15171a; white-space: nowrap; } .ds-nav-link { position: relative; padding: 0.75rem 0.5rem; color: #15171a; font-weight: 600; font-stretch: 93%; text-decoration: none; } .ds-nav-link::after { content: \"\"; position: absolute; left: 0.5rem; right: 0.5rem; bottom: 2px; height: 2px; background: #f4a21c; transform: scaleX(0); transform-origin: left; transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-nav-link:hover::after, .ds-nav-link.is-active::after { transform: scaleX(1); } .ds-nav-link:focus-visible, .ds-nav-cta:focus-visible { outline: 3px solid #f4a21c; outline-offset: 2px; box-shadow: 0 0 0 5px #15171a; } .ds-nav-cta { padding: 0.6rem 1rem; background: #f4a21c; color: #15171a; border: 1px solid #15171a; border-radius: 2px; font-weight: 700; text-decoration: none; } .ds-nav-cta:hover { background: #ffb43d; }"
+    },
+    {
+      "name": "Survey Viewport with HUD",
+      "kind": "custom",
+      "refersTo": "survey-frame",
+      "description": "The signature instrument: thermal-topped frame, registration marks, crosshair and the measured HUD.",
+      "html": "<div class=\"ds-frame\"><div class=\"ds-viewport\"><span class=\"ds-reg ds-tl\"></span><span class=\"ds-reg ds-tr\"></span><span class=\"ds-reg ds-bl\"></span><span class=\"ds-reg ds-br\"></span><span class=\"ds-cross\"></span><div class=\"ds-hud is-measured\"><div class=\"ds-hud-cell\"><span class=\"ds-hud-label\">Roof area</span><span class=\"ds-hud-value\">24,600 <small>sq ft</small></span></div><div class=\"ds-hud-cell\"><span class=\"ds-hud-label\">Silicone est.</span><span class=\"ds-hud-value\">$86k&ndash;$123k</span></div></div></div></div>",
+      "css": ".ds-frame { background: #121417; border: 1px solid #3b3f46; border-top: 0; font-family: Archivo, Arial, sans-serif; } .ds-frame::before { content: \"\"; display: block; height: 4px; background: linear-gradient(90deg, #160b33, #4c1182 20%, #a3207c 42%, #e14b2b 62%, #f59a1b 82%, #fde9a3); } .ds-viewport { position: relative; height: 260px; background: #2a2d31; } .ds-reg { position: absolute; width: 22px; height: 22px; border: 0 solid rgba(255, 255, 255, 0.85); } .ds-tl { top: 12px; left: 12px; border-top-width: 2px; border-left-width: 2px; } .ds-tr { top: 12px; right: 12px; border-top-width: 2px; border-right-width: 2px; } .ds-bl { bottom: 12px; left: 12px; border-bottom-width: 2px; border-left-width: 2px; } .ds-br { bottom: 12px; right: 12px; border-bottom-width: 2px; border-right-width: 2px; } .ds-cross { position: absolute; left: 50%; top: 50%; width: 28px; height: 28px; margin: -14px 0 0 -14px; opacity: 0.7; background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)) center / 1px 100% no-repeat, linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)) center / 100% 1px no-repeat; } .ds-hud { position: absolute; top: 12px; left: 12px; display: flex; background: rgba(18, 20, 23, 0.9); border: 1px solid #3b3f46; } .ds-hud-cell { display: flex; flex-direction: column; padding: 0.45rem 0.8rem; min-width: 7.5rem; } .ds-hud-cell + .ds-hud-cell { border-left: 1px solid #3b3f46; } .ds-hud-label { font-size: 0.75rem; color: #9aa0a6; } .ds-hud-value { color: #ffffff; font-size: 1.125rem; font-weight: 700; font-stretch: 75%; line-height: 1.2; font-variant-numeric: tabular-nums lining-nums; transition: color 300ms ease; } .ds-hud-value small { font-size: 0.75rem; font-weight: 500; color: #9aa0a6; } .ds-hud.is-measured .ds-hud-value { color: #f4a21c; }"
+    },
+    {
+      "name": "Readout Strip",
+      "kind": "custom",
+      "refersTo": "readout-cell",
+      "description": "Ruled 2x2 grid of instrument readouts on graphite; the failing alternative is hatched.",
+      "html": "<dl class=\"ds-readouts\"><div class=\"ds-readout\"><dt>Restore</dt><dd><span class=\"ds-num\">$3.50&ndash;5.00</span><span class=\"ds-unit\">/sq ft</span></dd></div><div class=\"ds-readout ds-wet\"><dt>Tear off &amp; replace</dt><dd><span class=\"ds-num\">$8&ndash;15</span><span class=\"ds-unit\">/sq ft</span></dd></div><div class=\"ds-readout\"><dt>On site</dt><dd><span class=\"ds-num\">3&ndash;7</span><span class=\"ds-unit\">days</span></dd></div><div class=\"ds-readout\"><dt>Warranty</dt><dd><span class=\"ds-num\">10&middot;15&middot;20</span><span class=\"ds-unit\">yr</span></dd></div></dl>",
+      "css": ".ds-readouts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); margin: 0; background: #1b1d21; border-top: 1px solid #3b3f46; border-left: 1px solid #3b3f46; font-family: Archivo, Arial, sans-serif; } .ds-readout { padding: 0.7rem 0.9rem 0.8rem; border-right: 1px solid #3b3f46; border-bottom: 1px solid #3b3f46; } .ds-readout dt { font-size: 0.8125rem; color: #9aa0a6; margin-bottom: 0.15rem; } .ds-readout dd { margin: 0; display: flex; align-items: baseline; gap: 0.3rem; color: #ffffff; } .ds-num { font-size: 1.6rem; font-weight: 700; font-stretch: 75%; letter-spacing: -0.01em; font-variant-numeric: tabular-nums lining-nums; } .ds-unit { font-size: 0.875rem; color: #9aa0a6; } .ds-wet { background-image: repeating-linear-gradient(135deg, rgba(212, 35, 42, 0.32) 0 2px, transparent 2px 8px); } .ds-wet dt { color: #f1a5a8; } .ds-wet .ds-num { color: #ffd2d3; }"
+    },
+    {
+      "name": "Scan Legend",
+      "kind": "custom",
+      "refersTo": "scan-legend-key",
+      "description": "Wet, dry and measured keys with their meaning; the only place legend keys appear.",
+      "html": "<dl class=\"ds-legend\"><div class=\"ds-row\"><dt><span class=\"ds-key ds-key-wet\"></span>Wet</dt><dd>Saturated insulation is cut out and replaced.</dd></div><div class=\"ds-row\"><dt><span class=\"ds-key ds-key-dry\"></span>Dry</dt><dd>Sound membrane stays and is sealed.</dd></div><div class=\"ds-row\"><dt><span class=\"ds-key ds-key-out\"></span>Measured</dt><dd>Your outline sets the square footage.</dd></div></dl>",
+      "css": ".ds-legend { margin: 0; border-top: 1px solid #15171a; font-family: Archivo, Arial, sans-serif; background: #ffffff; } .ds-row { display: grid; grid-template-columns: 8.5rem 1fr; gap: 1rem; padding: 0.85rem 0; border-bottom: 1px solid #c9cdd1; } .ds-row dt { display: flex; align-items: center; gap: 0.6rem; font-weight: 700; font-stretch: 87.5%; color: #15171a; } .ds-row dd { margin: 0; color: #4d5258; font-size: 0.9375rem; } .ds-key { width: 22px; height: 22px; flex: 0 0 22px; border: 1px solid #15171a; } .ds-key-wet { border-color: #d4232a; background-image: repeating-linear-gradient(135deg, #d4232a 0 2px, transparent 2px 8px); } .ds-key-dry { background: #8d9298; } .ds-key-out { border: 2px solid #f4a21c; background: rgba(244, 162, 28, 0.25); }"
+    },
+    {
+      "name": "Procedure Strip",
+      "kind": "custom",
+      "refersTo": "procedure-step",
+      "description": "Three counted steps in one ink-bordered strip, each ending in its output readout.",
+      "html": "<ol class=\"ds-proc\"><li><h3>Enter Your Address</h3><p>A satellite view loads and you outline the roof.</p><p class=\"ds-out\"><span class=\"ds-n\">~30</span> <span class=\"ds-u\">seconds to outline</span></p></li><li><h3>We Survey Your Roof</h3><p>We measure square footage from the imagery.</p><p class=\"ds-out\"><span class=\"ds-n\">ft&sup2;</span> <span class=\"ds-u\">measured, not guessed</span></p></li><li><h3>Get Your Quote</h3><p>A written, itemised estimate lands in your inbox.</p><p class=\"ds-out\"><span class=\"ds-n\">~60</span> <span class=\"ds-u\">minutes to your inbox</span></p></li></ol>",
+      "css": ".ds-proc { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 1px solid #15171a; background: #ffffff; counter-reset: step; font-family: Archivo, Arial, sans-serif; } .ds-proc li { padding: 1.25rem 1.25rem 1rem; display: flex; flex-direction: column; counter-increment: step; } .ds-proc li + li { border-left: 1px solid #c9cdd1; } .ds-proc h3 { margin: 0 0 0.5rem; font-size: 1.125rem; font-weight: 750; font-stretch: 87.5%; color: #15171a; } .ds-proc h3::before { content: counter(step) \". \"; color: #5f656c; } .ds-proc p { margin: 0; color: #4d5258; font-size: 0.9375rem; } .ds-proc .ds-out { margin-top: auto; padding-top: 0.75rem; border-top: 1px dashed #c9cdd1; display: flex; align-items: baseline; gap: 0.4rem; } .ds-n { color: #15171a; font-size: 1.5rem; font-weight: 700; font-stretch: 75%; font-variant-numeric: tabular-nums; } .ds-u { color: #4d5258; font-size: 0.875rem; }"
+    },
+    {
+      "name": "Warranty Schedule Sheet",
+      "kind": "card",
+      "refersTo": "warranty-sheet",
+      "description": "The one lifted surface: a white report sheet on graphite with a thermal top edge and a ruled schedule.",
+      "html": "<div class=\"ds-ground\"><div class=\"ds-sheet\"><h2>Warranty Guarantee</h2><table><thead><tr><th>Term</th><th>Coating applied</th><th>Covers</th></tr></thead><tbody><tr><td><span class=\"ds-n\">10</span> yr</td><td>Base thickness</td><td>Materials &amp; labour</td></tr><tr><td><span class=\"ds-n\">20</span> yr</td><td>Heaviest coat</td><td>Materials &amp; labour</td></tr></tbody></table></div></div>",
+      "css": ".ds-ground { background: #1b1d21; padding: 2rem; font-family: Archivo, Arial, sans-serif; } .ds-sheet { max-width: 860px; margin: 0 auto; background: #ffffff; padding: 1.75rem; box-shadow: 0 24px 48px -24px rgba(0, 0, 0, 0.7); border-top: 4px solid transparent; border-image: linear-gradient(90deg, #160b33, #4c1182 20%, #a3207c 42%, #e14b2b 62%, #f59a1b 82%, #fde9a3) 4 0 0 0; } .ds-sheet h2 { margin: 0 0 1rem; color: #15171a; font-size: 1.75rem; font-weight: 750; font-stretch: 87.5%; letter-spacing: -0.018em; } .ds-sheet table { width: 100%; border-collapse: collapse; } .ds-sheet th { background: #1b1d21; color: #ffffff; font-stretch: 87.5%; text-align: left; } .ds-sheet th, .ds-sheet td { padding: 0.7rem 0.9rem; border: 1px solid #c9cdd1; text-align: left; color: #33373c; } .ds-n { font-size: 1.5rem; font-weight: 700; font-stretch: 75%; color: #15171a; font-variant-numeric: tabular-nums; white-space: nowrap; }"
+    },
+    {
+      "name": "Tax Ledger",
+      "kind": "custom",
+      "refersTo": "ledger-header-cell",
+      "description": "Two-row ledger: graphite row headers, readout cells, the worse option hatched.",
+      "html": "<table class=\"ds-ledger\"><tbody><tr><th scope=\"row\">Restoration</th><td><span class=\"ds-n\">100%</span> deducted in year one</td></tr><tr class=\"ds-bad\"><th scope=\"row\">New roof</th><td>Spread over <span class=\"ds-n\">39</span> years</td></tr></tbody></table>",
+      "css": ".ds-ledger { width: 100%; border-collapse: collapse; background: #ffffff; font-family: Archivo, Arial, sans-serif; } .ds-ledger th, .ds-ledger td { padding: 0.9rem 1rem; border: 1px solid #c9cdd1; text-align: left; vertical-align: baseline; } .ds-ledger th { width: 9rem; background: #1b1d21; color: #ffffff; font-stretch: 87.5%; } .ds-ledger td { color: #33373c; } .ds-n { font-size: 1.5rem; font-weight: 700; font-stretch: 75%; color: #15171a; font-variant-numeric: tabular-nums; } .ds-bad td { background-image: repeating-linear-gradient(135deg, rgba(212, 35, 42, 0.1) 0 2px, transparent 2px 8px); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Moisture-Survey Sheet",
+    "overview": "The site is the roof-survey deliverable, not a contractor brochure. Every page is built from the materials of an infrared moisture survey: a graphite orthophoto ground, cool white report sheets, hairline survey rules, red diagonal hatching where the roof is wet or failing, a grey key where it is dry, and an iron-palette thermal strip as the signature rule. The visitor's own roof, outlined on the satellite viewport, is the hero, and the figures it produces are read like instruments.\n\nDensity is a console's, not a brochure's. Readouts, legends and specifications sit packed in ruled strips and tables. Panels share hairlines instead of floating apart on gaps, and headings sit left-set on a top rule like report headings. The world refuses the category default: a stock-photo hero with a blue gradient, a check-mark benefit list and rows of tinted icon cards.\n\nOne colour acts. Amber is the action, the measured outline and the focus ring, and nothing else competes with it. Red means wet. Blue means dry or sound. The thermal ramp means heat, and only appears as a rule or as the scale on real infrared imagery.",
+    "keyCharacteristics": [
+      "Graphite survey grounds alternating with white paper and cool report sheets.",
+      "Square corners everywhere; controls take a barely-there 2px.",
+      "Hairline rules (1px) carry structure; shadows are almost absent.",
+      "Archivo, semi-condensed for display, condensed for tabular readouts.",
+      "Amber is the single action colour; red hatch marks wet, blue marks dry.",
+      "A 4px iron-palette thermal strip opens or closes each dark run.",
+      "One authored motion: the hero scan-line pass."
+    ],
+    "rules": [
+      {
+        "name": "The One Action Rule",
+        "body": "Amber marks what the visitor can do or has just measured. It is never decoration, never a section fill, never a second accent beside another.",
+        "section": "colors"
+      },
+      {
+        "name": "The Three Marks Rule",
+        "body": "Red hatch means wet or failing, grey or blue means dry or sound, amber outline means measured. A mark appears only where it carries that meaning; the legend keys live in the scan legend and nowhere else.",
+        "section": "colors"
+      },
+      {
+        "name": "The Heat Is Data Rule",
+        "body": "The thermal ramp is either a 4px rule or the scale bar on genuinely thermal imagery (\"Warmer · wet\" / \"Cooler · dry\" on the infrared survey). It never sits on the satellite map, which is not thermal, and never fills a surface.",
+        "section": "colors"
+      },
+      {
+        "name": "The Instrument Value Rule",
+        "body": "A figure is a readout: tabular, condensed, unit-labelled, sitting in a ruled strip or cell. Never a giant \"big stat\" with a caption.",
+        "section": "typography"
+      },
+      {
+        "name": "The Width-Axis Rule",
+        "body": "Hierarchy comes from width and weight in one family (87.5% headings, 75% figures, 100% copy), not from a second typeface.",
+        "section": "typography"
+      },
+      {
+        "name": "The One Lift Rule",
+        "body": "Only a paper sheet resting on graphite casts a shadow, and only the sheet lift above. Cards, buttons and panels on paper never do.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Thermal Edge Rule",
+        "body": "A 4px thermal strip marks the seam where a dark run begins or ends (under the top bar, above CTA bands and the footer, under interior heroes, atop the survey frame, map frame and warranty sheet). One strip per dark run: the footer drops its own when a CTA band precedes it.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do set every figure as a condensed tabular readout with its unit (75% width, 700, tnum).",
+      "Do use amber only for the action, the measured outline, the measured HUD state and focus; put ink text on it.",
+      "Do mark wet or failing with the 135-degree red hatch (2px in 8px), and dry with grey or blue.",
+      "Do open or close each dark run with one 4px thermal strip.",
+      "Do join panels with shared 1px hairlines and zero gap; hover by darkening the border to ink.",
+      "Do set section headings left on a 1px ink top rule, title and dek side by side.",
+      "Do keep corners square (0px) and controls at 2px.",
+      "Do keep graphite grounds solid.",
+      "Do remove the scan pass under prefers-reduced-motion and keep targets at 44px."
+    ],
+    "donts": [
+      "Don't add icon-card grids or tinted icon discs; use spec rows, procedure strips, schedules and ledgers.",
+      "Don't put the thermal scale bar or legend keys on the satellite map; it is not thermal imagery.",
+      "Don't add a decorative grid or pattern to graphite grounds.",
+      "Don't add scroll-reveal or entrance animation; the scan pass is the only authored motion.",
+      "Don't cast shadows from cards, buttons or panels; only the white sheet on graphite lifts.",
+      "Don't set figures as oversized hero stats with captions.",
+      "Don't use amber as text on paper (2.09:1); use amber ink instead.",
+      "Don't return to the category default of a stock-photo hero, blue gradient and check-mark benefit list."
+    ]
+  }
+}
