@@ -791,7 +791,10 @@
         // The inline loader in the page may already have reported a specific
         // reason (rejected key, missing key). Don't overwrite a better message.
         if (overlay.getAttribute('data-map-failed')) return;
-        overlay.setAttribute('data-map-failed', '1');
+        // "slow" (not "1"): the script may still arrive on a slow connection,
+        // and showLiveMapHint() restores the live map if it does.
+        overlay.setAttribute('data-map-failed', 'slow');
+        overlay.setAttribute('data-placeholder-html', overlay.innerHTML);
         // Previously this said "Map Loading..." and never changed, so a failed
         // map looked like a slow one forever. Say what happened and give the
         // visitor a way through instead.
@@ -812,8 +815,9 @@
         `;
     }
 
-    // Check for Google Maps API after delay
-    setTimeout(initFallback, 5000);
+    // Give Google Maps a generous window on slow mobile connections before
+    // telling the visitor it is unavailable (and recover if it arrives later).
+    setTimeout(initFallback, 12000);
 
     /**
      * Initialize Service Area Map
@@ -916,7 +920,14 @@
      */
     function showLiveMapHint(overlayId) {
         const overlay = document.getElementById(overlayId);
-        if (!overlay || overlay.classList.contains('hidden') || overlay.getAttribute('data-map-failed')) return;
+        if (!overlay) return;
+        // The timeout fallback gave up too early: the map has now loaded, so undo it.
+        if (overlay.getAttribute('data-map-failed') === 'slow') {
+            overlay.innerHTML = overlay.getAttribute('data-placeholder-html') || overlay.innerHTML;
+            overlay.removeAttribute('data-map-failed');
+            overlay.removeAttribute('data-placeholder-html');
+        }
+        if (overlay.classList.contains('hidden') || overlay.getAttribute('data-map-failed')) return;
         const text = overlay.querySelector('p');
         if (text) text.textContent = 'Type your address above to zoom to your roof';
         overlay.classList.add('is-live');

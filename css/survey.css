@@ -993,3 +993,12 @@ table td, table th {
 .service-call-lines .call-line { color: var(--ink); }
 .service-call-lines .call-region { color: var(--gray-600); }
 .service-call-lines .call-line:hover .call-num { color: var(--primary); }
+
+/* When Google refuses the key it marks the address field with an error icon
+   as an inline background image; keep it to a single icon, not a tiled strip. */
+input.gm-err-autocomplete {
+    background-repeat: no-repeat !important;
+    background-position: right 12px center !important;
+    background-size: 18px 18px !important;
+    padding-right: 40px !important;
+}

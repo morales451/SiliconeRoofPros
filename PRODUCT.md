@@ -55,7 +55,7 @@ The honesty claim is part of the position, not decoration: the company says when
 
 - Name: Silicone Roof Pros (also written SiliconeRoofPros). Contact email: siliconeroofpros@gmail.com. Logo files live in `assets/icons/` (`50-50-logoicon.png`, `small-logo.png`, `logo.png`).
 - Tagline in use: "Restore, Don't Replace - Half the Cost, Warrantied Up to 20 Years."
-- Voice (chosen by the owner, drawing on *How to Write Clearly*, *Made to Stick* and *Workshop Survival Guide*): plain and concrete; specific numbers over adjectives; lead with the surprising point; name the trade-offs honestly; tell the reader what they will know or be able to do; short active sentences. SEO takes priority when copy and search pull in different directions.
+- Voice (chosen by the owner, drawing on *How to Write Clearly*, *Made to Stick* and *Workshop Survival Guide*): American spelling; plain and concrete; specific numbers over adjectives; lead with the surprising point; name the trade-offs honestly; tell the reader what they will know or be able to do; short active sentences. SEO takes priority when copy and search pull in different directions.
 - Pennsylvania partner: Jimmy, introduced by first name only, with no invented biography or quotes.
 
 ## Evidence on Hand

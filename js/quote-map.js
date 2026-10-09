@@ -769,7 +769,9 @@
             // reason. Don't replace a better message with a vaguer one.
             if (mapOverlay && mapOverlay.getAttribute('data-map-failed')) return;
             if (mapContainer && mapOverlay) {
-                mapOverlay.setAttribute('data-map-failed', '1');
+                // "slow" (not "1"): showLiveMapHint() restores the map if the script arrives late
+                mapOverlay.setAttribute('data-map-failed', 'slow');
+                mapOverlay.setAttribute('data-placeholder-html', mapOverlay.innerHTML);
                 mapOverlay.classList.remove('is-live');
                 mapOverlay.innerHTML = `
                     <div class="map-overlay-card">
@@ -800,7 +802,14 @@
      */
     function showLiveMapHint(overlayId) {
         const overlay = document.getElementById(overlayId);
-        if (!overlay || overlay.classList.contains('hidden') || overlay.getAttribute('data-map-failed')) return;
+        if (!overlay) return;
+        // The timeout fallback gave up too early: the map has now loaded, so undo it.
+        if (overlay.getAttribute('data-map-failed') === 'slow') {
+            overlay.innerHTML = overlay.getAttribute('data-placeholder-html') || overlay.innerHTML;
+            overlay.removeAttribute('data-map-failed');
+            overlay.removeAttribute('data-placeholder-html');
+        }
+        if (overlay.classList.contains('hidden') || overlay.getAttribute('data-map-failed')) return;
         const text = overlay.querySelector('p');
         if (text) text.textContent = 'Type your address above to zoom to your roof';
         overlay.classList.add('is-live');
@@ -814,8 +823,8 @@
 
     // Check for Google Maps API after page load
     document.addEventListener('DOMContentLoaded', function() {
-        // Give Google Maps time to load
-        setTimeout(initFallback, 3000);
+        // Give Google Maps a generous window on slow connections (it recovers if late)
+        setTimeout(initFallback, 12000);
     });
 
 })();
