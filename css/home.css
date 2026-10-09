@@ -3407,25 +3407,6 @@ main:has(> .final-cta:last-child) + .footer::before { display: none; }
     margin: 0;
 }
 
-.spec-table {
-    margin-top: var(--spacing-xl);
-    border-top: 1px solid var(--ink);
-}
-
-.spec-table .spec-row {
-    display: grid;
-    grid-template-columns: minmax(0, 3fr) minmax(0, 3fr) minmax(0, 6fr);
-    gap: 0.5rem var(--spacing-xl);
-    align-items: baseline;
-    padding: 1rem 0;
-    border-bottom: 1px solid var(--rule);
-}
-
-.spec-table h3 {
-    font-size: 1.0625rem;
-    margin: 0;
-}
-
 /* Warranty: a schedule on a report sheet lifted off the graphite */
 .warranty-sheet {
     max-width: 860px;
@@ -3495,7 +3476,6 @@ main:has(> .final-cta:last-child) + .footer::before { display: none; }
 
 @media (max-width: 860px) {
     .spec-legend { grid-template-columns: 1fr; }
-    .spec-table .spec-row { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 480px) {

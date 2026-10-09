@@ -716,3 +716,150 @@ table td, table th {
         transition: none !important;
     }
 }
+
+/* ---------- Shared survey rows for interior pages ----------
+   The homepage's spec table and readout strip, available everywhere. */
+.spec-table {
+    margin-top: var(--spacing-xl);
+    border-top: 1px solid var(--ink);
+}
+
+.spec-table .spec-row {
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(0, 3fr) minmax(0, 6fr);
+    gap: 0.5rem var(--spacing-xl);
+    align-items: baseline;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--rule);
+}
+
+.spec-table--two .spec-row { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); }
+
+.spec-table h3 {
+    font-size: 1.0625rem;
+    margin: 0;
+}
+
+.spec-table .spec-note {
+    margin: 0;
+    color: var(--gray-600);
+    font-size: 0.9375rem;
+    max-width: 68ch;
+}
+
+/* Readout strip on a light sheet (interior pages) */
+.readout-strip--sheet {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border-top: 1px solid var(--ink);
+    border-left: 1px solid var(--rule);
+    margin: 0;
+    align-self: start;
+}
+
+.readout-strip--sheet .readout {
+    border-right: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    padding: 0.75rem 0.9rem 0.85rem;
+    background: var(--paper);
+}
+
+.readout-strip--sheet dt { font-size: 0.8125rem; color: var(--gray-600); margin-bottom: 0.15rem; }
+.readout-strip--sheet dd { margin: 0; display: flex; align-items: baseline; gap: 0.3rem; flex-wrap: wrap; }
+.readout-strip--sheet .readout-num {
+    font-size: clamp(1.3rem, 1rem + 0.8vw, 1.65rem);
+    font-weight: 700;
+    font-stretch: 75%;
+    color: var(--ink);
+    white-space: nowrap;
+}
+.readout-strip--sheet .readout-unit { font-size: 0.875rem; color: var(--gray-600); }
+
+.overview-text .readout-strip--sheet { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: var(--spacing-lg); }
+
+/* Other service areas: a ruled link list, not tiles */
+.area-links {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    border-top: 1px solid var(--ink);
+    margin-top: var(--spacing-lg);
+}
+
+.area-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 56px;
+    padding: 0.75rem 1rem 0.75rem 0;
+    border-bottom: 1px solid var(--rule);
+    color: var(--ink);
+    font-weight: 700;
+    font-stretch: 87.5%;
+    font-size: 1.0625rem;
+}
+
+.area-link + .area-link { padding-left: 1rem; border-left: 1px solid var(--rule); }
+
+.area-link::after {
+    content: "\2192";
+    color: var(--gray-500);
+    transition: transform 160ms cubic-bezier(0.16, 1, 0.3, 1), color 160ms ease;
+}
+
+.area-link:hover { color: var(--ink); background: var(--sheet); }
+.area-link:hover::after { color: var(--ink); transform: translateX(3px); }
+
+@media (max-width: 860px) {
+    .spec-table .spec-row,
+    .spec-table--two .spec-row { grid-template-columns: 1fr; }
+    .area-links { grid-template-columns: 1fr 1fr; }
+    .area-link + .area-link { border-left: 0; padding-left: 0; }
+    .area-links .area-link:nth-child(even) { padding-left: 1rem; border-left: 1px solid var(--rule); }
+    .overview-text .readout-strip--sheet { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 480px) {
+    .area-links { grid-template-columns: 1fr; }
+    .area-links .area-link:nth-child(even) { padding-left: 0; border-left: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .area-link::after { transition: none; }
+}
+
+/* ---------- Process page: a numbered survey procedure ---------- */
+.overview-content, .overview-text { text-align: left; }
+.overview-text h2 { font-size: clamp(1.75rem, 1.2rem + 2.2vw, 2.75rem); }
+
+.steps-timeline::before { background: var(--rule); width: 1px; }
+
+.step-number {
+    border-radius: 0;
+    background: var(--ink);
+    color: var(--white);
+    box-shadow: none;
+    font-stretch: 75%;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+}
+
+.step-content {
+    border-radius: 0;
+    box-shadow: none;
+    border: 0;
+    border-top: 1px solid var(--ink);
+    background: transparent;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.step-img { border-radius: 0; }
+
+.step-features li {
+    border-radius: 0;
+    background: transparent;
+    border: 1px solid var(--rule);
+    color: var(--gray-700);
+}
+
+.timeline-info .spec-table { margin-top: 0; }
