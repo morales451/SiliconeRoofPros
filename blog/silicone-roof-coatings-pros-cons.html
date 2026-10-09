@@ -23,11 +23,10 @@
     <meta name="twitter:image" content="https://siliconeroofpros.com/assets/icons/pros-cons.jpg">
 
     <link rel="canonical" href="https://siliconeroofpros.com/blog/silicone-roof-coatings-pros-cons.html">
-
-    <link rel="stylesheet" href="../css/styles.css?v=2026-10-06">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preload" href="../assets/fonts/archivo-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="../css/fonts.css?v=2026-10-09c">
+    <link rel="stylesheet" href="../css/styles.css?v=2026-10-09c">
+    <link rel="stylesheet" href="../css/survey.css?v=2026-10-09c">
     <link rel="icon" type="image/png" href="../assets/icons/50-50-icon-whitebg.png">
     <style>
         .blog-breadcrumb {
@@ -54,7 +53,7 @@
             display: block;
         }
         .blog-post-hero {
-            background: linear-gradient(135deg, #1a1a2e 0%, #0a0a14 100%);
+            background: var(--survey);
             padding: 6rem 0 4rem;
             color: white;
         }
@@ -115,18 +114,21 @@
             border-radius: 12px;
         }
         .pros-box {
-            background: #ecfdf5;
-            border-left: 4px solid #10b981;
+            background: var(--dry-tint);
+            border: 1px solid var(--dry-tint);
         }
         .cons-box {
-            background: #fef2f2;
-            border-left: 4px solid #ef4444;
+            background: var(--wet-tint);
+            border: 1px solid var(--wet-tint);
         }
-        .pros-box h3, .cons-box h3 {
+        .pros-box h2, .cons-box h2 {
+            font-size: 1.25rem;
+            line-height: 1.2;
+            margin-top: 0;
             margin-bottom: 1rem;
         }
-        .pros-box h3 { color: #059669; }
-        .cons-box h3 { color: #dc2626; }
+        .pros-box h2 { color: var(--dry); }
+        .cons-box h2 { color: var(--wet); }
         .pros-box ul, .cons-box ul {
             margin: 0;
         }
@@ -144,7 +146,7 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            color: #0088df;
+            color: var(--primary);
             font-weight: 500;
             margin-bottom: 2rem;
         }
@@ -210,25 +212,22 @@
     </script>
 </head>
 <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
     <!-- Header -->
     <header class="header">
         <div class="top-bar">
             <div class="container">
                 <div class="top-bar-content">
                     <span class="top-bar-text">Restore, Don't Replace &mdash; Half the Cost, Warrantied Up to 20 Years</span>
-                    <a href="tel:8323033183" class="emergency-phone">
-                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                        </svg>
-                        <span>(832) 303-3183</span>
-                    </a>
+                    <span class="top-bar-phones"><a href="tel:8323033183" class="emergency-phone"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span><span class="phone-region">TX</span> (832) 303-3183</span></a><a href="tel:4844018586" class="emergency-phone"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span><span class="phone-region">PA</span> (484) 401-8586</span></a></span>
                 </div>
             </div>
         </div>
         <nav class="navbar">
             <div class="container">
                 <a href="../index.html" class="logo">
-                    <img src="../assets/icons/50-50-logoicon.png" alt="Silicone Roof Pros" class="logo-img">
+                    <img width="50" height="50" src="../assets/icons/50-50-logoicon.png" alt="" class="logo-img">
+                    <span class="logo-name">Silicone Roof Pros</span>
                 </a>
                 <button class="mobile-menu-btn" aria-label="Toggle menu">
                     <span></span>
@@ -241,7 +240,7 @@
                     <li><a href="../coatings.html">Coatings</a></li>
                     <li><a href="../process.html">How It Works</a></li>
                     <li class="has-dropdown">
-                        <a href="#">Service Areas</a>
+                        <a href="../index.html#service-areas">Service Areas</a>
                         <ul class="dropdown-menu">
                             <li><a href="../locations/houston.html">Houston</a></li>
                             <li><a href="../locations/dallas.html">Dallas</a></li>
@@ -253,11 +252,13 @@
                     <li><a href="../blog.html" class="active">Blog</a></li>
                     <li><a href="../faq.html">FAQ</a></li>
                     <li><a href="../contact.html">Contact</a></li>
-                    <li><a href="../quote.html" class="btn btn-primary nav-cta">Instant Roof Estimate</a></li>
+                    <li><a href="../quote.html" class="btn btn-primary nav-cta">Free Satellite Quote</a></li>
                 </ul>
             </div>
         </nav>
     </header>
+
+    <main id="main">
 
     <!-- Blog Post Hero -->
     <section class="blog-post-hero">
@@ -272,7 +273,7 @@
     </section>
 
     <figure class="blog-post-figure">
-        <img src="../assets/icons/pros-cons.jpg" alt="Weighing the pros and cons of silicone roof coating on a commercial flat roof" loading="eager" decoding="async">
+        <img width="1200" height="628" src="../assets/icons/pros-cons.jpg" alt="Weighing the pros and cons of silicone roof coating on a commercial flat roof" loading="eager" decoding="async">
     </figure>
 
     <!-- Blog Content -->
@@ -289,7 +290,7 @@
 
         <div class="pros-cons-grid">
             <div class="pros-box">
-                <h3>Pros</h3>
+                <h2>Pros</h2>
                 <ul>
                     <li>Excellent waterproofing</li>
                     <li>Handles ponding water</li>
@@ -297,11 +298,11 @@
                     <li>Long lifespan (15-20 years)</li>
                     <li>Energy savings up to 35%</li>
                     <li>Seamless application</li>
-                    <li>100% tax deductible</li>
+                    <li>Usually deductible in year one (confirm with your CPA)</li>
                 </ul>
             </div>
             <div class="cons-box">
-                <h3>Cons</h3>
+                <h2>Cons</h2>
                 <ul>
                     <li>Higher initial cost</li>
                     <li>Can attract dirt</li>
@@ -336,7 +337,7 @@
         <p>Roughly double the price of acrylic per gallon, and that is a real disadvantage, not a rounding error. It pays back over time &mdash; longer life, single-coat application, no early recoat &mdash; but if you are selling the building in three years, acrylic may genuinely be the better commercial decision. <a href="../coatings.html">Compare the systems side by side</a> before you spend.</p>
 
         <p><strong>2. Dirt Pickup</strong></p>
-        <p>Silicone holds dirt. Waterproofing is unaffected, but a grey roof reflects less sunlight than a white one, so some of the energy saving erodes as it soils. Washing it restores most of that, which is why cleaning is on the maintenance schedule rather than an optional extra.</p>
+        <p>Silicone holds dirt. Waterproofing is unaffected, but a gray roof reflects less sunlight than a white one, so some of the energy saving erodes as it soils. Washing it restores most of that, which is why cleaning is on the maintenance schedule rather than an optional extra.</p>
 
         <p><strong>3. Slippery Surface</strong></p>
         <p>Wet silicone is genuinely slippery &mdash; this is a safety matter, not a preference. If maintenance staff service rooftop units in the rain, we broadcast a non-slip aggregate into the coating along the walking routes, or build in marked walkways. Decide this before we spray, not after.</p>
@@ -372,20 +373,27 @@
         </div>
     </article>
 
+    </main>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-bottom" style="border-top: none; padding-top: 2rem;">
                 <p>&copy; 2026 Silicone Roof Pros. All rights reserved.</p>
                 <div class="footer-legal">
-                    <a href="#">Terms of Service</a>
-                    <a href="#">Privacy Policy</a>
+                    <a href="../privacy.html">Privacy Policy</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <script src="../js/main.js?v=2026-10-06"></script>
-    <script src="../js/exit-intent.js?v=2026-10-06"></script>
+    <nav class="mobile-callbar" aria-label="Call or get a quote">
+        <a href="tel:8323033183" class="callbar-call"><span class="callbar-region">Call TX</span><span class="callbar-num">(832) 303-3183</span></a>
+        <a href="tel:4844018586" class="callbar-call"><span class="callbar-region">Call PA</span><span class="callbar-num">(484) 401-8586</span></a>
+        <a href="../quote.html" class="callbar-quote">Quote</a>
+    </nav>
+
+    <script src="../js/main.js?v=2026-10-09c"></script>
+    <script src="../js/exit-intent.js?v=2026-10-09c"></script>
 </body>
 </html>

@@ -4,28 +4,52 @@
 
 /* CSS Variables */
 :root {
-    /* Colors */
-    --primary: #0088df;
-    --primary-dark: #0070b8;
-    --primary-light: #e8f4fc;
-    --secondary: #1a1a2e;
-    --accent: #00c4cc;
+    /* Colors - the moisture-survey world (see DESIGN.md).
+       --primary is the "dry / cold" survey blue, the logo's own hue,
+       dark enough for text and white-on-fill (6.1:1 on white). */
+    --primary: #0a5f96;
+    --primary-dark: #084b77;
+    --primary-bright: #3aa0e0;
+    --primary-light: #e7eef3;
+    --secondary: #1b1d21;
+    --accent: #f4a21c;
 
-    /* Neutrals */
+    /* Survey palette */
+    --survey: #1b1d21;          /* graphite orthophoto ground */
+    --survey-2: #26292e;
+    --survey-line: #3b3f46;
+    --sheet: #eef0f1;           /* cool report sheet */
+    --paper: #ffffff;
+    --ink: #15171a;
+    --rule: #c9cdd1;
+    --wet: #d4232a;             /* hatch red: wet / failing */
+    --wet-ink: #b51d23;
+    --wet-tint: #fbecec;
+    --wet-on-dark: #ff8a8f;     /* wet text on graphite (7.5:1) */
+    --dry: #0a5f96;             /* dry / sound */
+    --dry-tint: #e7eef3;
+    --action: #f4a21c;          /* amber: the one action colour */
+    --action-hover: #ffb43d;
+    --action-ink: #8a4f00;
+    --heat-0: #160b33; --heat-1: #4c1182; --heat-2: #a3207c;
+    --heat-3: #e14b2b; --heat-4: #f59a1b; --heat-5: #fde9a3;
+    --heat-ramp: linear-gradient(0deg, var(--heat-0), var(--heat-1) 22%, var(--heat-2) 44%, var(--heat-3) 64%, var(--heat-4) 82%, var(--heat-5));
+
+    /* Neutrals (cool graphite, not blue-grey) */
     --white: #ffffff;
-    --gray-50: #f9fafb;
-    --gray-100: #f3f4f6;
-    --gray-200: #e5e7eb;
-    --gray-300: #d1d5db;
-    --gray-400: #9ca3af;
-    --gray-500: #6b7280;
-    --gray-600: #4b5563;
-    --gray-700: #374151;
-    --gray-800: #1f2937;
-    --gray-900: #111827;
+    --gray-50: #f6f7f8;
+    --gray-100: #eef0f1;
+    --gray-200: #dfe2e4;
+    --gray-300: #c9cdd1;
+    --gray-400: #9aa0a6;
+    --gray-500: #5f656c;
+    --gray-600: #4d5258;
+    --gray-700: #33373c;
+    --gray-800: #23262a;
+    --gray-900: #15171a;
 
     /* Typography */
-    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-family: 'Archivo', 'Archivo Fallback', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --font-size-xs: 0.75rem;
     --font-size-sm: 0.875rem;
     --font-size-base: 1rem;
@@ -47,17 +71,17 @@
     --spacing-4xl: 6rem;
 
     /* Border Radius */
-    --radius-sm: 0.25rem;
-    --radius-md: 0.5rem;
-    --radius-lg: 0.75rem;
-    --radius-xl: 1rem;
+    --radius-sm: 2px;
+    --radius-md: 2px;
+    --radius-lg: 3px;
+    --radius-xl: 4px;
     --radius-full: 9999px;
 
     /* Shadows */
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --shadow-sm: none;
+    --shadow-md: 0 1px 2px rgba(21,23,26,.08);
+    --shadow-lg: 0 8px 24px -12px rgba(21,23,26,.28);
+    --shadow-xl: 0 18px 40px -18px rgba(21,23,26,.4);
 
     /* Transitions */
     --transition-fast: 150ms ease;
@@ -127,6 +151,35 @@ p {
 }
 
 /* Buttons */
+/* Keyboard focus: one consistent, visible ring for every interactive element */
+:focus-visible {
+    outline: 3px solid var(--primary-bright);
+    outline-offset: 2px;
+}
+
+/* Skip link: off-screen until a keyboard user tabs to it */
+.skip-link {
+    position: absolute;
+    left: var(--spacing-md);
+    top: -100px;
+    z-index: 10000;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--primary);
+    color: var(--white);
+    font-weight: 600;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+}
+
+.skip-link:focus {
+    top: var(--spacing-md);
+}
+
+::selection {
+    background: var(--primary-light);
+    color: var(--gray-900);
+}
+
 .btn {
     display: inline-flex;
     align-items: center;
@@ -312,6 +365,11 @@ p {
     padding: 0.5rem 1rem !important;
 }
 
+.nav-menu a.nav-cta,
+.nav-menu a.nav-cta:hover {
+    color: var(--white);
+}
+
 .mobile-menu-btn {
     display: none;
     flex-direction: column;
@@ -335,7 +393,7 @@ p {
 .hero {
     position: relative;
     padding: var(--spacing-4xl) 0;
-    background: linear-gradient(135deg, var(--secondary) 0%, #16213e 100%);
+    background: var(--secondary);
     overflow: hidden;
 }
 
@@ -348,7 +406,7 @@ p {
 .hero-overlay {
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at 70% 50%, rgba(0, 136, 223, 0.2) 0%, transparent 50%);
+    background: radial-gradient(circle at 70% 50%, rgba(10, 95, 150, 0.2) 0%, transparent 50%);
 }
 
 .hero-content {
@@ -435,7 +493,7 @@ p {
 .form-group select:focus {
     outline: none;
     border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(0, 136, 223, 0.1);
+    box-shadow: 0 0 0 3px rgba(10, 95, 150, 0.35);
 }
 
 .form-group label {
@@ -449,7 +507,7 @@ p {
    Page Hero (Inner Pages)
    =================================== */
 .page-hero {
-    background: linear-gradient(135deg, var(--secondary) 0%, #16213e 100%);
+    background: var(--secondary);
     padding: var(--spacing-3xl) 0;
     text-align: center;
 }
@@ -484,7 +542,7 @@ section {
 }
 
 .section-header p {
-    color: var(--gray-500);
+    color: var(--gray-600);
     font-size: var(--font-size-lg);
     margin-bottom: 0;
 }
@@ -558,7 +616,7 @@ section {
 .why-us-icon {
     width: 72px;
     height: 72px;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    background: var(--primary);
     border-radius: var(--radius-full);
     display: flex;
     align-items: center;
@@ -585,7 +643,7 @@ section {
    Stats Section
    =================================== */
 .stats {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    background: var(--primary);
     padding: var(--spacing-3xl) 0;
 }
 
@@ -636,8 +694,27 @@ section {
     animation: logo-scroll 28s linear infinite;
 }
 
-.logos-track:hover {
+.logos-track:hover,
+.logos-carousel:focus-within .logos-track {
     animation-play-state: paused;
+}
+
+/* Reduced motion: the strip stands still and can be scrolled by hand;
+   the duplicate set that only exists for the seamless loop is hidden. */
+@media (prefers-reduced-motion: reduce) {
+    .logos-carousel {
+        overflow-x: auto;
+        -webkit-mask-image: none;
+        mask-image: none;
+    }
+
+    .logos-track {
+        animation: none;
+    }
+
+    .logos-track [aria-hidden="true"] {
+        display: none;
+    }
 }
 
 @keyframes logo-scroll {
@@ -732,7 +809,7 @@ section {
    CTA Section
    =================================== */
 .cta {
-    background: linear-gradient(135deg, var(--secondary) 0%, #16213e 100%);
+    background: var(--secondary);
     padding: var(--spacing-3xl) 0;
 }
 
@@ -890,7 +967,7 @@ section {
 }
 
 .newsletter-form input::placeholder {
-    color: var(--gray-500);
+    color: var(--gray-400);
 }
 
 .newsletter-form .btn {
@@ -916,7 +993,7 @@ section {
 }
 
 .quick-contact-form input::placeholder {
-    color: var(--gray-500);
+    color: var(--gray-400);
 }
 
 .quick-contact-form .btn {
@@ -1352,7 +1429,7 @@ section {
 .blog-placeholder {
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, var(--primary-light) 0%, var(--gray-100) 100%);
+    background: var(--primary-light);
     border-radius: 0;
     aspect-ratio: auto;
 }
@@ -1467,7 +1544,9 @@ section {
     color: var(--primary);
 }
 
-.contact-text h4 {
+.contact-text h3 {
+    font-size: var(--font-size-lg);
+    line-height: 1.2;
     color: var(--gray-900);
     margin-bottom: var(--spacing-xs);
 }
@@ -1650,7 +1729,9 @@ a.area-tag:hover {
     color: var(--primary);
 }
 
-.benefit-item h4 {
+.benefit-item h3 {
+    font-size: var(--font-size-lg);
+    line-height: 1.2;
     margin-bottom: var(--spacing-sm);
 }
 
@@ -1922,7 +2003,7 @@ a.area-tag:hover {
 }
 
 .exit-intent-header {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    background: var(--primary);
     color: var(--white);
     padding: var(--spacing-2xl);
     text-align: center;
@@ -1969,8 +2050,8 @@ a.area-tag:hover {
     position: absolute;
     top: var(--spacing-md);
     right: var(--spacing-md);
-    width: 36px;
-    height: 36px;
+    width: 44px;
+    height: 44px;
     background: rgba(255, 255, 255, 0.2);
     border: none;
     border-radius: var(--radius-full);
@@ -2063,7 +2144,7 @@ a.area-tag:hover {
 .exit-intent-form input:focus {
     outline: none;
     border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(0, 136, 223, 0.1);
+    box-shadow: 0 0 0 3px rgba(10, 95, 150, 0.35);
 }
 
 .exit-intent-form .btn {
@@ -2264,7 +2345,7 @@ a.area-tag:hover {
 }
 
 .location-hero h1 .highlight {
-    color: var(--primary);
+    color: var(--primary-bright);
 }
 
 .location-hero p {
@@ -2439,7 +2520,7 @@ a.area-tag:hover {
     padding: var(--spacing-xl);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
-    border-left: 4px solid var(--primary);
+    border: 1px solid var(--gray-200);
 }
 
 .service-card h3 {
@@ -2456,7 +2537,7 @@ a.area-tag:hover {
 /* Location Testimonial */
 .location-testimonial {
     padding: var(--spacing-4xl) 0;
-    background: linear-gradient(135deg, var(--secondary) 0%, #2a2a4e 100%);
+    background: var(--secondary);
 }
 
 .testimonial-featured {
@@ -2481,7 +2562,7 @@ a.area-tag:hover {
     max-width: 24px;
     max-height: 24px;
     flex-shrink: 0;
-    color: #fbbf24;
+    color: var(--action);
 }
 
 .testimonial-featured blockquote {
@@ -2495,8 +2576,7 @@ a.area-tag:hover {
 .testimonial-featured .partner-label {
     font-size: var(--font-size-sm);
     font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    letter-spacing: 0.01em;
     opacity: 0.8;
     margin-bottom: var(--spacing-md);
 }
@@ -2556,7 +2636,8 @@ a.area-tag:hover {
     gap: var(--spacing-xl);
 }
 
-.area-column h4 {
+.area-column h3 {
+    line-height: 1.2;
     font-size: var(--font-size-lg);
     color: var(--primary);
     margin-bottom: var(--spacing-md);
@@ -2582,7 +2663,7 @@ a.area-tag:hover {
 /* Location CTA Section */
 .location-cta {
     padding: var(--spacing-4xl) 0;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    background: var(--primary);
     text-align: center;
 }
 
@@ -2819,4 +2900,160 @@ a.area-tag:hover {
     h1, h2, h3, h4 {
         page-break-after: avoid;
     }
+}
+
+/* Legal / long-form text pages (privacy policy) */
+.legal-section {
+    padding: var(--spacing-3xl) 0 var(--spacing-4xl);
+}
+
+.legal-content {
+    max-width: 70ch;
+    margin: 0 auto;
+    color: var(--gray-700);
+    line-height: 1.75;
+}
+
+.legal-content h2 {
+    font-size: var(--font-size-2xl);
+    color: var(--gray-900);
+    margin: var(--spacing-2xl) 0 var(--spacing-sm);
+}
+
+.legal-content ul {
+    margin: 0 0 var(--spacing-md) var(--spacing-lg);
+    list-style: disc;
+}
+
+.legal-content li {
+    margin-bottom: var(--spacing-sm);
+}
+
+.legal-content a {
+    color: var(--primary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.legal-updated {
+    font-size: var(--font-size-sm);
+    color: var(--gray-600);
+}
+
+/* Card icons sit beside their heading as plain line icons, not inside a
+   tinted tile stacked above it (the generic feature-card template). */
+.challenge-card,
+.mission-card {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: var(--spacing-md);
+    align-items: center;
+    align-content: start;
+}
+
+.challenge-card > :not(.challenge-icon):not(h3),
+.mission-card > :not(.mission-icon):not(h3) {
+    grid-column: 1 / -1;
+}
+
+.challenge-card > h3,
+.mission-card > h3 {
+    margin-bottom: 0;
+}
+
+.challenge-card > h3 + *,
+.mission-card > h3 + * {
+    margin-top: var(--spacing-md);
+}
+
+.challenge-icon,
+.mission-icon {
+    width: auto;
+    height: auto;
+    min-width: 0;
+    min-height: 0;
+    max-width: none;
+    max-height: none;
+    background: none;
+    border-radius: 0;
+    margin-bottom: 0;
+}
+
+/* Touch targets: phone, menu, logo and footer links reach 44x44px
+   without changing how they look. */
+.mobile-menu-btn {
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    min-height: 44px;
+    min-width: 44px;
+}
+
+.emergency-phone,
+.footer-legal a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+}
+
+.about-photo {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+}
+
+.cta-or {
+    margin: 0 var(--spacing-md);
+    color: var(--gray-600);
+}
+
+/* Pop-up headings sit on the blue band: inherit its white, not the
+   global dark heading colour (that pairing measured 2.4:1). */
+.exit-intent-header h2,
+.exit-intent-header h3,
+.exit-intent-header p {
+    color: inherit;
+}
+
+/* Wide tables scroll inside their own box instead of the whole page */
+.table-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Small text links get a 44px tap area without moving the layout */
+.exit-intent-skip,
+.read-more,
+.back-link,
+.blog-breadcrumb a {
+    display: inline-block;
+    padding: 14px 6px;
+    margin: -14px -6px;
+}
+
+/* Footer and newsletter fields reach the 44px touch minimum */
+.quick-contact-form input,
+.quick-contact-form .btn,
+.newsletter-form input,
+.newsletter-form .btn {
+    min-height: 44px;
+}
+
+/* Remaining touch-target minimums: pop-up close buttons, skip link */
+.quote-modal-close,
+.estimate-modal-close,
+.skip-link {
+    min-width: 44px;
+    min-height: 44px;
+}
+
+.blog-breadcrumb a {
+    padding: 14px 10px;
+    margin: -14px -10px;
 }

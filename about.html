@@ -23,11 +23,10 @@
     <meta name="twitter:image" content="https://siliconeroofpros.com/assets/icons/atlantaga-coatings-install.webp">
 
     <link rel="canonical" href="https://siliconeroofpros.com/about.html">
-
-    <link rel="stylesheet" href="css/styles.css?v=2026-10-06">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preload" href="assets/fonts/archivo-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="css/fonts.css?v=2026-10-09c">
+    <link rel="stylesheet" href="css/styles.css?v=2026-10-09c">
+    <link rel="stylesheet" href="css/survey.css?v=2026-10-09c">
     <link rel="icon" type="image/png" href="assets/icons/50-50-icon-whitebg.png">
     <script type="application/ld+json">
     {
@@ -65,25 +64,22 @@
     </script>
 </head>
 <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
     <!-- Header -->
     <header class="header">
         <div class="top-bar">
             <div class="container">
                 <div class="top-bar-content">
                     <span class="top-bar-text">Restore, Don't Replace &mdash; Half the Cost, Warrantied Up to 20 Years</span>
-                    <a href="tel:8323033183" class="emergency-phone">
-                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                        </svg>
-                        <span>(832) 303-3183</span>
-                    </a>
+                    <span class="top-bar-phones"><a href="tel:8323033183" class="emergency-phone"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span><span class="phone-region">TX</span> (832) 303-3183</span></a><a href="tel:4844018586" class="emergency-phone"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span><span class="phone-region">PA</span> (484) 401-8586</span></a></span>
                 </div>
             </div>
         </div>
         <nav class="navbar">
             <div class="container">
                 <a href="index.html" class="logo">
-                    <img src="assets/icons/50-50-logoicon.png" alt="Silicone Roof Pros" class="logo-img">
+                    <img width="50" height="50" src="assets/icons/50-50-logoicon.png" alt="" class="logo-img">
+                    <span class="logo-name">Silicone Roof Pros</span>
                 </a>
                 <button class="mobile-menu-btn" aria-label="Toggle menu">
                     <span></span>
@@ -96,7 +92,7 @@
                     <li><a href="coatings.html">Coatings</a></li>
                     <li><a href="process.html">How It Works</a></li>
                     <li class="has-dropdown">
-                        <a href="#">Service Areas</a>
+                        <a href="index.html#service-areas">Service Areas</a>
                         <ul class="dropdown-menu">
                             <li><a href="locations/houston.html">Houston</a></li>
                             <li><a href="locations/dallas.html">Dallas</a></li>
@@ -108,11 +104,13 @@
                     <li><a href="blog.html">Blog</a></li>
                     <li><a href="faq.html">FAQ</a></li>
                     <li><a href="contact.html">Contact</a></li>
-                    <li><a href="quote.html" class="btn btn-primary nav-cta">Instant Roof Estimate</a></li>
+                    <li><a href="quote.html" class="btn btn-primary nav-cta">Free Satellite Quote</a></li>
                 </ul>
             </div>
         </nav>
     </header>
+
+    <main id="main">
 
     <!-- Page Hero -->
     <section class="page-hero">
@@ -128,20 +126,13 @@
             <div class="about-grid">
                 <div class="about-text">
                     <h2>Our Story</h2>
-                    <p>Our founder spent more than ten years in the coatings industry watching the same conversation play out on roof after roof. A building owner has a leak. A roofer quotes a full tear-off. The owner signs a six-figure cheque for a brand new roof built exactly like the one that just failed.</p>
+                    <p>Our founder spent more than ten years in the coatings industry watching the same conversation play out on roof after roof. A building owner has a leak. A roofer quotes a full tear-off. The owner signs a six-figure check for a brand new roof built exactly like the one that just failed.</p>
                     <p><strong>Most of those roofs did not need replacing.</strong> The decking was sound. The insulation was dry. What had failed were the seams, the fasteners and the flashings &mdash; the joints between the pieces. Coat over them properly and the roof has another twenty years in it.</p>
                     <p>So in 2024 we started Silicone Roof Pros to do one thing: <strong>commercial flat roof restoration</strong>, using fluid-applied silicone, acrylic and aluminum coating systems. No tear-offs, no dumpsters in your parking lot, no relocating tenants for three weeks.</p>
                     <p>We also tell you when restoration is the wrong answer. If your insulation is saturated or the deck is compromised, a coating traps the problem instead of fixing it &mdash; and we will say so before you spend a dollar. <strong>Turning down the wrong job is how we keep earning the right ones.</strong></p>
                 </div>
                 <div class="about-image">
-                    <div class="image-placeholder">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-                            <circle cx="8.5" cy="8.5" r="1.5"/>
-                            <polyline points="21 15 16 10 5 21"/>
-                        </svg>
-                        <span>Team at Work</span>
-                    </div>
+                    <img class="about-photo" width="1400" height="600" src="assets/icons/application.jpg" alt="White roof coating being rolled onto a commercial metal roof" loading="lazy" decoding="async">
                 </div>
             </div>
         </div>
@@ -150,27 +141,14 @@
     <!-- Mission Section -->
     <section class="mission-section">
         <div class="container">
-            <div class="mission-grid">
-                <div class="mission-card">
-                    <div class="mission-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"/>
-                            <path d="M12 16v-4"/>
-                            <path d="M12 8h.01"/>
-                        </svg>
-                    </div>
+            <div class="spec-table spec-table--two">
+                <div class="spec-row">
                     <h3>Our Mission</h3>
-                    <p>To keep sound commercial roofs out of landfill and off replacement schedules &mdash; by sealing them properly, explaining honestly what they need, and standing behind the warranty we write.</p>
+                    <p class="spec-note">To keep sound commercial roofs out of landfill and off replacement schedules &mdash; by sealing them properly, explaining honestly what they need, and standing behind the warranty we write.</p>
                 </div>
-                <div class="mission-card">
-                    <div class="mission-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-                            <circle cx="12" cy="12" r="3"/>
-                        </svg>
-                    </div>
+                <div class="spec-row">
                     <h3>Our Vision</h3>
-                    <p>To be the contractor Texas building owners call first &mdash; and the one they trust when we tell them their roof does not need the work someone else quoted.</p>
+                    <p class="spec-note">To be the contractor Texas building owners call first &mdash; and the one they trust when we tell them their roof does not need the work someone else quoted.</p>
                 </div>
             </div>
         </div>
@@ -183,47 +161,22 @@
                 <h2>Our Core Values</h2>
                 <p>The principles that guide everything we do</p>
             </div>
-            <div class="values-grid">
-                <div class="value-card">
-                    <div class="value-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                        </svg>
-                    </div>
+            <div class="spec-table spec-table--two">
+                <div class="spec-row">
                     <h3>Integrity</h3>
-                    <p>We give you the inspection findings as we found them, including the ones that cost us the job.</p>
+                    <p class="spec-note">We give you the inspection findings as we found them, including the ones that cost us the job.</p>
                 </div>
-                <div class="value-card">
-                    <div class="value-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                            <circle cx="9" cy="7" r="4"/>
-                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                        </svg>
-                    </div>
+                <div class="spec-row">
                     <h3>Trust</h3>
-                    <p>The quote you sign is the invoice you pay. No change orders invented halfway through the week.</p>
+                    <p class="spec-note">The quote you sign is the invoice you pay. No change orders invented halfway through the week.</p>
                 </div>
-                <div class="value-card">
-                    <div class="value-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
-                            <path d="M12 6v6l4 2"/>
-                        </svg>
-                    </div>
+                <div class="spec-row">
                     <h3>Sustainability</h3>
-                    <p>Restoring one 30,000 sq ft roof keeps roughly 150 tons of old roofing out of landfill &mdash; and the reflective finish cuts the building's cooling load for the next two decades.</p>
+                    <p class="spec-note">Restoring one 30,000 sq ft roof keeps roughly 150 tons of old roofing out of landfill &mdash; and the reflective finish cuts the building's cooling load for the next two decades.</p>
                 </div>
-                <div class="value-card">
-                    <div class="value-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <line x1="12" y1="1" x2="12" y2="23"/>
-                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-                        </svg>
-                    </div>
+                <div class="spec-row">
                     <h3>Cost-Effectiveness</h3>
-                    <p>Restoration runs about $3.50&ndash;$5.00 per square foot against $8&ndash;$15 for tear-off and replacement &mdash; and it deducts in year one.</p>
+                    <p class="spec-note">Restoration runs about $3.50&ndash;$5.00 per square foot against $8&ndash;$15 for tear-off and replacement &mdash; and it generally deducts in year one (confirm with your CPA).</p>
                 </div>
             </div>
         </div>
@@ -236,34 +189,22 @@
                 <h2>What Sets Us Apart</h2>
                 <p>Four things that change what a roof project costs you &mdash; in money and in disruption</p>
             </div>
-            <div class="diff-grid">
-                <div class="diff-item">
-                    <div class="diff-number">01</div>
-                    <div class="diff-content">
-                        <h3>Cost-Effective Restoration</h3>
-                        <p>A silicone restoration costs roughly half of a tear-off, carries the same 20-year horizon, and the IRS lets you deduct all of it in year one instead of depreciating it over 39.</p>
-                    </div>
+            <div class="spec-table spec-table--two">
+                <div class="spec-row">
+                    <h3>Cost-Effective Restoration</h3>
+                    <p class="spec-note">A silicone restoration costs roughly half of a tear-off, carries the same 20-year horizon, and it is generally deductible in year one instead of depreciated over 39 &mdash; confirm with your CPA.</p>
                 </div>
-                <div class="diff-item">
-                    <div class="diff-number">02</div>
-                    <div class="diff-content">
-                        <h3>Non-Disruptive Installation</h3>
-                        <p>Most roofs are finished in 3&ndash;7 days. Your tenants keep trading, your staff keep working, and nothing gets torn off over their heads.</p>
-                    </div>
+                <div class="spec-row">
+                    <h3>Non-Disruptive Installation</h3>
+                    <p class="spec-note">Most roofs are finished in 3&ndash;7 days. Your tenants keep trading, your staff keep working, and nothing gets torn off over their heads.</p>
                 </div>
-                <div class="diff-item">
-                    <div class="diff-number">03</div>
-                    <div class="diff-content">
-                        <h3>Eco-Friendly Solutions</h3>
-                        <p>A white silicone surface reflects up to 85% of sunlight, dropping roof temperature by as much as 50&deg;F &mdash; and your old roof stays out of landfill.</p>
-                    </div>
+                <div class="spec-row">
+                    <h3>Eco-Friendly Solutions</h3>
+                    <p class="spec-note">A white silicone surface reflects up to 85% of sunlight, dropping roof temperature by as much as 50&deg;F &mdash; and your old roof stays out of landfill.</p>
                 </div>
-                <div class="diff-item">
-                    <div class="diff-number">04</div>
-                    <div class="diff-content">
-                        <h3>Watertight Protection</h3>
-                        <p>Silicone is the one fluid-applied coating rated for permanent ponding water. It goes on as a single seamless membrane, so there are no joints left to fail.</p>
-                    </div>
+                <div class="spec-row">
+                    <h3>Watertight Protection</h3>
+                    <p class="spec-note">Silicone is the one fluid-applied coating rated for permanent ponding water. It goes on as a single seamless membrane, so there are no joints left to fail.</p>
                 </div>
             </div>
         </div>
@@ -280,40 +221,17 @@
         </div>
     </section>
 
+    </main>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-about">
                     <a href="index.html" class="footer-logo">
-                        <img src="assets/icons/small-logo.png" alt="Silicone Roof Pros" class="footer-logo-img">
+                        <img width="500" height="500" src="assets/icons/small-logo.png" alt="Silicone Roof Pros" class="footer-logo-img">
                     </a>
                     <p>Commercial flat roof restoration in Texas and Pennsylvania. We spray seamless silicone, acrylic and aluminum coating systems over your existing roof &mdash; no tear-off, warrantied 10, 15 or 20 years.</p>
-                    <div class="social-links">
-                        <a href="#" aria-label="Facebook">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
-                            </svg>
-                        </a>
-                        <a href="#" aria-label="Instagram">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-                            </svg>
-                        </a>
-                        <a href="#" aria-label="Twitter">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
-                            </svg>
-                        </a>
-                        <a href="#" aria-label="YouTube">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/>
-                                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="white"/>
-                            </svg>
-                        </a>
-                    </div>
                 </div>
                 <div class="footer-links">
                     <h4>Quick Links</h4>
@@ -333,7 +251,11 @@
                             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
                             </svg>
-                            <a href="tel:8323033183">(832) 303-3183</a>
+                            <a href="tel:8323033183">Texas: (832) 303-3183</a>
+                        </li>
+                        <li>
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            <a href="tel:4844018586">Pennsylvania: (484) 401-8586</a>
                         </li>
                         <li>
                             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -349,7 +271,7 @@
                     <p>Subscribe for roofing tips and industry insights.</p>
                     <form name="newsletter" method="POST" data-netlify="true" class="newsletter-form">
                         <input type="hidden" name="form-name" value="newsletter">
-                        <input type="email" name="email" placeholder="Enter your email" required>
+                        <input type="email" name="email" placeholder="Enter your email" aria-label="Email address" autocomplete="email" required>
                         <button type="submit" class="btn btn-primary">Subscribe</button>
                     </form>
                 </div>
@@ -357,14 +279,19 @@
             <div class="footer-bottom">
                 <p>&copy; 2026 Silicone Roof Pros. All rights reserved.</p>
                 <div class="footer-legal">
-                    <a href="#">Terms of Service</a>
-                    <a href="#">Privacy Policy</a>
+                    <a href="privacy.html">Privacy Policy</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <script src="js/main.js?v=2026-10-06"></script>
-    <script src="js/exit-intent.js?v=2026-10-06"></script>
+    <nav class="mobile-callbar" aria-label="Call or get a quote">
+        <a href="tel:8323033183" class="callbar-call"><span class="callbar-region">Call TX</span><span class="callbar-num">(832) 303-3183</span></a>
+        <a href="tel:4844018586" class="callbar-call"><span class="callbar-region">Call PA</span><span class="callbar-num">(484) 401-8586</span></a>
+        <a href="quote.html" class="callbar-quote">Quote</a>
+    </nav>
+
+    <script src="js/main.js?v=2026-10-09c"></script>
+    <script src="js/exit-intent.js?v=2026-10-09c"></script>
 </body>
 </html>

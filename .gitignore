@@ -1,0 +1,4 @@
+# Impeccable's engine binary (~20 MB, platform-specific). The skill's launcher
+# downloads it on first use, so it doesn't belong in the repo.
+.claude/skills/impeccable/scripts/bin/
+.impeccable/review/

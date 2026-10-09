@@ -13,4 +13,14 @@ else
     echo "API key injection complete"
 fi
 
+# Netlify publishes the repo root, so tooling folders would otherwise be
+# downloadable from the live site. Strip them from the deploy only - the
+# NETLIFY check keeps a local run of this script from deleting them.
+if [ "$NETLIFY" = "true" ]; then
+    # PRODUCT.md / DESIGN.md hold internal notes (e.g. which proof is
+    # unverified) that must never be served from the public site.
+    rm -rf .claude .impeccable PRODUCT.md DESIGN.md DESIGN.json
+    echo "Removed design tooling and internal docs from the deploy"
+fi
+
 echo "Build complete"

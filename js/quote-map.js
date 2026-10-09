@@ -106,9 +106,9 @@
             drawingMode: null,
             drawingControl: false, // We use custom controls
             polygonOptions: {
-                fillColor: '#0088df',
+                fillColor: '#f4a21c',
                 fillOpacity: 0.35,
-                strokeColor: '#0088df',
+                strokeColor: '#f4a21c',
                 strokeWeight: 3,
                 editable: true,
                 draggable: true
@@ -323,7 +323,7 @@
             icon: {
                 url: 'data:image/svg+xml,' + encodeURIComponent(`
                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="48" viewBox="0 0 40 48">
-                        <path d="M20 0C8.954 0 0 8.954 0 20c0 14 20 28 20 28s20-14 20-28C40 8.954 31.046 0 20 0z" fill="#0088df"/>
+                        <path d="M20 0C8.954 0 0 8.954 0 20c0 14 20 28 20 28s20-14 20-28C40 8.954 31.046 0 20 0z" fill="#f4a21c"/>
                         <circle cx="20" cy="18" r="8" fill="white"/>
                     </svg>
                 `),
@@ -377,7 +377,7 @@
             clearDrawingBtn.style.display = 'inline-flex';
         }
         if (drawingHint) {
-            drawingHint.textContent = 'Click corners of your roof to outline it. Double-click or click the first point to complete.';
+            drawingHint.textContent = 'Tap or click each corner of your roof, then tap the first corner again to finish.';
             drawingHint.classList.add('active');
         }
 
@@ -413,7 +413,7 @@
             clearDrawingBtn.style.display = 'none';
         }
         if (drawingHint) {
-            drawingHint.textContent = 'Click corners of your roof to outline it. Double-click or click the first point to complete.';
+            drawingHint.textContent = 'Tap or click each corner of your roof, then tap the first corner again to finish.';
             drawingHint.classList.remove('active');
         }
 
@@ -769,7 +769,9 @@
             // reason. Don't replace a better message with a vaguer one.
             if (mapOverlay && mapOverlay.getAttribute('data-map-failed')) return;
             if (mapContainer && mapOverlay) {
-                mapOverlay.setAttribute('data-map-failed', '1');
+                // "slow" (not "1"): showLiveMapHint() restores the map if the script arrives late
+                mapOverlay.setAttribute('data-map-failed', 'slow');
+                mapOverlay.setAttribute('data-placeholder-html', mapOverlay.innerHTML);
                 mapOverlay.classList.remove('is-live');
                 mapOverlay.innerHTML = `
                     <div class="map-overlay-card">
@@ -779,7 +781,7 @@
                         <line x1="12" y1="16" x2="12.01" y2="16"/>
                     </svg>
                     <p><strong>Map Unavailable</strong></p>
-                    <p style="font-size: 0.75rem;">Enter your address in the form below, or call <a href="tel:8323033183">(832) 303-3183</a> and we will measure your roof from satellite for you.</p>
+                    <p style="font-size: 0.75rem;">Enter your address in the form below, or call Texas <a href="tel:8323033183">(832) 303-3183</a> or Pennsylvania <a href="tel:4844018586">(484) 401-8586</a>, and we will measure your roof from satellite for you.</p>
                     </div>
                 `;
 
@@ -800,7 +802,14 @@
      */
     function showLiveMapHint(overlayId) {
         const overlay = document.getElementById(overlayId);
-        if (!overlay || overlay.classList.contains('hidden') || overlay.getAttribute('data-map-failed')) return;
+        if (!overlay) return;
+        // The timeout fallback gave up too early: the map has now loaded, so undo it.
+        if (overlay.getAttribute('data-map-failed') === 'slow') {
+            overlay.innerHTML = overlay.getAttribute('data-placeholder-html') || overlay.innerHTML;
+            overlay.removeAttribute('data-map-failed');
+            overlay.removeAttribute('data-placeholder-html');
+        }
+        if (overlay.classList.contains('hidden') || overlay.getAttribute('data-map-failed')) return;
         const text = overlay.querySelector('p');
         if (text) text.textContent = 'Type your address above to zoom to your roof';
         overlay.classList.add('is-live');
@@ -814,8 +823,8 @@
 
     // Check for Google Maps API after page load
     document.addEventListener('DOMContentLoaded', function() {
-        // Give Google Maps time to load
-        setTimeout(initFallback, 3000);
+        // Give Google Maps a generous window on slow connections (it recovers if late)
+        setTimeout(initFallback, 12000);
     });
 
 })();

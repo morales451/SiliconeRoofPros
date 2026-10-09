@@ -19,7 +19,7 @@
 .hero-map {
     position: relative;
     padding: var(--spacing-3xl) 0;
-    background: linear-gradient(135deg, #0a1628 0%, #1a2d4a 100%);
+    background: var(--survey);
     overflow: hidden;
     min-height: 80vh;
     display: flex;
@@ -30,8 +30,8 @@
     position: absolute;
     inset: 0;
     background-image:
-        radial-gradient(circle at 20% 80%, rgba(0, 136, 223, 0.15) 0%, transparent 40%),
-        radial-gradient(circle at 80% 20%, rgba(0, 136, 223, 0.1) 0%, transparent 40%);
+        radial-gradient(circle at 20% 80%, rgba(10, 95, 150, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 80% 20%, rgba(10, 95, 150, 0.1) 0%, transparent 40%);
 }
 
 .hero-map-content {
@@ -55,7 +55,7 @@
 }
 
 .hero-map-text h1 .highlight {
-    color: #fbbf24;
+    color: var(--action);
     display: inline;
 }
 
@@ -90,7 +90,7 @@
 }
 
 .hero-benefit strong {
-    color: #fbbf24;
+    color: var(--action);
 }
 
 .hero-cta-text {
@@ -100,7 +100,7 @@
 }
 
 .hero-cta-text strong {
-    color: #fbbf24;
+    color: var(--action);
 }
 
 .hero-install-img {
@@ -125,7 +125,8 @@
     margin-bottom: var(--spacing-lg);
 }
 
-.map-widget-header h3 {
+.map-widget-header h2 {
+    line-height: 1.2;
     font-size: var(--font-size-xl);
     margin-bottom: var(--spacing-xs);
     color: var(--gray-900);
@@ -172,7 +173,7 @@
 .search-input-group input:focus {
     outline: none;
     border-color: var(--primary);
-    box-shadow: 0 0 0 4px rgba(0, 136, 223, 0.1);
+    box-shadow: 0 0 0 4px rgba(10, 95, 150, 0.35);
 }
 
 .map-widget-search .btn {
@@ -267,8 +268,8 @@
     align-items: center;
     gap: var(--spacing-md);
     padding: var(--spacing-md);
-    background: #ecfdf5;
-    border: 1px solid #a7f3d0;
+    background: var(--dry-tint);
+    border: 1px solid var(--dry-tint);
     border-radius: var(--radius-md);
     margin-bottom: var(--spacing-md);
 }
@@ -276,14 +277,14 @@
 .map-widget-pin svg {
     width: 24px;
     height: 24px;
-    color: #10b981;
+    color: var(--dry);
     flex-shrink: 0;
 }
 
 .map-widget-pin span {
     flex: 1;
     font-size: var(--font-size-sm);
-    color: #065f46;
+    color: var(--dry);
 }
 
 .map-widget-pin .btn {
@@ -364,7 +365,7 @@
    =================================== */
 .flat-roof-pain {
     padding: var(--spacing-4xl) 0;
-    background: linear-gradient(180deg, #1a1a2e 0%, #2d1f3d 100%);
+    background: var(--survey);
     color: white;
 }
 
@@ -381,10 +382,9 @@
 }
 
 .pain-highlight {
-    color: #ef4444;
+    color: var(--wet);
     display: block;
     font-size: 3.5rem;
-    text-transform: uppercase;
     letter-spacing: -0.02em;
 }
 
@@ -402,7 +402,7 @@
 
 .problem-intro h3 .underline {
     text-decoration: underline;
-    text-decoration-color: #ef4444;
+    text-decoration-color: var(--wet);
     text-underline-offset: 4px;
 }
 
@@ -415,7 +415,7 @@
 
 .problem-intro .cost-callout {
     font-size: 1.5rem;
-    color: #fbbf24;
+    color: var(--action);
     font-weight: 700;
     margin: var(--spacing-xl) 0;
 }
@@ -425,7 +425,7 @@
 }
 
 .problem-intro em {
-    color: #ef4444;
+    color: var(--wet);
     font-style: italic;
 }
 
@@ -501,16 +501,6 @@
     overflow: hidden;
 }
 
-.pain-column::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #ef4444 0%, #dc2626 100%);
-}
-
 .pain-icon {
     width: 64px;
     height: 64px;
@@ -525,7 +515,7 @@
 .pain-icon svg {
     width: 32px;
     height: 32px;
-    color: #ef4444;
+    color: var(--wet);
 }
 
 .pain-column h4 {
@@ -536,7 +526,7 @@
 }
 
 .pain-column h4 .red {
-    color: #ef4444;
+    color: var(--wet);
     font-weight: 900;
 }
 
@@ -556,7 +546,7 @@
 }
 
 .pain-column em {
-    color: #fbbf24;
+    color: var(--action);
     font-style: italic;
 }
 
@@ -565,7 +555,7 @@
    =================================== */
 .the-solution {
     padding: var(--spacing-4xl) 0;
-    background: linear-gradient(180deg, #ecfdf5 0%, #f0fdf4 100%);
+    background: var(--dry-tint);
 }
 
 .solution-header {
@@ -581,7 +571,7 @@
 }
 
 .solution-highlight {
-    color: #059669;
+    color: var(--dry);
     background: linear-gradient(180deg, transparent 60%, rgba(16, 185, 129, 0.3) 60%);
     padding: 0 0.25rem;
 }
@@ -594,7 +584,7 @@
 }
 
 .solution-subtitle strong {
-    color: #059669;
+    color: var(--dry);
 }
 
 .solution-grid {
@@ -613,7 +603,7 @@
     padding: var(--spacing-xl);
     border-radius: var(--radius-lg);
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    border-left: 4px solid #10b981;
+    border: 1px solid var(--gray-200);
     transition: transform var(--transition-base), box-shadow var(--transition-base);
 }
 
@@ -625,7 +615,7 @@
 .solution-item svg {
     width: 28px;
     height: 28px;
-    color: #10b981;
+    color: var(--dry);
     flex-shrink: 0;
     margin-top: 2px;
 }
@@ -864,14 +854,14 @@
    =================================== */
 .warranty-banner {
     padding: var(--spacing-4xl) 0;
-    background: linear-gradient(180deg, #faf6eb 0%, #f0ebe0 100%);
+    background: var(--sheet);
 }
 
 .warranty-certificate {
     max-width: 880px;
     margin: 0 auto;
-    background: linear-gradient(180deg, #fefcf7 0%, #faf7ef 100%);
-    border: 2px solid #c9a84c;
+    background: var(--sheet);
+    border: 2px solid var(--action);
     border-radius: 16px;
     padding: 48px 40px 32px;
     position: relative;
@@ -901,26 +891,26 @@
 .warranty-shield {
     width: 76px;
     height: 76px;
-    background: linear-gradient(145deg, #1a1a2e 0%, #0f1626 100%);
+    background: var(--survey);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto var(--spacing-lg);
-    border: 3px solid #c9a84c;
+    border: 3px solid var(--action);
     box-shadow: 0 4px 16px rgba(26, 26, 46, 0.3);
 }
 
 .warranty-shield svg {
     width: 36px;
     height: 36px;
-    color: #fbbf24;
+    color: var(--action);
 }
 
 .warranty-title {
     font-size: 2.125rem;
     font-weight: 800;
-    color: #1a1a2e;
+    color: var(--survey);
     margin-bottom: var(--spacing-sm);
     letter-spacing: -0.01em;
 }
@@ -934,14 +924,14 @@
 
 .warranty-label {
     display: inline-block;
-    background: linear-gradient(135deg, #1a1a2e 0%, #0f1626 100%);
-    color: #fbbf24;
+    background: var(--survey);
+    color: var(--action);
     font-size: 1rem;
     font-weight: 800;
     padding: 0.5rem 2rem;
     border-radius: 4px;
-    letter-spacing: 0.1em;
-    border: 1px solid #c9a84c;
+    letter-spacing: 0.01em;
+    border: 1px solid var(--action);
 }
 
 /* Warranty tier circles: 10 / 15 / 20 */
@@ -961,8 +951,8 @@
     gap: 2px;
     width: 96px;
     height: 96px;
-    background: linear-gradient(145deg, #fff8e1 0%, #fff3cc 100%);
-    border: 2px solid #c9a84c;
+    background: var(--sheet);
+    border: 2px solid var(--action);
     border-radius: 50%;
     position: relative;
     box-shadow: 0 4px 12px rgba(201, 168, 76, 0.2);
@@ -971,16 +961,15 @@
 .tier-years {
     font-size: 1.875rem;
     font-weight: 900;
-    color: #1a1a2e;
+    color: var(--survey);
     line-height: 1;
 }
 
 .tier-label {
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+    font-size: 0.75rem;
+    letter-spacing: 0.01em;
     font-weight: 700;
-    color: var(--gray-500);
+    color: var(--gray-600);
 }
 
 /* "Choose Your Warranty" label above tiers */
@@ -988,9 +977,8 @@
     display: block;
     font-size: 0.75rem;
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: #c9a84c;
+    letter-spacing: 0.01em;
+    color: #8a6a1a;
     margin-bottom: var(--spacing-sm);
 }
 
@@ -998,7 +986,7 @@
 .warranty-divider {
     width: 120px;
     height: 2px;
-    background: linear-gradient(90deg, transparent, #c9a84c, transparent);
+    background: linear-gradient(90deg, transparent, var(--action), transparent);
     margin: var(--spacing-xl) auto;
 }
 
@@ -1016,7 +1004,7 @@
 }
 
 .warranty-details strong {
-    color: #059669;
+    color: var(--dry);
     font-weight: 800;
 }
 
@@ -1040,7 +1028,7 @@
 .warranty-feature-icon {
     width: 28px;
     height: 28px;
-    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    background: var(--dry);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -1057,7 +1045,7 @@
 .warranty-feature span {
     font-size: 0.9rem;
     font-weight: 700;
-    color: #1a1a2e;
+    color: var(--survey);
 }
 
 /* Fine-print disclaimer */
@@ -1068,7 +1056,7 @@
     margin: var(--spacing-lg) auto 0;
     line-height: 1.6;
     padding-top: var(--spacing-md);
-    border-top: 1px solid rgba(201, 168, 76, 0.25);
+    border-top: 1px solid var(--rule);
 }
 
 /* Warranty banner responsive */
@@ -1127,7 +1115,7 @@
     }
 
     .tier-label {
-        font-size: 0.6rem;
+        font-size: 0.75rem;
     }
 
     .warranty-features {
@@ -1140,7 +1128,7 @@
 /* Final CTA */
 .final-cta {
     padding: var(--spacing-4xl) 0;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    background: var(--primary);
 }
 
 .final-cta-content {
@@ -1156,7 +1144,7 @@
 }
 
 .final-cta-content h2 .highlight {
-    color: #fbbf24;
+    color: var(--action);
 }
 
 .final-cta-content > p {
@@ -1344,7 +1332,7 @@
    =================================== */
 .before-after-section {
     padding: var(--spacing-4xl) 0;
-    background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+    background: var(--sheet);
 }
 
 .before-after-section .section-header {
@@ -1399,17 +1387,16 @@
     border-radius: var(--radius-lg);
     font-weight: 800;
     font-size: 1.75rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    letter-spacing: 0.01em;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .label-before {
-    background: rgba(220, 38, 38, 0.9);
+    background: var(--wet);
 }
 
 .label-after {
-    background: rgba(16, 185, 129, 0.9);
+    background: var(--dry);
 }
 
 .before-after-benefits {
@@ -1487,7 +1474,7 @@
    =================================== */
 .service-areas-map {
     padding: var(--spacing-4xl) 0;
-    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    background: #ffffff;
 }
 
 .service-areas-map .section-header {
@@ -1574,7 +1561,7 @@
 }
 
 .city-badge {
-    background: linear-gradient(135deg, var(--primary) 0%, #0070b8 100%);
+    background: var(--primary);
     color: white;
     padding: 0.5rem 1rem;
     border-radius: var(--radius-full);
@@ -1586,9 +1573,8 @@
 }
 
 a.city-badge:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 136, 223, 0.4);
-    background: linear-gradient(135deg, #0070b8 0%, var(--primary-dark) 100%);
+    background: var(--action);
+    color: var(--ink);
 }
 
 .service-note {
@@ -1631,7 +1617,7 @@ a.city-badge:hover {
    =================================== */
 .testimonials-section {
     padding: var(--spacing-4xl) 0;
-    background: linear-gradient(135deg, #1a1a2e 0%, #0a0a14 100%);
+    background: var(--survey);
 }
 
 .testimonials-section .section-header {
@@ -1683,7 +1669,7 @@ a.city-badge:hover {
     min-height: 20px;
     max-height: 20px;
     flex-shrink: 0;
-    color: #fbbf24;
+    color: var(--action);
 }
 
 .testimonial-text {
@@ -1703,7 +1689,7 @@ a.city-badge:hover {
 .author-avatar {
     width: 48px;
     height: 48px;
-    background: linear-gradient(135deg, var(--primary) 0%, #00c4cc 100%);
+    background: var(--primary);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -1766,7 +1752,7 @@ a.city-badge:hover {
    =================================== */
 .tax-savings {
     padding: var(--spacing-4xl) 0;
-    background: #f0f7ff;
+    background: var(--sheet);
 }
 
 .tax-savings-inner {
@@ -1781,8 +1767,7 @@ a.city-badge:hover {
     color: #fff;
     font-size: 0.75rem;
     font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
+    letter-spacing: 0.01em;
     padding: 6px 18px;
     border-radius: 20px;
     margin-bottom: var(--spacing-md);
@@ -1820,29 +1805,28 @@ a.city-badge:hover {
 }
 
 .tax-compare-good {
-    background: #ecfdf5;
-    border: 2px solid #10b981;
+    background: var(--dry-tint);
+    border: 2px solid var(--dry);
 }
 
 .tax-compare-bad {
-    background: #fef2f2;
-    border: 2px solid #ef4444;
+    background: var(--wet-tint);
+    border: 2px solid var(--wet);
 }
 
 .tax-compare-type {
     font-weight: 700;
     font-size: 0.82rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.01em;
     margin-bottom: 14px;
 }
 
 .tax-compare-good .tax-compare-type {
-    color: #059669;
+    color: var(--dry);
 }
 
 .tax-compare-bad .tax-compare-type {
-    color: #dc2626;
+    color: var(--wet);
 }
 
 .tax-compare-icon {
@@ -1856,11 +1840,11 @@ a.city-badge:hover {
 }
 
 .tax-compare-good .tax-compare-icon {
-    background: #10b981;
+    background: var(--dry);
 }
 
 .tax-compare-bad .tax-compare-icon {
-    background: #ef4444;
+    background: var(--wet);
 }
 
 .tax-compare-icon svg {
@@ -1878,21 +1862,20 @@ a.city-badge:hover {
 
 .tax-compare-detail {
     font-size: 0.85rem;
-    color: var(--gray-500);
+    color: var(--gray-600);
 }
 
 .tax-compare-vs {
     font-size: 1rem;
     font-weight: 700;
-    color: var(--gray-400);
-    text-transform: uppercase;
+    color: var(--gray-600);
     flex-shrink: 0;
 }
 
 /* Dollar example callout */
 .tax-example {
     background: #fff;
-    border: 1px solid #dbeafe;
+    border: 1px solid var(--sheet);
     border-radius: 10px;
     padding: 18px 28px;
     margin-bottom: var(--spacing-xl);
@@ -1937,7 +1920,7 @@ a.city-badge:hover {
    =================================== */
 .certified-installer {
     padding: var(--spacing-3xl) 0;
-    background: linear-gradient(135deg, #0088df 0%, #0070b8 100%);
+    background: var(--primary);
 }
 
 .certified-content {
@@ -1977,7 +1960,7 @@ a.city-badge:hover {
 }
 
 .certified-text p {
-    color: rgba(255, 255, 255, 0.85);
+    color: rgba(255, 255, 255, 0.95);
     font-size: 1rem;
     margin: 0;
     max-width: 700px;
@@ -2022,8 +2005,7 @@ a.city-badge:hover {
     color: var(--primary);
     font-size: 0.7rem;
     font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.01em;
     text-align: center;
 }
 
@@ -2118,8 +2100,8 @@ a.city-badge:hover {
 .hero-measurement {
     margin-top: var(--spacing-lg);
     padding: var(--spacing-lg);
-    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
-    border: 2px solid #10b981;
+    background: var(--dry-tint);
+    border: 2px solid var(--dry);
     border-radius: var(--radius-lg);
     text-align: center;
 }
@@ -2128,7 +2110,7 @@ a.city-badge:hover {
     display: block;
     font-size: 2.5rem;
     font-weight: 900;
-    color: #059669;
+    color: var(--dry);
     line-height: 1;
     margin-bottom: var(--spacing-xs);
 }
@@ -2298,7 +2280,7 @@ a.city-badge:hover {
 .estimate-step-body input:focus {
     outline: none;
     border-color: var(--primary);
-    box-shadow: 0 0 0 4px rgba(0, 136, 223, 0.1);
+    box-shadow: 0 0 0 4px rgba(10, 95, 150, 0.35);
 }
 
 .estimate-step-body .btn {
@@ -2323,7 +2305,7 @@ a.city-badge:hover {
     gap: var(--spacing-sm);
     text-align: center;
     font-size: var(--font-size-xs);
-    color: var(--gray-400);
+    color: var(--gray-600);
     margin-top: var(--spacing-lg);
     margin-bottom: 0;
 }
@@ -2336,7 +2318,7 @@ a.city-badge:hover {
 
 /* Estimate Result Header */
 .estimate-result-header {
-    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+    background: var(--dry-tint);
     margin: calc(-1 * var(--spacing-2xl));
     margin-bottom: var(--spacing-xl);
     padding: var(--spacing-xl);
@@ -2346,7 +2328,7 @@ a.city-badge:hover {
 .estimate-checkmark {
     width: 64px;
     height: 64px;
-    background: #10b981;
+    background: var(--dry);
     border-radius: var(--radius-full);
     display: flex;
     align-items: center;
@@ -2391,8 +2373,8 @@ a.city-badge:hover {
 
 /* Estimate Price Box */
 .estimate-price-box {
-    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
-    border: 2px solid #10b981;
+    background: var(--dry-tint);
+    border: 2px solid var(--dry);
     border-radius: var(--radius-xl);
     padding: var(--spacing-xl);
     margin-bottom: var(--spacing-xl);
@@ -2417,27 +2399,25 @@ a.city-badge:hover {
 .estimate-price {
     font-size: 2rem;
     font-weight: 900;
-    color: #059669;
+    color: var(--dry);
 }
 
 .estimate-price-divider {
     font-size: var(--font-size-base);
-    color: var(--gray-500);
+    color: var(--gray-600);
 }
 
 .estimate-price-note {
     font-size: var(--font-size-xs);
-    color: var(--gray-500);
+    color: var(--gray-600);
     margin-top: var(--spacing-md);
     margin-bottom: 0;
 }
 
 /* Estimate Factors */
 .estimate-factors {
-    background: #fffbeb;
-    border: 1px solid #fcd34d;
-    border-radius: var(--radius-lg);
-    padding: var(--spacing-lg);
+    border-top: 1px solid var(--gray-200);
+    padding: var(--spacing-lg) 0 0;
     margin-bottom: var(--spacing-xl);
     text-align: left;
 }
@@ -2470,7 +2450,7 @@ a.city-badge:hover {
     content: '•';
     position: absolute;
     left: 0;
-    color: #f59e0b;
+    color: var(--action);
 }
 
 /* Estimate CTA */
@@ -2505,15 +2485,15 @@ a.city-badge:hover {
 }
 
 .btn-success {
-    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    background: var(--dry);
     color: white;
     border: none;
 }
 
 .btn-success:hover {
-    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    background: var(--dry);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 /* Responsive for Drawing/Estimate */
@@ -2544,3 +2524,1246 @@ a.city-badge:hover {
         font-size: 1.75rem;
     }
 }
+
+/* Card icons sit beside their heading as plain line icons, not inside a
+   tinted tile stacked above it. */
+.benefit-card,
+.pain-column {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: var(--spacing-md);
+    align-items: center;
+    align-content: start;
+}
+
+.benefit-card > :not(.benefit-icon):not(h3),
+.pain-column > :not(.pain-icon):not(h4) {
+    grid-column: 1 / -1;
+}
+
+.benefit-card > h3,
+.pain-column > h4 {
+    margin-bottom: 0;
+}
+
+.benefit-card > h3 + *,
+.pain-column > h4 + * {
+    margin-top: var(--spacing-md);
+}
+
+.benefit-card .benefit-icon,
+.pain-icon {
+    width: auto;
+    height: auto;
+    background: none;
+    border-radius: 0;
+    margin-bottom: 0;
+}
+
+.city-badge {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+}
+
+/* ===================================
+   Survey hero: the satellite viewport
+   =================================== */
+.hero-map {
+    min-height: 0;
+    display: block;
+    padding: clamp(2.5rem, 5vw, 4.5rem) 0 clamp(3rem, 6vw, 5.5rem);
+    background-color: var(--survey);
+}
+
+.hero-map-content {
+    grid-template-columns: minmax(0, 11fr) minmax(0, 13fr);
+    gap: clamp(2rem, 4vw, 3.5rem);
+    align-items: start;
+}
+
+.hero-map-text h1 {
+    font-size: clamp(2.2rem, 1.2rem + 2.6vw, 3.4rem);
+    line-height: 0.98;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: var(--spacing-lg);
+}
+
+.hero-map-text h1 .highlight {
+    display: block;
+    color: var(--action);
+}
+
+.hero-subhead {
+    margin-top: 0;
+    color: var(--gray-300);
+    font-size: 1.0625rem;
+    max-width: 48ch;
+}
+
+/* Readouts: restore against replace, set like instrument values */
+.readout-strip {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border-top: 1px solid var(--survey-line);
+    border-left: 1px solid var(--survey-line);
+    margin: 0 0 var(--spacing-xl);
+}
+
+.readout {
+    border-right: 1px solid var(--survey-line);
+    border-bottom: 1px solid var(--survey-line);
+    padding: 0.7rem 0.9rem 0.8rem;
+}
+
+.readout dt {
+    font-size: 0.8125rem;
+    color: var(--gray-400);
+    margin-bottom: 0.15rem;
+}
+
+.readout dd {
+    margin: 0;
+    color: var(--white);
+    display: flex;
+    align-items: baseline;
+    gap: 0.3rem;
+}
+
+.readout-num {
+    font-size: clamp(1.35rem, 1rem + 1vw, 1.75rem);
+    font-weight: 700;
+    font-stretch: 75%;
+    letter-spacing: -0.01em;
+}
+
+.readout-unit {
+    font-size: 0.875rem;
+    color: var(--gray-400);
+}
+
+.readout-wet {
+    background-image: repeating-linear-gradient(135deg, rgba(212, 35, 42, 0.32) 0 2px, transparent 2px 8px);
+}
+
+.readout-wet dt { color: var(--wet-on-dark); }
+.readout-wet .readout-num { color: var(--white); }
+
+/* Phone: the second, equal door */
+.hero-call .hero-cta-text {
+    font-size: 0.9375rem;
+    color: var(--gray-300);
+    margin-bottom: var(--spacing-sm);
+}
+
+.hero-call-lines {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+}
+
+.call-line {
+    display: inline-flex;
+    flex-direction: column;
+    min-height: 44px;
+    padding: 0.25rem 0;
+    color: var(--white);
+}
+
+.call-region {
+    font-size: 0.8125rem;
+    color: var(--gray-400);
+}
+
+.call-num {
+    font-size: 1.375rem;
+    font-weight: 700;
+    font-stretch: 87.5%;
+    font-variant-numeric: tabular-nums;
+    text-decoration: underline;
+    text-decoration-color: var(--action);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.2em;
+}
+
+.call-line:hover .call-num { color: var(--action); }
+
+/* The frame */
+.hero-map-widget.survey-frame {
+    background: #121417;
+    border: 1px solid var(--survey-line);
+    border-top: 0;
+    border-radius: 0;
+    padding: 0;
+    box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.8);
+    position: relative;
+}
+
+.survey-frame::before {
+    content: "";
+    display: block;
+    height: 4px;
+    background: linear-gradient(90deg, var(--heat-0), var(--heat-1) 20%, var(--heat-2) 42%, var(--heat-3) 62%, var(--heat-4) 82%, var(--heat-5));
+}
+
+.survey-frame .map-widget-header {
+    text-align: left;
+    padding: 1rem 1.1rem 0.85rem;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.25rem 1rem;
+}
+
+.survey-frame .map-widget-header h2 {
+    color: var(--white);
+    font-size: 1.25rem;
+    margin: 0;
+}
+
+.survey-frame .map-widget-header p {
+    color: var(--gray-400);
+    font-size: 0.875rem;
+}
+
+.survey-frame .map-widget-search {
+    flex-direction: row;
+    gap: 0;
+    margin: 0 1.1rem 1rem;
+}
+
+.survey-frame .search-input-group { flex: 1; }
+
+.survey-frame .search-input-group input {
+    height: 56px;
+    border: 1px solid var(--ink);
+    border-right: 0;
+    border-radius: 2px 0 0 2px;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 1.0625rem;
+}
+
+.survey-frame .search-input-group input::placeholder { color: var(--gray-500); }
+
+.survey-frame .search-input-group input:focus {
+    box-shadow: inset 0 0 0 2px var(--action);
+    border-color: var(--ink);
+}
+
+.survey-frame .search-input-group .search-icon { color: var(--gray-600); }
+
+.survey-frame .map-widget-search .btn {
+    width: auto;
+    height: 56px;
+    padding: 0 1.4rem;
+    border-radius: 0 2px 2px 0;
+    white-space: nowrap;
+}
+
+/* The viewport */
+.survey-viewport {
+    margin: 0;
+    border-radius: 0;
+    background: #2a2d31;
+    border-top: 1px solid var(--survey-line);
+    border-bottom: 1px solid var(--survey-line);
+}
+
+.survey-viewport #hero-map {
+    height: clamp(320px, 36vw, 470px);
+}
+
+.survey-viewport .map-widget-overlay {
+    align-items: center;
+    background: #2a2d31 url('../assets/icons/map-placeholder.svg') center / cover no-repeat;
+    background-blend-mode: luminosity;
+}
+
+.survey-viewport .map-widget-overlay.is-live {
+    background: none;
+    align-items: flex-end;
+    padding-bottom: 2.25rem;
+}
+
+.survey-viewport .map-placeholder {
+    background: rgba(18, 20, 23, 0.92);
+    color: var(--gray-200);
+    border: 1px solid var(--survey-line);
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0.75rem 1rem;
+}
+
+.survey-viewport .map-placeholder svg { color: var(--action); }
+
+.survey-viewport .map-widget-overlay.is-live .map-placeholder {
+    border-radius: 0;
+    padding: 0.4rem 0.8rem;
+}
+
+
+.map-widget-overlay:not(.is-live) ~ .survey-marks .crosshair { display: none; }
+
+.crosshair {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 28px;
+    height: 28px;
+    margin: -14px 0 0 -14px;
+    background:
+        linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)) center / 1px 100% no-repeat,
+        linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)) center / 100% 1px no-repeat;
+    opacity: 0.7;
+}
+
+/* The one authored motion: a single scan pass over the viewport on load */
+.survey-scan {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 38%;
+    background: linear-gradient(180deg, transparent, rgba(244, 162, 28, 0.08) 70%, rgba(244, 162, 28, 0.55) 99%, transparent);
+    transform: translateY(-100%);
+    animation: survey-scan 1.8s cubic-bezier(0.45, 0, 0.2, 1) 0.35s 1 both;
+}
+
+@keyframes survey-scan {
+    0% { transform: translateY(-100%); opacity: 1; }
+    85% { opacity: 1; }
+    100% { transform: translateY(265%); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .survey-scan { display: none; }
+}
+
+.survey-hud {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    display: flex;
+    background: rgba(18, 20, 23, 0.9);
+    border: 1px solid var(--survey-line);
+    pointer-events: none;
+}
+
+.hud-cell {
+    display: flex;
+    flex-direction: column;
+    padding: 0.45rem 0.8rem;
+    min-width: 7.5rem;
+}
+
+.hud-cell + .hud-cell { border-left: 1px solid var(--survey-line); }
+
+.hud-label {
+    font-size: 0.75rem;
+    color: var(--gray-400);
+}
+
+.hud-value {
+    color: var(--white);
+    font-size: 1.125rem;
+    font-weight: 700;
+    font-stretch: 75%;
+    line-height: 1.2;
+    transition: color 300ms ease;
+}
+
+.hud-value small {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--gray-400);
+}
+
+.survey-hud.is-measured .hud-value { color: var(--action); }
+
+/* Controls under the viewport */
+.survey-frame .map-widget-pin,
+.survey-frame .hero-drawing-controls,
+.survey-frame .hero-measurement {
+    margin: 1rem 1.1rem 0;
+}
+
+.survey-frame .map-widget-pin {
+    background: rgba(10, 95, 150, 0.18);
+    border: 1px solid rgba(58, 160, 224, 0.45);
+    border-radius: 0;
+}
+
+.survey-frame .map-widget-pin svg,
+.survey-frame .map-widget-pin span { color: #bfe0f5; }
+
+.survey-frame .hero-drawing-controls {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.5rem 0.75rem;
+    text-align: left;
+}
+
+.survey-frame .hero-drawing-controls .btn { margin: 0; }
+
+.survey-frame .btn-outline {
+    color: var(--white);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+.survey-frame .btn-outline:hover { background: var(--white); color: var(--ink); }
+
+.survey-frame .hero-drawing-hint,
+.survey-frame .hero-skip-drawing,
+.survey-frame .hero-skip-drawing a {
+    color: var(--gray-300);
+    margin: 0;
+    font-style: normal;
+    flex-basis: 100%;
+}
+
+.survey-frame .hero-skip-drawing a { display: inline-block; padding: 12px 0; }
+.survey-frame .hero-skip-drawing a:hover { color: var(--action); }
+
+.survey-frame .hero-measurement {
+    background: none;
+    border: 1px solid var(--action);
+    border-radius: 0;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    text-align: left;
+    padding: 0.9rem 1rem;
+}
+
+.survey-frame .hero-measurement-label,
+.survey-frame .hero-measurement-unit { color: var(--gray-300); margin: 0; display: inline; font-size: 0.9375rem; }
+.survey-frame .hero-measurement-value { color: var(--white); display: inline; font-size: 1.75rem; font-stretch: 75%; margin: 0 0.3rem; }
+.survey-frame #hero-get-estimate-btn { width: auto; margin: 0; }
+
+.survey-frame .map-widget-note {
+    justify-content: flex-start;
+    color: var(--gray-400);
+    padding: 0.85rem 1.1rem 1rem;
+}
+
+@media (max-width: 1024px) {
+    .hero-map-content { grid-template-columns: 1fr; text-align: left; }
+    .hero-map-widget.survey-frame { max-width: none; margin: 0; }
+}
+
+@media (max-width: 560px) {
+    .survey-frame .map-widget-search { flex-direction: column; }
+    .survey-frame .search-input-group input { border-right: 1px solid var(--ink); border-radius: 2px 2px 0 0; }
+    .survey-frame .map-widget-search .btn { width: 100%; border-radius: 0 0 2px 2px; border-top: 0; }
+    .hud-cell { min-width: 0; padding: 0.4rem 0.6rem; }
+    .readout { padding: 0.6rem 0.7rem; }
+}
+
+/* ===================================
+   Scan sheet: the real deliverable
+   =================================== */
+.scan-sheet {
+    padding: clamp(3.5rem, 7vw, 6rem) 0;
+    background: var(--paper);
+    border-bottom: 1px solid var(--rule);
+}
+
+.scan-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: clamp(2rem, 4vw, 4rem);
+    align-items: start;
+}
+
+.scan-figure {
+    margin: 0;
+    background: var(--survey);
+    padding: 10px;
+}
+
+.scan-figure img {
+    width: 100%;
+    height: auto;
+}
+
+.scan-figure figcaption {
+    color: var(--gray-300);
+    font-size: 0.8125rem;
+    padding: 0.6rem 0.2rem 0.1rem;
+}
+
+.scan-text h2 {
+    font-size: clamp(1.75rem, 1.2rem + 2vw, 2.6rem);
+    line-height: 1.05;
+    margin-bottom: var(--spacing-md);
+}
+
+.scan-text > p { color: var(--gray-600); max-width: 52ch; }
+
+.scan-legend {
+    margin: var(--spacing-lg) 0 var(--spacing-md);
+    border-top: 1px solid var(--ink);
+}
+
+.legend-row {
+    display: grid;
+    grid-template-columns: 8.5rem 1fr;
+    gap: 1rem;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--rule);
+}
+
+.legend-row dt {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-weight: 700;
+    color: var(--ink);
+    font-stretch: 87.5%;
+}
+
+.legend-row dd { margin: 0; color: var(--gray-600); font-size: 0.9375rem; }
+
+.key {
+    width: 22px;
+    height: 22px;
+    flex: 0 0 22px;
+    border: 1px solid var(--ink);
+}
+
+.key-wet { border-color: var(--wet); }
+.key-dry { background: #8d9298; }
+.key-outline { border: 2px solid var(--action); background: rgba(244, 162, 28, 0.25); }
+
+@media (max-width: 900px) {
+    .scan-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+    .legend-row { grid-template-columns: 1fr; gap: 0.25rem; }
+}
+
+/* ===================================
+   Home sections in the survey vocabulary
+   =================================== */
+.the-solution, .before-after-section, .how-it-works,
+.testimonials-section, .benefits-section, .tax-savings, .certified-installer,
+.trusted-by, .service-areas-map {
+    background: var(--paper);
+}
+
+/* Testimonials stay quiet: unverified, so no extra prominence */
+.testimonials-section .section-header h2 { color: var(--ink); }
+.testimonials-section .section-header p { color: var(--gray-600); }
+.testimonials-section .testimonial-card { background: var(--paper); }
+.testimonials-section .testimonial-text { color: var(--gray-700); font-style: normal; }
+.testimonials-section .author-info strong { color: var(--ink); }
+.testimonials-section .author-info span { color: var(--gray-600); }
+
+.certified-installer { border-top: 1px solid var(--rule); }
+.certified-text h2 { color: var(--ink); }
+.certified-text p { color: var(--gray-600); }
+
+.solution-grid, .steps-grid, .benefits-grid-alt { max-width: none; }
+.solution-cta { margin-top: var(--spacing-2xl); }
+.before-after-benefits { box-shadow: none; border: 1px solid var(--rule); border-radius: 0; }
+.label-before, .label-after { font-size: 1rem; padding: 0.4rem 0.9rem; box-shadow: none; }
+.service-map-container { box-shadow: none; }
+.warranty-details strong { color: var(--action); }
+.tax-compare-type { font-stretch: 87.5%; font-size: 1rem; }
+
+/* One thermal strip per dark run: the footer drops its own after a CTA band */
+main:has(> .final-cta:last-child) + .footer::before { display: none; }
+.final-cta { border-bottom: 1px solid var(--survey-line); }
+
+/* The problem section stays on the graphite survey ground */
+.flat-roof-pain {
+    background-color: var(--survey);
+}
+
+.flat-roof-pain .pain-header { border-top-color: rgba(255, 255, 255, 0.45); }
+.flat-roof-pain .pain-header h2 { color: var(--white); }
+.flat-roof-pain .pain-highlight { color: var(--wet-on-dark); display: block; font-size: inherit; }
+.problem-intro .cost-callout { color: var(--white); }
+.problem-intro em { color: var(--wet-on-dark); }
+
+.flat-roof-pain .pain-column {
+    background: var(--survey-2);
+    border: 1px solid var(--survey-line);
+    border-radius: 0;
+}
+
+.flat-roof-pain .pain-column h4 { color: var(--white); }
+.flat-roof-pain .pain-column p { color: var(--gray-300); }
+.flat-roof-pain .pain-column strong { color: var(--white); }
+.flat-roof-pain .pain-column em { color: var(--wet-on-dark); }
+.flat-roof-pain .red,
+.flat-roof-pain .pain-column h4 .red { color: var(--wet-on-dark); }
+.flat-roof-pain .pain-icon { color: var(--wet-on-dark); }
+
+.the-solution, .how-it-works, .tax-savings, .trusted-by {
+    background: var(--sheet);
+}
+
+/* The problem is marked the way a survey marks it: hatched */
+.pain-column {
+    border-top: 0;
+    padding-top: 0;
+    overflow: hidden;
+}
+
+.pain-column::before {
+    content: "";
+    display: block;
+    height: 14px;
+    grid-column: 1 / -1;
+    margin: 0 calc(-1 * var(--spacing-2xl)) var(--spacing-lg);
+    background-image: repeating-linear-gradient(135deg, var(--wet) 0 2px, transparent 2px 8px);
+    border-bottom: 1px solid var(--wet);
+}
+
+.pain-image-card {
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.pain-image-card img { border-radius: 0; }
+
+.pain-image-label {
+    border-radius: 0;
+    left: 0;
+    right: auto;
+    bottom: 0;
+    background: var(--wet);
+    color: var(--white);
+    padding: 0.35rem 0.75rem;
+}
+
+.problem-intro h3 .underline {
+    background: none;
+    text-decoration: underline;
+    text-decoration-color: var(--wet);
+    text-decoration-thickness: 3px;
+    text-underline-offset: 0.15em;
+}
+
+.cost-callout {
+    border-radius: 0;
+    background: rgba(212, 35, 42, 0.14);
+    border: 1px solid rgba(212, 35, 42, 0.55);
+}
+
+.solution-highlight { color: var(--primary); background: none; padding: 0; display: block; }
+
+.solution-grid {
+    gap: 0;
+    border-top: 1px solid var(--rule);
+    border-left: 1px solid var(--rule);
+}
+
+.solution-item {
+    border-top: 0;
+    border-left: 0;
+}
+
+.solution-item svg { color: var(--primary); }
+
+.solution-photo {
+    margin: var(--spacing-2xl) 0 0;
+}
+
+.solution-photo img {
+    width: 100%;
+    max-height: 460px;
+    object-fit: cover;
+}
+
+.before-after-wrapper,
+.before-after-image {
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.label-before, .label-after {
+    border-radius: 0;
+}
+
+.label-before { background: var(--wet); color: var(--white); }
+.label-after { background: var(--paper); color: var(--ink); border: 1px solid var(--ink); }
+
+.ba-benefit { border-radius: 0; }
+
+.step-card { text-align: left; }
+
+.testimonial-card .author-avatar {
+    border-radius: 0;
+    background: var(--sheet);
+    color: var(--ink);
+}
+
+/* Warranty: a schedule, not a certificate badge */
+.warranty-certificate {
+    border-radius: 0;
+    background: transparent;
+    border: 1px solid var(--survey-line);
+    box-shadow: none;
+}
+
+.warranty-certificate::before,
+.warranty-certificate::after { display: none; }
+
+.warranty-shield { color: var(--action); background: none; }
+.warranty-title { color: var(--white); }
+.warranty-subtitle, .warranty-details p, .warranty-fine-print { color: var(--gray-300); }
+
+.warranty-label {
+    background: none;
+    border: 1px solid var(--action);
+    color: var(--action);
+    border-radius: 0;
+}
+
+.warranty-tiers { gap: 0; }
+
+.warranty-tier {
+    border-radius: 0;
+    background: transparent;
+    border: 1px solid var(--survey-line);
+    box-shadow: none;
+}
+
+.warranty-tier + .warranty-tier { border-left: 0; }
+
+.tier-years {
+    color: var(--white);
+    font-stretch: 75%;
+    -webkit-text-fill-color: currentColor;
+    background: none;
+}
+
+.tier-label, .warranty-tiers-label { color: var(--gray-300); }
+
+.warranty-feature-icon {
+    background: none;
+    color: var(--action);
+    border-radius: 0;
+}
+
+.warranty-feature span { color: var(--white); }
+
+.warranty-divider { background: var(--survey-line); }
+
+/* Tax: a two-column ledger */
+.tax-compare-card { border-radius: 0; }
+.tax-compare-good { border-color: var(--dry); }
+.tax-compare-bad {
+    border-color: rgba(212, 35, 42, 0.5);
+    background-image: repeating-linear-gradient(135deg, rgba(212, 35, 42, 0.1) 0 2px, transparent 2px 8px);
+}
+
+.tax-highlight { color: var(--primary); background: none; }
+.tax-example { border-radius: 0; background: var(--paper); border: 1px solid var(--rule); }
+
+.manufacturer-logos { gap: 0; border-top: 1px solid var(--rule); border-left: 1px solid var(--rule); }
+.manufacturer-item { border-top: 0; border-left: 0; }
+
+.city-badge {
+    border-radius: 0;
+    background: var(--paper);
+    border: 1px solid var(--ink);
+    color: var(--ink);
+}
+
+.city-badge:hover { background: var(--action); color: var(--ink); }
+
+.service-map-container { border-radius: 0; border: 1px solid var(--rule); }
+
+.final-cta-content h2 { font-size: clamp(2rem, 1.3rem + 2.6vw, 3.25rem); line-height: 1.02; }
+.final-cta .cta-note a { color: var(--white); text-decoration: underline; text-decoration-color: var(--action); }
+
+/* On narrow screens the satellite quote follows the headline directly,
+   so the working action sits in the first screenful. */
+@media (max-width: 1024px) {
+    .hero-map-content { display: flex; flex-direction: column; gap: 0; }
+    .hero-map-text { display: contents; }
+    .hero-map-text h1 { order: 1; }
+    .hero-subhead { order: 2; }
+    .hero-map-widget.survey-frame { order: 3; margin-bottom: var(--spacing-xl); }
+    .readout-strip { order: 4; }
+    .hero-call { order: 5; }
+}
+
+@media (max-width: 768px) {
+    .problem-intro, .problem-intro h3 { text-align: left; }
+}
+
+/* The service-area map has no JS fallback: until (or unless) Google paints
+   over it, it shows the same greyscale survey placeholder as the hero. */
+#service-area-map {
+    background: #2a2d31 url('../assets/icons/map-placeholder.svg') center / cover no-repeat;
+    background-blend-mode: luminosity;
+}
+
+/* ===================================
+   Finish-review fixes: hero proportions, viewport edge, thermal scale
+   =================================== */
+@media (min-width: 1025px) {
+    .hero-map-content { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); }
+    .hero-map-text h1 { font-size: clamp(2.1rem, 1.1rem + 2.2vw, 3.05rem); }
+}
+
+.survey-frame .map-widget-header { padding: 0.75rem 1.1rem 0.6rem; }
+.survey-frame .map-widget-header h2 { font-size: 1.0625rem; color: var(--gray-200); }
+.survey-frame .map-widget-search { margin: 0 0 0; }
+.survey-frame .search-input-group input { border-left: 0; border-radius: 0; }
+.survey-frame .map-widget-search .btn { border-radius: 0; border-right: 0; }
+
+/* Infrared scale on the moisture survey: the scan really is thermal data */
+.scan-plate {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 10px;
+    align-items: stretch;
+}
+
+.thermal-scale {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    justify-items: center;
+    gap: 6px;
+    width: 3.25rem;
+}
+
+.thermal-bar {
+    width: 12px;
+    background: var(--heat-ramp);
+    border: 1px solid var(--survey-line);
+}
+
+.thermal-tick {
+    font-size: 0.6875rem;
+    line-height: 1.15;
+    color: var(--gray-300);
+    text-align: center;
+}
+
+@media (max-width: 480px) {
+    .thermal-scale { width: 2.6rem; }
+}
+
+/* ===================================
+   Spec rows: survey readouts replacing icon-card grids
+   =================================== */
+.spec-legend {
+    margin: var(--spacing-2xl) 0 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border-top: 1px solid var(--ink);
+    column-gap: var(--spacing-2xl);
+}
+
+.spec-legend .spec-row {
+    display: grid;
+    grid-template-columns: 9rem 1fr;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--rule);
+}
+
+.spec-legend dt {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-weight: 700;
+    color: var(--ink);
+    font-stretch: 87.5%;
+}
+
+.spec-legend dd { margin: 0; }
+
+.spec-value {
+    display: block;
+    font-size: 1.375rem;
+    font-weight: 700;
+    font-stretch: 75%;
+    color: var(--ink);
+    line-height: 1.15;
+    margin: 0 0 0.25rem;
+    font-variant-numeric: tabular-nums;
+}
+
+.spec-value small { font-size: 0.875rem; font-weight: 500; color: var(--gray-600); font-stretch: 100%; }
+
+.spec-note {
+    display: block;
+    color: var(--gray-600);
+    font-size: 0.9375rem;
+    margin: 0;
+}
+
+/* Warranty: a schedule on a report sheet lifted off the graphite */
+.warranty-sheet {
+    max-width: 860px;
+    margin: 0 auto;
+    background: var(--paper);
+    padding: clamp(1.5rem, 4vw, 2.75rem);
+    box-shadow: 0 24px 48px -24px rgba(0, 0, 0, 0.7);
+    border-top: 4px solid transparent;
+    border-image: linear-gradient(90deg, var(--heat-0), var(--heat-1) 20%, var(--heat-2) 42%, var(--heat-3) 62%, var(--heat-4) 82%, var(--heat-5)) 4 0 0 0;
+}
+
+.warranty-sheet .warranty-title { color: var(--ink); font-size: clamp(1.6rem, 1.2rem + 1.5vw, 2.25rem); margin-bottom: 0.4rem; }
+.warranty-sheet .warranty-subtitle { color: var(--gray-600); margin-bottom: var(--spacing-lg); }
+
+.warranty-schedule {
+    width: 100%;
+    margin-bottom: var(--spacing-lg);
+}
+
+.warranty-schedule th, .warranty-schedule td {
+    padding: 0.7rem 0.9rem;
+    text-align: left;
+}
+
+.warranty-schedule td { color: var(--gray-700); }
+.warranty-schedule .readout-num { font-size: 1.5rem; font-weight: 700; font-stretch: 75%; color: var(--ink); }
+
+.warranty-sheet .warranty-details p { color: var(--gray-700); text-align: left; }
+.warranty-sheet .warranty-details strong { color: var(--ink); }
+
+.warranty-terms {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    margin: 0 0 var(--spacing-md);
+    padding: 0;
+}
+
+.warranty-terms li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--ink);
+    font-weight: 600;
+}
+
+.warranty-terms li::before {
+    content: "";
+    width: 14px;
+    height: 14px;
+    background: #8d9298;
+    border: 1px solid var(--ink);
+}
+
+.warranty-sheet .warranty-fine-print { color: var(--gray-600); text-align: left; margin: 0; }
+
+/* Tax: a two-row ledger */
+.tax-savings-inner { text-align: left; max-width: 860px; }
+.tax-ledger { width: 100%; margin: var(--spacing-lg) 0; background: var(--paper); }
+.tax-ledger th, .tax-ledger td { padding: 0.9rem 1rem; text-align: left; vertical-align: baseline; }
+.tax-ledger th { background: var(--survey); color: var(--white); width: 9rem; }
+.tax-ledger td { color: var(--gray-700); }
+.tax-ledger .readout-num { font-size: 1.5rem; font-weight: 700; font-stretch: 75%; color: var(--ink); }
+.tax-ledger .tax-bad td {
+    background-image: repeating-linear-gradient(135deg, rgba(212, 35, 42, 0.1) 0 2px, transparent 2px 8px);
+}
+
+@media (max-width: 860px) {
+    .spec-legend { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+    .spec-legend .spec-row { grid-template-columns: 1fr; gap: 0.35rem; }
+    .tax-ledger th { width: auto; }
+}
+
+/* Finish-review round 2 */
+.steps-cta { margin-top: var(--spacing-xl); }
+
+.warranty-terms li::before {
+    width: 10px;
+    height: 2px;
+    background: var(--ink);
+    border: 0;
+}
+
+.warranty-schedule .readout-num,
+.tax-ledger .readout-num { white-space: nowrap; }
+.warranty-schedule td:first-child { white-space: nowrap; }
+
+@media (max-width: 480px) {
+    .warranty-schedule thead { display: none; }
+    .warranty-schedule tr { display: grid; grid-template-columns: 4.5rem 1fr; border-bottom: 1px solid var(--rule); }
+    .warranty-schedule td { border: 0; padding: 0.45rem 0.6rem; }
+    .warranty-schedule td:first-child { grid-row: span 2; align-self: center; }
+    .tax-ledger tr { display: grid; grid-template-columns: 1fr; }
+    .tax-ledger th { width: auto; }
+    .tax-ledger td { border-top: 0; }
+}
+
+/* ===================================
+   Estimate modal: a survey sheet with the range shown openly
+   =================================== */
+.estimate-modal-content {
+    border-radius: 0;
+    border: 1px solid var(--ink);
+    border-top: 4px solid transparent;
+    border-image: linear-gradient(90deg, var(--heat-0), var(--heat-1) 20%, var(--heat-2) 42%, var(--heat-3) 62%, var(--heat-4) 82%, var(--heat-5)) 4 0 0 0;
+    box-shadow: 0 24px 48px -24px rgba(0, 0, 0, 0.7);
+    padding: 0;
+    max-width: 560px;
+}
+
+.estimate-modal-close {
+    border-radius: 0;
+    background: transparent;
+    color: var(--ink);
+}
+
+.estimate-sheet-head {
+    padding: 1.25rem 3.5rem 0.75rem 1.5rem;
+    text-align: left;
+}
+
+.estimate-sheet-head h3 {
+    font-size: 1.375rem;
+    margin: 0 0 0.25rem;
+}
+
+.estimate-address {
+    color: var(--gray-600);
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+.estimate-readouts {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    margin: 0 1.5rem;
+    border-top: 1px solid var(--ink);
+    border-left: 1px solid var(--rule);
+}
+
+.estimate-readout {
+    padding: 0.75rem 0.9rem;
+    border-right: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+}
+
+.estimate-readout dt { font-size: 0.8125rem; color: var(--gray-600); }
+.estimate-readout dd { margin: 0; display: flex; align-items: baseline; gap: 0.3rem; }
+.estimate-readout .readout-num {
+    font-size: 1.6rem;
+    font-weight: 700;
+    font-stretch: 75%;
+    color: var(--ink);
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+}
+.estimate-readout .readout-unit { color: var(--gray-600); font-size: 0.875rem; }
+.estimate-readout-range { background: rgba(244, 162, 28, 0.14); }
+
+.estimate-price-note {
+    margin: 0.6rem 1.5rem 0;
+    font-size: 0.8125rem;
+    color: var(--gray-600);
+    max-width: 60ch;
+}
+
+.estimate-modal .estimate-step-body {
+    padding: 1.1rem 1.5rem 1.5rem;
+    text-align: left;
+}
+
+.estimate-form-title { font-size: 1.0625rem; margin: 0 0 0.3rem; }
+.estimate-modal .estimate-prompt { color: var(--gray-700); font-size: 0.9375rem; text-align: left; }
+.estimate-modal .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+.estimate-modal .estimate-privacy { color: var(--gray-600); font-size: 0.8125rem; margin: 0.75rem 0 0; text-align: left; }
+.estimate-modal .estimate-privacy a { color: var(--primary); text-decoration: underline; }
+
+.estimate-call-lines .call-line { color: var(--ink); }
+.estimate-call-lines .call-region { color: var(--gray-600); }
+.estimate-call-lines { margin-bottom: 1rem; }
+
+@media (max-width: 480px) {
+    .estimate-readouts { grid-template-columns: 1fr; }
+    .estimate-modal .form-row { grid-template-columns: 1fr; }
+    .estimate-sheet-head, .estimate-modal .estimate-step-body { padding-left: 1rem; padding-right: 1rem; }
+    .estimate-readouts, .estimate-price-note { margin-left: 1rem; margin-right: 1rem; }
+}
+
+.warranty-renewal {
+    margin: -0.5rem 0 var(--spacing-md);
+    padding: 0.6rem 0.9rem;
+    border: 1px solid var(--rule);
+    border-top: 0;
+    color: var(--gray-700);
+    font-size: 0.9375rem;
+}
+
+/* ===================================
+   Pain section, rebuilt: left-set report on graphite
+   =================================== */
+.flat-roof-pain .pain-header { text-align: left; }
+
+.pain-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
+    gap: clamp(1.5rem, 4vw, 3.5rem);
+    align-items: start;
+    margin: var(--spacing-xl) 0 var(--spacing-2xl);
+}
+
+.flat-roof-pain .problem-intro {
+    text-align: left;
+    max-width: 60ch;
+    margin: 0;
+}
+
+.flat-roof-pain .problem-intro h3 {
+    color: var(--white);
+    font-size: clamp(1.25rem, 1rem + 0.8vw, 1.6rem);
+    text-align: left;
+    margin-bottom: var(--spacing-md);
+}
+
+.flat-roof-pain .problem-intro p {
+    color: var(--gray-300);
+    text-align: left;
+    max-width: 60ch;
+}
+
+.flat-roof-pain .cost-callout {
+    color: var(--white);
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.85rem 1rem;
+    border: 1px solid rgba(212, 35, 42, 0.6);
+    background-color: rgba(212, 35, 42, 0.1);
+    background-image: none;
+}
+
+.pain-plates {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.pain-plate {
+    margin: 0;
+    background: #121417;
+    padding: 6px;
+    border: 1px solid var(--survey-line);
+}
+
+.pain-plate img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+.pain-plate figcaption {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    color: var(--gray-300);
+    font-size: 0.8125rem;
+    line-height: 1.4;
+    padding: 0.5rem 0.2rem 0.15rem;
+}
+
+.pain-plate .key { width: 14px; height: 14px; flex-basis: 14px; margin-top: 2px; }
+
+.pain-ledger {
+    width: 100%;
+    min-width: 640px;
+    border-collapse: collapse;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.pain-ledger th,
+.pain-ledger td {
+    border: 0;
+    border-bottom: 1px solid var(--survey-line);
+    padding: 0.9rem 1rem;
+    text-align: left;
+    vertical-align: top;
+    background: transparent;
+    color: var(--gray-300);
+    font-size: 0.9375rem;
+}
+
+.pain-ledger thead th {
+    background-image: repeating-linear-gradient(135deg, rgba(212, 35, 42, 0.28) 0 2px, transparent 2px 8px);
+    border-bottom: 1px solid var(--wet);
+    vertical-align: bottom;
+}
+
+.pain-ledger thead th:first-child { background-image: none; border-bottom-color: var(--survey-line); }
+
+.pain-ledger h4 { color: var(--white); font-size: 1.0625rem; margin: 0; }
+.ledger-sub { display: block; color: var(--wet-on-dark); font-size: 0.8125rem; font-weight: 600; margin-top: 0.15rem; }
+
+.pain-ledger tbody th {
+    color: var(--white);
+    font-weight: 700;
+    font-stretch: 87.5%;
+    width: 11rem;
+}
+
+.pain-ledger .readout-num { color: var(--white); font-weight: 700; font-stretch: 75%; font-size: 1.125rem; white-space: nowrap; }
+
+@media (max-width: 900px) {
+    .pain-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+    .pain-plates { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+    .pain-ledger { min-width: 0; }
+    .pain-ledger thead { display: none; }
+    .pain-ledger tr { display: block; border-bottom: 1px solid var(--survey-line); padding: 0.5rem 0; }
+    .pain-ledger th, .pain-ledger td { display: block; border: 0; padding: 0.35rem 0; width: auto; }
+    .pain-ledger tbody th { font-size: 1rem; }
+    .pain-ledger td::before {
+        display: block;
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: var(--wet-on-dark);
+    }
+    .pain-ledger td:nth-child(2)::before { content: "Keep patching"; }
+    .pain-ledger td:nth-child(3)::before { content: "Tear off & replace"; }
+}
+
+/* Amber is the action, not a headline colour */
+.hero-map-text h1 .highlight { color: var(--gray-300); }
+
+.ba-legend {
+    max-width: 1000px;
+    margin: var(--spacing-lg) auto 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: var(--spacing-xl);
+    border-top: 1px solid var(--ink);
+}
+
+.ba-legend .legend-row { grid-template-columns: 6rem 1fr; }
+
+@media (max-width: 700px) {
+    .ba-legend { grid-template-columns: 1fr; }
+}
+
+/* Reading measure: supporting paragraphs stay near 60 characters */
+.warranty-sheet .warranty-details p,
+.certified-text p,
+.tax-savings-desc,
+.final-cta-content p { max-width: 60ch; }
+.final-cta-content p { margin-left: auto; margin-right: auto; }

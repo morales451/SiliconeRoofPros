@@ -97,19 +97,19 @@
 }
 
 .comp-icon-acrylic {
-    background: #ecfdf5;
+    background: var(--dry-tint);
 }
 
 .comp-icon-acrylic svg {
-    color: #059669;
+    color: var(--dry);
 }
 
 .comp-icon-aluminum {
-    background: #fffbeb;
+    background: var(--sheet);
 }
 
 .comp-icon-aluminum svg {
-    color: #d97706;
+    color: var(--action-ink);
 }
 
 .comparison-table thead th h3 {
@@ -119,7 +119,7 @@
 
 .comp-price {
     font-size: var(--font-size-sm);
-    color: var(--gray-500);
+    color: var(--gray-600);
     font-weight: 600;
     margin-bottom: 0;
 }
@@ -136,23 +136,22 @@
     font-weight: 700;
     padding: 3px 14px;
     border-radius: var(--radius-full);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.01em;
     white-space: nowrap;
 }
 
 /* Silicone column highlight (2nd column) */
 .comparison-table thead th:nth-child(2) {
-    background: #f0f7ff;
+    background: var(--sheet);
     border-top: 3px solid var(--primary);
 }
 
 .comparison-table tbody td:nth-child(2) {
-    background: #f8fbff;
+    background: var(--sheet);
 }
 
 .comparison-table tbody tr:nth-child(even) td:nth-child(2) {
-    background: #f0f5fc;
+    background: var(--sheet);
 }
 
 /* ---- Body rows ---- */
@@ -202,24 +201,23 @@
     font-weight: 700;
     padding: 3px 10px;
     border-radius: var(--radius-full);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.01em;
     white-space: nowrap;
 }
 
 .comp-rating-excellent {
-    background: #d1fae5;
-    color: #059669;
+    background: var(--dry-tint);
+    color: var(--dry);
 }
 
 .comp-rating-good {
-    background: #dbeafe;
-    color: #2563eb;
+    background: var(--sheet);
+    color: #1d4ed8;
 }
 
 .comp-rating-moderate {
-    background: #fef3c7;
-    color: #d97706;
+    background: var(--sheet);
+    color: var(--action-ink);
 }
 
 .comp-rating-limited {
@@ -235,7 +233,7 @@
 }
 
 .comp-value-best {
-    color: #059669;
+    color: var(--dry);
 }
 
 .comp-value-mid {
@@ -243,13 +241,13 @@
 }
 
 .comp-value-low {
-    color: #d97706;
+    color: var(--action-ink);
 }
 
 /* Detail text below badge or value */
 .comp-detail {
     font-size: var(--font-size-sm);
-    color: var(--gray-500);
+    color: var(--gray-600);
     line-height: 1.4;
     max-width: 160px;
 }
@@ -258,7 +256,7 @@
    Why Silicone Section
    =================================== */
 .why-silicone {
-    background: linear-gradient(180deg, #f0f7ff 0%, #e8f4fc 100%);
+    background: var(--sheet);
 }
 
 .why-silicone-content {
@@ -298,7 +296,9 @@
     color: var(--primary);
 }
 
-.why-silicone-card h4 {
+.why-silicone-card h3 {
+    font-size: var(--font-size-lg);
+    line-height: 1.2;
     margin-bottom: var(--spacing-xs);
 }
 
@@ -333,4 +333,20 @@
     .comp-detail {
         max-width: none;
     }
+}
+
+/* Column header icons: plain glyphs, no tinted tile behind them */
+.comp-header-icon,
+.comp-icon-silicone,
+.comp-icon-acrylic,
+.comp-icon-aluminum {
+    width: auto;
+    height: auto;
+    background: none;
+    border-radius: 0;
+}
+
+.comp-header-icon svg {
+    width: 32px;
+    height: 32px;
 }
