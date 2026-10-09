@@ -3426,51 +3426,6 @@ main:has(> .final-cta:last-child) + .footer::before { display: none; }
     margin: 0;
 }
 
-/* Procedure strip: three steps, each ending in its output */
-.procedure-strip {
-    list-style: none;
-    margin: var(--spacing-xl) 0 0;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    border: 1px solid var(--ink);
-    background: var(--paper);
-    counter-reset: step;
-}
-
-.procedure-step {
-    padding: 1.25rem 1.25rem 1rem;
-    display: flex;
-    flex-direction: column;
-    counter-increment: step;
-}
-
-.procedure-step + .procedure-step { border-left: 1px solid var(--rule); }
-
-.procedure-step h3 {
-    font-size: 1.125rem;
-    margin-bottom: 0.5rem;
-}
-
-.procedure-step h3::before {
-    content: counter(step) ". ";
-    color: var(--gray-500);
-}
-
-.procedure-step p { color: var(--gray-600); font-size: 0.9375rem; }
-
-.procedure-out {
-    margin: auto 0 0;
-    padding-top: 0.75rem;
-    border-top: 1px dashed var(--rule);
-    display: flex;
-    align-items: baseline;
-    gap: 0.4rem;
-}
-
-.procedure-out .readout-num { color: var(--ink); font-size: 1.5rem; font-weight: 700; font-stretch: 75%; }
-.procedure-out .readout-unit { color: var(--gray-600); font-size: 0.875rem; }
-
 /* Warranty: a schedule on a report sheet lifted off the graphite */
 .warranty-sheet {
     max-width: 860px;
@@ -3541,8 +3496,6 @@ main:has(> .final-cta:last-child) + .footer::before { display: none; }
 @media (max-width: 860px) {
     .spec-legend { grid-template-columns: 1fr; }
     .spec-table .spec-row { grid-template-columns: 1fr; }
-    .procedure-strip { grid-template-columns: 1fr; }
-    .procedure-step + .procedure-step { border-left: 0; border-top: 1px solid var(--rule); }
 }
 
 @media (max-width: 480px) {
