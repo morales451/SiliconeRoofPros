@@ -502,17 +502,6 @@
     overflow: hidden;
 }
 
-.pain-column::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #ef4444 0%, #dc2626 100%);
-    display: none;
-}
-
 .pain-icon {
     width: 64px;
     height: 64px;
@@ -2325,7 +2314,7 @@ a.city-badge:hover {
     gap: var(--spacing-sm);
     text-align: center;
     font-size: var(--font-size-xs);
-    color: var(--gray-400);
+    color: var(--gray-600);
     margin-top: var(--spacing-lg);
     margin-bottom: 0;
 }
@@ -2578,4 +2567,10 @@ a.city-badge:hover {
     background: none;
     border-radius: 0;
     margin-bottom: 0;
+}
+
+.city-badge {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
 }

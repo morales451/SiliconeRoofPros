@@ -2030,8 +2030,8 @@ a.area-tag:hover {
     position: absolute;
     top: var(--spacing-md);
     right: var(--spacing-md);
-    width: 36px;
-    height: 36px;
+    width: 44px;
+    height: 44px;
     background: rgba(255, 255, 255, 0.2);
     border: none;
     border-radius: var(--radius-full);
@@ -2992,4 +2992,49 @@ a.area-tag:hover {
 .cta-or {
     margin: 0 var(--spacing-md);
     color: var(--gray-600);
+}
+
+/* Pop-up headings sit on the blue band: inherit its white, not the
+   global dark heading colour (that pairing measured 2.4:1). */
+.exit-intent-header h2,
+.exit-intent-header h3,
+.exit-intent-header p {
+    color: inherit;
+}
+
+/* Wide tables scroll inside their own box instead of the whole page */
+.table-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Small text links get a 44px tap area without moving the layout */
+.exit-intent-skip,
+.read-more,
+.back-link,
+.blog-breadcrumb a {
+    display: inline-block;
+    padding: 14px 6px;
+    margin: -14px -6px;
+}
+
+/* Footer and newsletter fields reach the 44px touch minimum */
+.quick-contact-form input,
+.quick-contact-form .btn,
+.newsletter-form input,
+.newsletter-form .btn {
+    min-height: 44px;
+}
+
+/* Remaining touch-target minimums: pop-up close buttons, skip link */
+.quote-modal-close,
+.estimate-modal-close,
+.skip-link {
+    min-width: 44px;
+    min-height: 44px;
+}
+
+.blog-breadcrumb a {
+    padding: 14px 10px;
+    margin: -14px -10px;
 }
