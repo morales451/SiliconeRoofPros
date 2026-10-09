@@ -3549,3 +3549,27 @@ main:has(> .final-cta:last-child) + .footer::before { display: none; }
     .spec-legend .spec-row { grid-template-columns: 1fr; gap: 0.35rem; }
     .tax-ledger th { width: auto; }
 }
+
+/* Finish-review round 2 */
+.steps-cta { margin-top: var(--spacing-xl); }
+
+.warranty-terms li::before {
+    width: 10px;
+    height: 2px;
+    background: var(--ink);
+    border: 0;
+}
+
+.warranty-schedule .readout-num,
+.tax-ledger .readout-num { white-space: nowrap; }
+.warranty-schedule td:first-child { white-space: nowrap; }
+
+@media (max-width: 480px) {
+    .warranty-schedule thead { display: none; }
+    .warranty-schedule tr { display: grid; grid-template-columns: 4.5rem 1fr; border-bottom: 1px solid var(--rule); }
+    .warranty-schedule td { border: 0; padding: 0.45rem 0.6rem; }
+    .warranty-schedule td:first-child { grid-row: span 2; align-self: center; }
+    .tax-ledger tr { display: grid; grid-template-columns: 1fr; }
+    .tax-ledger th { width: auto; }
+    .tax-ledger td { border-top: 0; }
+}
