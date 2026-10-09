@@ -601,3 +601,46 @@ table td, table th {
 }
 
 .area-tag { min-height: 44px; display: inline-flex; align-items: center; border-radius: 0; }
+
+/* ---------- Wordmark beside the logo mark ---------- */
+.logo { gap: 0.6rem; }
+
+.logo-name {
+    font-size: 1.1875rem;
+    font-weight: 750;
+    font-stretch: 87.5%;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    white-space: nowrap;
+}
+
+@media (max-width: 1180px) and (min-width: 1025px) {
+    .logo-name { font-size: 1rem; }
+}
+
+.visually-hidden {
+    position: absolute !important;
+    width: 1px; height: 1px;
+    margin: -1px; padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Quote page benefit icons: legend glyphs, not tinted discs */
+.quote-benefits .benefit-icon {
+    background: none;
+    border-radius: 0;
+    width: 32px;
+    height: 32px;
+    margin-left: 0;
+    color: var(--primary);
+}
+
+.quote-benefits .benefit-card,
+.quote-benefits .benefit-item { text-align: left; }
+
+.exit-intent-skip { min-height: 44px; }
+.estimate-modal select, .quote-modal select { width: 100%; min-width: 0; }
+#modal-roof-type { width: 100%; }

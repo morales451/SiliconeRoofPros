@@ -146,13 +146,11 @@
         ]
     }
     </script>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="assets/fonts/archivo-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="css/fonts.css?v=2026-10-09b">
     <link rel="stylesheet" href="css/styles.css?v=2026-10-09b">
     <link rel="stylesheet" href="css/home.css?v=2026-10-09b">
     <link rel="stylesheet" href="css/survey.css?v=2026-10-09b">
-    <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,400..800&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="assets/icons/50-50-icon-whitebg.png">
 </head>
 <body>
@@ -175,7 +173,8 @@
         <nav class="navbar">
             <div class="container">
                 <a href="index.html" class="logo">
-                    <img width="50" height="50" src="assets/icons/50-50-logoicon.png" alt="Silicone Roof Pros" class="logo-img">
+                    <img width="50" height="50" src="assets/icons/50-50-logoicon.png" alt="" class="logo-img">
+                    <span class="logo-name">Silicone Roof Pros</span>
                 </a>
                 <button class="mobile-menu-btn" aria-label="Toggle menu">
                     <span></span>
@@ -247,7 +246,6 @@
                 <div class="hero-map-widget survey-frame">
                     <div class="map-widget-header">
                         <h2>Get Your Free Satellite Quote</h2>
-                        <p>Find your building, outline the roof, read the price. Nobody climbs on it.</p>
                     </div>
 
                     <!-- Address Search -->
@@ -340,7 +338,7 @@
                         </button>
                     </div>
 
-                    <p class="map-widget-note">Written, itemised quote in your inbox in about 60 minutes.</p>
+                    <p class="map-widget-note">Find your building, outline the roof, read the price. Nobody climbs on it &mdash; and a written, itemised quote follows in about 60 minutes.</p>
                 </div>
             </div>
         </div>
@@ -351,7 +349,14 @@
         <div class="container">
             <div class="scan-grid">
                 <figure class="scan-figure">
+                    <div class="scan-plate">
                     <img width="595" height="346" src="assets/icons/aerial-scan.jpg" alt="Infrared moisture survey of a large commercial flat roof, with wet insulation areas hatched in red across several roof sections" loading="lazy" decoding="async">
+                    <div class="thermal-scale" aria-hidden="true">
+                        <span class="thermal-tick">Warmer &middot; wet</span>
+                        <span class="thermal-bar"></span>
+                        <span class="thermal-tick">Cooler &middot; dry</span>
+                    </div>
+                    </div>
                     <figcaption>Infrared moisture survey of a commercial flat roof. Hatched areas hold wet insulation.</figcaption>
                 </figure>
                 <div class="scan-text">
@@ -441,48 +446,24 @@
                 <p class="solution-subtitle">Silicone roof coating turns hundreds of leak-prone joints into <strong>one continuous rubber skin</strong> &mdash; sprayed over the roof you already own.</p>
             </div>
 
-            <div class="solution-grid">
-                <div class="solution-item">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                        <polyline points="22 4 12 14.01 9 11.01"/>
-                    </svg>
-                    <div>
-                        <strong>100% Leak-Proof</strong>
-                        <span>One sprayed membrane covers every seam, screw head, drain and curb. No joints left means no leak paths left.</span>
-                    </div>
+            <dl class="spec-legend">
+                <div class="spec-row">
+                    <dt><span class="key key-dry" aria-hidden="true"></span>Leak paths</dt>
+                    <dd><span class="spec-value">No seams left</span><span class="spec-note">One sprayed membrane covers every seam, screw head, drain and curb.</span></dd>
                 </div>
-                <div class="solution-item">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                        <polyline points="22 4 12 14.01 9 11.01"/>
-                    </svg>
-                    <div>
-                        <strong>Save Up to 50%</strong>
-                        <span>About half the cost of tear-off and replacement &mdash; and fully deductible in year one under IRS Section 179.</span>
-                    </div>
+                <div class="spec-row">
+                    <dt><span class="key key-dry" aria-hidden="true"></span>Cost</dt>
+                    <dd><span class="spec-value">About half of tear-off</span><span class="spec-note">And generally deductible in year one rather than over 39 years &mdash; confirm with your CPA.</span></dd>
                 </div>
-                <div class="solution-item">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                        <polyline points="22 4 12 14.01 9 11.01"/>
-                    </svg>
-                    <div>
-                        <strong>No Tear-Off Needed</strong>
-                        <span>Sprayed straight onto your existing roof. No demolition, no dumpsters, no exposed decking, no relocated tenants.</span>
-                    </div>
+                <div class="spec-row">
+                    <dt><span class="key key-dry" aria-hidden="true"></span>Tear-off</dt>
+                    <dd><span class="spec-value">None</span><span class="spec-note">Sprayed onto your existing roof. No demolition, no dumpsters, no exposed decking, no relocated tenants.</span></dd>
                 </div>
-                <div class="solution-item">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                        <polyline points="22 4 12 14.01 9 11.01"/>
-                    </svg>
-                    <div>
-                        <strong>20-Year Warranty</strong>
-                        <span>Materials and labour, backed by the manufacturer &mdash; and it transfers to the next owner if you sell.</span>
-                    </div>
+                <div class="spec-row">
+                    <dt><span class="key key-dry" aria-hidden="true"></span>Warranty</dt>
+                    <dd><span class="spec-value">Up to 20 years</span><span class="spec-note">Materials and labour, backed by the manufacturer, and it transfers to the next owner if you sell.</span></dd>
                 </div>
-            </div>
+            </dl>
 
             <figure class="solution-photo">
                 <img width="1062" height="743" src="assets/icons/atlantaga-coatings-install.webp" alt="Crew spraying silicone roof coating over an existing commercial flat roof" loading="lazy" decoding="async">
@@ -535,41 +516,23 @@
                 <h2>How Your Free Satellite Roof Quote Works</h2>
                 <p>Three steps, about 60 minutes, and nobody climbs on your roof to do it.</p>
             </div>
-            <div class="steps-grid">
-                <div class="step-card">
-                    <div class="step-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="11" cy="11" r="8"/>
-                            <path d="m21 21-4.35-4.35"/>
-                        </svg>
-                    </div>
+            <ol class="procedure-strip">
+                <li class="procedure-step">
                     <h3>Enter Your Address</h3>
-                    <p>Type the property address. A satellite view of your roof loads on the spot, and you outline it yourself in about 30 seconds.</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-                            <circle cx="8.5" cy="8.5" r="1.5"/>
-                            <polyline points="21 15 16 10 5 21"/>
-                        </svg>
-                    </div>
+                    <p>Type the property address. A satellite view of your roof loads on the spot, and you outline it yourself.</p>
+                    <p class="procedure-out"><span class="readout-num">~30</span> <span class="readout-unit">seconds to outline</span></p>
+                </li>
+                <li class="procedure-step">
                     <h3>We Survey Your Roof</h3>
                     <p>We measure the square footage from the imagery, then check slope, drainage, roof-top units and any ponding you can see from above.</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                            <polyline points="14 2 14 8 20 8"/>
-                            <line x1="16" y1="13" x2="8" y2="13"/>
-                            <line x1="16" y1="17" x2="8" y2="17"/>
-                        </svg>
-                    </div>
+                    <p class="procedure-out"><span class="readout-num">ft&sup2;</span> <span class="readout-unit">measured, not guessed</span></p>
+                </li>
+                <li class="procedure-step">
                     <h3>Get Your Quote in 60 Min</h3>
-                    <p>A written, itemised estimate lands in your inbox inside the hour. No obligation, no pressure, no hidden fees.</p>
-                </div>
-            </div>
+                    <p>A written, itemised estimate lands in your inbox. No obligation, no pressure, no hidden fees.</p>
+                    <p class="procedure-out"><span class="readout-num">~60</span> <span class="readout-unit">minutes to your inbox</span></p>
+                </li>
+            </ol>
             <div class="steps-cta">
                 <a href="#satellite-quote" class="btn btn-primary btn-lg">Get My Free Satellite Quote</a>
             </div>
@@ -625,69 +588,36 @@
                 <h2>Why Silicone Roof Coating Beats Patching and Replacing</h2>
                 <p>Six reasons Texas building owners restore their flat roofs instead of re-roofing them</p>
             </div>
-            <div class="benefits-grid-alt">
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                        </svg>
-                    </div>
+            <div class="spec-table">
+                <div class="spec-row">
                     <h3>Permanently Leak-Proof</h3>
-                    <p>One sprayed membrane covers every crack, seam, screw head and penetration on the roof. With no joints left, there is nothing for water to work its way into.</p>
+                    <p class="spec-value">0 seams</p>
+                    <p class="spec-note">One sprayed membrane covers every crack, seam, screw head and penetration. With no joints left, there is nothing for water to work into.</p>
                 </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <line x1="12" y1="1" x2="12" y2="23"/>
-                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-                        </svg>
-                    </div>
+                <div class="spec-row">
                     <h3>Save Up to 50%</h3>
-                    <p>Silicone restoration runs about $3.50&ndash;$5.00 per square foot. Tear-off and replacement runs $8&ndash;$15 &mdash; and restoration is deductible in year one.</p>
+                    <p class="spec-value">$3.50&ndash;5.00 <small>/sq ft</small></p>
+                    <p class="spec-note">Tear-off and replacement runs $8&ndash;$15. Restoration is generally deductible in year one &mdash; confirm with your CPA.</p>
                 </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="5"/>
-                            <line x1="12" y1="1" x2="12" y2="3"/>
-                            <line x1="12" y1="21" x2="12" y2="23"/>
-                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-                            <line x1="1" y1="12" x2="3" y2="12"/>
-                            <line x1="21" y1="12" x2="23" y2="12"/>
-                        </svg>
-                    </div>
-                    <h3>35% Energy Savings</h3>
-                    <p>A white silicone surface reflects up to 85% of sunlight and can drop roof temperature by as much as 50&deg;F, so your AC runs less. Energy Star rated.</p>
+                <div class="spec-row">
+                    <h3>Lower Cooling Bills</h3>
+                    <p class="spec-value">Up to 35% lower</p>
+                    <p class="spec-note">A white silicone surface reflects up to 85% of sunlight and can drop roof temperature by as much as 50&deg;F, so your AC runs less. Energy Star rated.</p>
                 </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"/>
-                            <polyline points="12 6 12 12 16 14"/>
-                        </svg>
-                    </div>
+                <div class="spec-row">
                     <h3>Done in Days</h3>
-                    <p>Most roofs are finished in 3&ndash;7 days. No tear-off means no jackhammers over your tenants' heads and no debris in the parking lot.</p>
+                    <p class="spec-value">3&ndash;7 <small>days</small></p>
+                    <p class="spec-note">No tear-off means no jackhammers over your tenants' heads and no debris in the parking lot.</p>
                 </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
-                        </svg>
-                    </div>
+                <div class="spec-row">
                     <h3>Ponding Water Proof</h3>
-                    <p>Acrylic coatings soften and break down in standing water. Silicone does not &mdash; it is the one fluid-applied coating rated for permanent ponding.</p>
+                    <p class="spec-value">Rated for ponding</p>
+                    <p class="spec-note">Acrylic coatings soften in standing water. Silicone does not &mdash; it is the one fluid-applied coating rated for permanent ponding.</p>
                 </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                            <polyline points="22 4 12 14.01 9 11.01"/>
-                        </svg>
-                    </div>
-                    <h3>10, 15 & 20-Year Warranties</h3>
-                    <p>Coating thickness sets the term. Every option covers materials <em>and</em> labour, is manufacturer-backed, and transfers to the next owner.</p>
+                <div class="spec-row">
+                    <h3>10, 15 &amp; 20-Year Warranties</h3>
+                    <p class="spec-value">10&middot;15&middot;20 <small>yr</small></p>
+                    <p class="spec-note">Coating thickness sets the term. Every option covers materials <em>and</em> labour, is manufacturer-backed, and transfers to the next owner.</p>
                 </div>
             </div>
             <p class="coatings-note">Silicone is not always the right answer. We also install <a href="coatings.html">acrylic and aluminum coating systems</a> &mdash; <a href="coatings.html">see the honest side-by-side comparison &rarr;</a></p>
@@ -697,68 +627,29 @@
     <!-- Warranty Certificate Banner -->
     <section class="warranty-banner">
         <div class="container">
-            <div class="warranty-certificate">
-                <div class="warranty-cert-header">
-                    <div class="warranty-shield">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                        </svg>
-                    </div>
-                    <h2 class="warranty-title">SiliconeRoofPros Warranty Guarantee</h2>
-                    <p class="warranty-subtitle">Only SiliconeRoofPros gives you this exclusive</p>
-                    <div class="warranty-label">LABOR &amp; MATERIAL GUARANTEE</div>
-                </div>
-
-                <span class="warranty-tiers-label">Choose Your Warranty</span>
-                <div class="warranty-tiers">
-                    <div class="warranty-tier">
-                        <span class="tier-years">10</span>
-                        <span class="tier-label">Year</span>
-                    </div>
-                    <div class="warranty-tier">
-                        <span class="tier-years">15</span>
-                        <span class="tier-label">Year</span>
-                    </div>
-                    <div class="warranty-tier">
-                        <span class="tier-years">20</span>
-                        <span class="tier-label">Year</span>
-                    </div>
-                </div>
-
-                <div class="warranty-divider"></div>
-
+            <div class="warranty-sheet">
+                <h2 class="warranty-title">SiliconeRoofPros Warranty Guarantee</h2>
+                <p class="warranty-subtitle">A labour and material guarantee. The coating thickness we apply sets the term.</p>
+                <table class="warranty-schedule">
+                    <caption class="visually-hidden">Warranty terms by coating thickness</caption>
+                    <thead>
+                        <tr><th scope="col">Term</th><th scope="col">Coating applied</th><th scope="col">Covers</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><span class="readout-num">10</span> yr</td><td>Base thickness</td><td>Materials &amp; labour</td></tr>
+                        <tr><td><span class="readout-num">15</span> yr</td><td>Heavier coat</td><td>Materials &amp; labour</td></tr>
+                        <tr><td><span class="readout-num">20</span> yr</td><td>Heaviest coat</td><td>Materials &amp; labour</td></tr>
+                    </tbody>
+                </table>
                 <div class="warranty-details">
-                    <p>Depending on the thickness of your silicone roofing system, you are eligible for a 10, 15, or 20-year warranty. Your guarantee covers the materials and the labor associated with any defective materials. Should a defect be found, the affected materials and associated labor will be covered by SiliconeRoofPros and/or our manufacturing partners for <strong>FREE</strong> for the full term of your warranty.</p>
+                    <p>Should a defect be found, the affected materials and the labour to fix them are covered by SiliconeRoofPros and/or our manufacturing partners for <strong>free</strong> for the full term of your warranty.</p>
                 </div>
-
-                <div class="warranty-features">
-                    <div class="warranty-feature">
-                        <div class="warranty-feature-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                        </div>
-                        <span>Fully Transferable</span>
-                    </div>
-                    <div class="warranty-feature">
-                        <div class="warranty-feature-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                        </div>
-                        <span>Covers Materials &amp; Labor</span>
-                    </div>
-                    <div class="warranty-feature">
-                        <div class="warranty-feature-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                        </div>
-                        <span>Backed by Manufacturers</span>
-                    </div>
-                </div>
-
-                <p class="warranty-fine-print">Your warranty is fully transferable to any and all future owner(s) of the property. Your warranty must be renewed once every 10 years. We will contact you as a courtesy reminder. Standard terms and conditions apply.</p>
+                <ul class="warranty-terms">
+                    <li>Fully transferable to future owners</li>
+                    <li>Covers materials and labour</li>
+                    <li>Backed by the manufacturer</li>
+                </ul>
+                <p class="warranty-fine-print">Your warranty must be renewed once every 10 years; we will contact you as a courtesy reminder. Standard terms and conditions apply.</p>
             </div>
         </div>
     </section>
@@ -770,33 +661,16 @@
                 <h2>Write Off 100% of Your Restoration — In Year One</h2>
                 <p class="tax-savings-desc">Roof restoration is classified as a <strong>maintenance expense</strong> by the IRS — not a capital improvement. That means you can deduct the entire cost in the year it's performed. A new roof must be depreciated over 39 years.</p>
 
-                <div class="tax-compare">
-                    <div class="tax-compare-card tax-compare-good">
-                        <div class="tax-compare-type">Restoration</div>
-                        <div class="tax-compare-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                        </div>
-                        <div class="tax-compare-value">100% Deducted</div>
-                        <div class="tax-compare-detail">in Year One</div>
-                    </div>
-                    <div class="tax-compare-vs">vs</div>
-                    <div class="tax-compare-card tax-compare-bad">
-                        <div class="tax-compare-type">New Roof</div>
-                        <div class="tax-compare-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                <line x1="18" y1="6" x2="6" y2="18"/>
-                                <line x1="6" y1="6" x2="18" y2="18"/>
-                            </svg>
-                        </div>
-                        <div class="tax-compare-value">Spread Over 39 Years</div>
-                        <div class="tax-compare-detail">as Capital Improvement</div>
-                    </div>
-                </div>
+                <table class="tax-ledger">
+                    <caption class="visually-hidden">Tax treatment of restoration against a new roof</caption>
+                    <tbody>
+                        <tr class="tax-good"><th scope="row">Restoration</th><td><span class="readout-num">100%</span> deducted in year one</td><td>Maintenance expense</td></tr>
+                        <tr class="tax-bad"><th scope="row">New roof</th><td>Spread over <span class="readout-num">39</span> years</td><td>Capital improvement</td></tr>
+                    </tbody>
+                </table>
 
                 <div class="tax-example">
-                    <p><strong>Example:</strong> A $100,000 restoration for a business in the 35% tax bracket could mean up to <span class="tax-highlight">$35,000 back</span> — in the first year alone.</p>
+                    <p><strong>Example:</strong> A $100,000 restoration for a business in the 35% tax bracket could mean up to <span class="tax-highlight">$35,000 back</span> in the first year. Tax treatment depends on your situation &mdash; confirm with your CPA.</p>
                 </div>
                 <a href="quote.html" class="btn btn-primary">See How Much You Could Save</a>
             </div>

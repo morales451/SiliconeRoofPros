@@ -3308,3 +3308,244 @@ main:has(> .final-cta:last-child) + .footer::before { display: none; }
     background: #2a2d31 url('../assets/icons/map-placeholder.svg') center / cover no-repeat;
     background-blend-mode: luminosity;
 }
+
+/* ===================================
+   Finish-review fixes: hero proportions, viewport edge, thermal scale
+   =================================== */
+@media (min-width: 1025px) {
+    .hero-map-content { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); }
+    .hero-map-text h1 { font-size: clamp(2.1rem, 1.1rem + 2.2vw, 3.05rem); }
+}
+
+.survey-frame .map-widget-header { padding: 0.75rem 1.1rem 0.6rem; }
+.survey-frame .map-widget-header h2 { font-size: 1.0625rem; color: var(--gray-200); }
+.survey-frame .map-widget-search { margin: 0 0 0; }
+.survey-frame .search-input-group input { border-left: 0; border-radius: 0; }
+.survey-frame .map-widget-search .btn { border-radius: 0; border-right: 0; }
+
+/* Infrared scale on the moisture survey: the scan really is thermal data */
+.scan-plate {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 10px;
+    align-items: stretch;
+}
+
+.thermal-scale {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    justify-items: center;
+    gap: 6px;
+    width: 3.25rem;
+}
+
+.thermal-bar {
+    width: 12px;
+    background: var(--heat-ramp);
+    border: 1px solid var(--survey-line);
+}
+
+.thermal-tick {
+    font-size: 0.6875rem;
+    line-height: 1.15;
+    color: var(--gray-300);
+    text-align: center;
+}
+
+@media (max-width: 480px) {
+    .thermal-scale { width: 2.6rem; }
+}
+
+/* ===================================
+   Spec rows: survey readouts replacing icon-card grids
+   =================================== */
+.spec-legend {
+    margin: var(--spacing-2xl) 0 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border-top: 1px solid var(--ink);
+    column-gap: var(--spacing-2xl);
+}
+
+.spec-legend .spec-row {
+    display: grid;
+    grid-template-columns: 9rem 1fr;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--rule);
+}
+
+.spec-legend dt {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-weight: 700;
+    color: var(--ink);
+    font-stretch: 87.5%;
+}
+
+.spec-legend dd { margin: 0; }
+
+.spec-value {
+    display: block;
+    font-size: 1.375rem;
+    font-weight: 700;
+    font-stretch: 75%;
+    color: var(--ink);
+    line-height: 1.15;
+    margin: 0 0 0.25rem;
+    font-variant-numeric: tabular-nums;
+}
+
+.spec-value small { font-size: 0.875rem; font-weight: 500; color: var(--gray-600); font-stretch: 100%; }
+
+.spec-note {
+    display: block;
+    color: var(--gray-600);
+    font-size: 0.9375rem;
+    margin: 0;
+}
+
+.spec-table {
+    margin-top: var(--spacing-xl);
+    border-top: 1px solid var(--ink);
+}
+
+.spec-table .spec-row {
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(0, 3fr) minmax(0, 6fr);
+    gap: 0.5rem var(--spacing-xl);
+    align-items: baseline;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--rule);
+}
+
+.spec-table h3 {
+    font-size: 1.0625rem;
+    margin: 0;
+}
+
+/* Procedure strip: three steps, each ending in its output */
+.procedure-strip {
+    list-style: none;
+    margin: var(--spacing-xl) 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    border: 1px solid var(--ink);
+    background: var(--paper);
+    counter-reset: step;
+}
+
+.procedure-step {
+    padding: 1.25rem 1.25rem 1rem;
+    display: flex;
+    flex-direction: column;
+    counter-increment: step;
+}
+
+.procedure-step + .procedure-step { border-left: 1px solid var(--rule); }
+
+.procedure-step h3 {
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+}
+
+.procedure-step h3::before {
+    content: counter(step) ". ";
+    color: var(--gray-500);
+}
+
+.procedure-step p { color: var(--gray-600); font-size: 0.9375rem; }
+
+.procedure-out {
+    margin: auto 0 0;
+    padding-top: 0.75rem;
+    border-top: 1px dashed var(--rule);
+    display: flex;
+    align-items: baseline;
+    gap: 0.4rem;
+}
+
+.procedure-out .readout-num { color: var(--ink); font-size: 1.5rem; font-weight: 700; font-stretch: 75%; }
+.procedure-out .readout-unit { color: var(--gray-600); font-size: 0.875rem; }
+
+/* Warranty: a schedule on a report sheet lifted off the graphite */
+.warranty-sheet {
+    max-width: 860px;
+    margin: 0 auto;
+    background: var(--paper);
+    padding: clamp(1.5rem, 4vw, 2.75rem);
+    box-shadow: 0 24px 48px -24px rgba(0, 0, 0, 0.7);
+    border-top: 4px solid transparent;
+    border-image: linear-gradient(90deg, var(--heat-0), var(--heat-1) 20%, var(--heat-2) 42%, var(--heat-3) 62%, var(--heat-4) 82%, var(--heat-5)) 4 0 0 0;
+}
+
+.warranty-sheet .warranty-title { color: var(--ink); font-size: clamp(1.6rem, 1.2rem + 1.5vw, 2.25rem); margin-bottom: 0.4rem; }
+.warranty-sheet .warranty-subtitle { color: var(--gray-600); margin-bottom: var(--spacing-lg); }
+
+.warranty-schedule {
+    width: 100%;
+    margin-bottom: var(--spacing-lg);
+}
+
+.warranty-schedule th, .warranty-schedule td {
+    padding: 0.7rem 0.9rem;
+    text-align: left;
+}
+
+.warranty-schedule td { color: var(--gray-700); }
+.warranty-schedule .readout-num { font-size: 1.5rem; font-weight: 700; font-stretch: 75%; color: var(--ink); }
+
+.warranty-sheet .warranty-details p { color: var(--gray-700); text-align: left; }
+.warranty-sheet .warranty-details strong { color: var(--ink); }
+
+.warranty-terms {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    margin: 0 0 var(--spacing-md);
+    padding: 0;
+}
+
+.warranty-terms li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--ink);
+    font-weight: 600;
+}
+
+.warranty-terms li::before {
+    content: "";
+    width: 14px;
+    height: 14px;
+    background: #8d9298;
+    border: 1px solid var(--ink);
+}
+
+.warranty-sheet .warranty-fine-print { color: var(--gray-600); text-align: left; margin: 0; }
+
+/* Tax: a two-row ledger */
+.tax-savings-inner { text-align: left; max-width: 860px; }
+.tax-ledger { width: 100%; margin: var(--spacing-lg) 0; background: var(--paper); }
+.tax-ledger th, .tax-ledger td { padding: 0.9rem 1rem; text-align: left; vertical-align: baseline; }
+.tax-ledger th { background: var(--survey); color: var(--white); width: 9rem; }
+.tax-ledger td { color: var(--gray-700); }
+.tax-ledger .readout-num { font-size: 1.5rem; font-weight: 700; font-stretch: 75%; color: var(--ink); }
+.tax-ledger .tax-bad td {
+    background-image: repeating-linear-gradient(135deg, rgba(212, 35, 42, 0.1) 0 2px, transparent 2px 8px);
+}
+
+@media (max-width: 860px) {
+    .spec-legend { grid-template-columns: 1fr; }
+    .spec-table .spec-row { grid-template-columns: 1fr; }
+    .procedure-strip { grid-template-columns: 1fr; }
+    .procedure-step + .procedure-step { border-left: 0; border-top: 1px solid var(--rule); }
+}
+
+@media (max-width: 480px) {
+    .spec-legend .spec-row { grid-template-columns: 1fr; gap: 0.35rem; }
+    .tax-ledger th { width: auto; }
+}
