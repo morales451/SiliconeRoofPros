@@ -47,6 +47,8 @@ The honesty claim is part of the position, not decoration: the company says when
 - CSS/JS references carry a `?v=` cache-busting query; bump it whenever those files change.
 - SEO is a stated priority: keyword-led titles and H1s, JSON-LD on every page, `sitemap.xml`, `robots.txt`. Canonicals use `.html` URLs while Netlify `pretty_urls` is on and the live site serves `www.` (an open, undecided mismatch).
 - The business street address is deliberately not published anywhere on the site or in structured data.
+- Accessibility baseline (October 2026 audit fixes): WCAG AA contrast on rendered text, `--primary` is `#0070b8` for text and buttons (the brighter `#0088df` is `--primary-bright`, for accents on dark sections only), every page has a `<main>` landmark and a skip link, every visible form field has an accessible name, there is a visible `:focus-visible` ring, tap targets are at least 44px, and motion respects `prefers-reduced-motion`. Keep it that way.
+- `privacy.html` is a plain-English privacy policy drafted for the owner's review. The footer has no social links until real accounts exist.
 - Undecided: whether Pennsylvania pricing matches Texas pricing; whether to route Pennsylvania leads to Jimmy; the www/non-www and `.html` canonical choice.
 
 ## Brand Commitments
@@ -58,7 +60,7 @@ The honesty claim is part of the position, not decoration: the company says when
 
 ## Evidence on Hand
 
-- **Unverified proof (owner: "semi real, but nothing I can verify with someone").** This covers the customer testimonials (Marcus Rodriguez/Gulf Coast Logistics, Sandra Jenkins/Westheimer Plaza, David Thompson/Thompson Auto Group, Karen Lewis/Arboretum Business Park and the other city-page quotes), the job-count stats such as "500+ Houston Roofs Restored," the manufacturer certification badges (Gaco, GAF, Henry, TRP, Tremco, Mule-Hide) and the big-brand logo strip (FedEx, Walgreens, Walmart, Target, Home Depot, Prologis, NASA). Do not add new testimonials, counts, certifications, client logos, ratings or review schema, and do not give the existing ones more prominence, until the owner can verify them. Replacing them with verifiable proof is an open task.
+- **Unverified proof (owner: "semi real, but nothing I can verify with someone").** Softened in October 2026 at the owner's request: the five-star graphics were removed (the quote text stays), the "500+/300+/250+/200+ Roofs Restored" and "35% Average Energy Savings" stats were replaced with verifiable facts (3-7 days, "up to 35%"), and "Certified" badges and certification claims were dropped (the manufacturer logos stay as "systems we install"). The remaining testimonial quotes (Marcus Rodriguez/Gulf Coast Logistics, Sandra Jenkins/Westheimer Plaza, David Thompson/Thompson Auto Group, Karen Lewis/Arboretum Business Park and the other city-page quotes) and the big-brand logo strip (relabeled as buildings that use silicone systems) are still unverified. Do not add new testimonials, counts, certifications, client logos, ratings or review schema, and do not give the existing ones more prominence, until the owner can verify them. Replacing them with verifiable proof is an open task.
 - Pennsylvania has no testimonials, job counts or local photos. Do not fabricate them.
 - Real material: product and process facts, pricing bands, warranty terms, five blog articles, and photos in `assets/icons/` (city skylines, a before/after roof, application and inspection shots, the infrared scan in `aerial-scan.jpg`). There is no Philadelphia photo yet.
 

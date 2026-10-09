@@ -125,7 +125,8 @@
     margin-bottom: var(--spacing-lg);
 }
 
-.map-widget-header h3 {
+.map-widget-header h2 {
+    line-height: 1.2;
     font-size: var(--font-size-xl);
     margin-bottom: var(--spacing-xs);
     color: var(--gray-900);
@@ -172,7 +173,7 @@
 .search-input-group input:focus {
     outline: none;
     border-color: var(--primary);
-    box-shadow: 0 0 0 4px rgba(0, 136, 223, 0.1);
+    box-shadow: 0 0 0 4px rgba(0, 112, 184, 0.35);
 }
 
 .map-widget-search .btn {
@@ -425,7 +426,7 @@
 }
 
 .problem-intro em {
-    color: #ef4444;
+    color: #f87171;
     font-style: italic;
 }
 
@@ -509,6 +510,7 @@
     right: 0;
     height: 4px;
     background: linear-gradient(90deg, #ef4444 0%, #dc2626 100%);
+    display: none;
 }
 
 .pain-icon {
@@ -581,7 +583,7 @@
 }
 
 .solution-highlight {
-    color: #059669;
+    color: #047857;
     background: linear-gradient(180deg, transparent 60%, rgba(16, 185, 129, 0.3) 60%);
     padding: 0 0.25rem;
 }
@@ -594,7 +596,7 @@
 }
 
 .solution-subtitle strong {
-    color: #059669;
+    color: #047857;
 }
 
 .solution-grid {
@@ -613,7 +615,7 @@
     padding: var(--spacing-xl);
     border-radius: var(--radius-lg);
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    border-left: 4px solid #10b981;
+    border: 1px solid var(--gray-200);
     transition: transform var(--transition-base), box-shadow var(--transition-base);
 }
 
@@ -976,11 +978,11 @@
 }
 
 .tier-label {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     font-weight: 700;
-    color: var(--gray-500);
+    color: var(--gray-600);
 }
 
 /* "Choose Your Warranty" label above tiers */
@@ -990,7 +992,7 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.15em;
-    color: #c9a84c;
+    color: #8a6a1a;
     margin-bottom: var(--spacing-sm);
 }
 
@@ -1016,7 +1018,7 @@
 }
 
 .warranty-details strong {
-    color: #059669;
+    color: #047857;
     font-weight: 800;
 }
 
@@ -1127,7 +1129,7 @@
     }
 
     .tier-label {
-        font-size: 0.6rem;
+        font-size: 0.75rem;
     }
 
     .warranty-features {
@@ -1405,11 +1407,11 @@
 }
 
 .label-before {
-    background: rgba(220, 38, 38, 0.9);
+    background: #b91c1c;
 }
 
 .label-after {
-    background: rgba(16, 185, 129, 0.9);
+    background: #047857;
 }
 
 .before-after-benefits {
@@ -1587,7 +1589,7 @@
 
 a.city-badge:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 136, 223, 0.4);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     background: linear-gradient(135deg, #0070b8 0%, var(--primary-dark) 100%);
 }
 
@@ -1703,7 +1705,7 @@ a.city-badge:hover {
 .author-avatar {
     width: 48px;
     height: 48px;
-    background: linear-gradient(135deg, var(--primary) 0%, #00c4cc 100%);
+    background: var(--primary);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -1838,11 +1840,11 @@ a.city-badge:hover {
 }
 
 .tax-compare-good .tax-compare-type {
-    color: #059669;
+    color: #047857;
 }
 
 .tax-compare-bad .tax-compare-type {
-    color: #dc2626;
+    color: #b91c1c;
 }
 
 .tax-compare-icon {
@@ -1878,13 +1880,13 @@ a.city-badge:hover {
 
 .tax-compare-detail {
     font-size: 0.85rem;
-    color: var(--gray-500);
+    color: var(--gray-600);
 }
 
 .tax-compare-vs {
     font-size: 1rem;
     font-weight: 700;
-    color: var(--gray-400);
+    color: var(--gray-600);
     text-transform: uppercase;
     flex-shrink: 0;
 }
@@ -1937,7 +1939,7 @@ a.city-badge:hover {
    =================================== */
 .certified-installer {
     padding: var(--spacing-3xl) 0;
-    background: linear-gradient(135deg, #0088df 0%, #0070b8 100%);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
 }
 
 .certified-content {
@@ -1977,7 +1979,7 @@ a.city-badge:hover {
 }
 
 .certified-text p {
-    color: rgba(255, 255, 255, 0.85);
+    color: rgba(255, 255, 255, 0.95);
     font-size: 1rem;
     margin: 0;
     max-width: 700px;
@@ -2128,7 +2130,7 @@ a.city-badge:hover {
     display: block;
     font-size: 2.5rem;
     font-weight: 900;
-    color: #059669;
+    color: #047857;
     line-height: 1;
     margin-bottom: var(--spacing-xs);
 }
@@ -2298,7 +2300,7 @@ a.city-badge:hover {
 .estimate-step-body input:focus {
     outline: none;
     border-color: var(--primary);
-    box-shadow: 0 0 0 4px rgba(0, 136, 223, 0.1);
+    box-shadow: 0 0 0 4px rgba(0, 112, 184, 0.35);
 }
 
 .estimate-step-body .btn {
@@ -2417,27 +2419,25 @@ a.city-badge:hover {
 .estimate-price {
     font-size: 2rem;
     font-weight: 900;
-    color: #059669;
+    color: #047857;
 }
 
 .estimate-price-divider {
     font-size: var(--font-size-base);
-    color: var(--gray-500);
+    color: var(--gray-600);
 }
 
 .estimate-price-note {
     font-size: var(--font-size-xs);
-    color: var(--gray-500);
+    color: var(--gray-600);
     margin-top: var(--spacing-md);
     margin-bottom: 0;
 }
 
 /* Estimate Factors */
 .estimate-factors {
-    background: #fffbeb;
-    border: 1px solid #fcd34d;
-    border-radius: var(--radius-lg);
-    padding: var(--spacing-lg);
+    border-top: 1px solid var(--gray-200);
+    padding: var(--spacing-lg) 0 0;
     margin-bottom: var(--spacing-xl);
     text-align: left;
 }
@@ -2513,7 +2513,7 @@ a.city-badge:hover {
 .btn-success:hover {
     background: linear-gradient(135deg, #059669 0%, #047857 100%);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 /* Responsive for Drawing/Estimate */
@@ -2543,4 +2543,39 @@ a.city-badge:hover {
     .estimate-roof-size span {
         font-size: 1.75rem;
     }
+}
+
+/* Card icons sit beside their heading as plain line icons, not inside a
+   tinted tile stacked above it. */
+.benefit-card,
+.pain-column {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: var(--spacing-md);
+    align-items: center;
+    align-content: start;
+}
+
+.benefit-card > :not(.benefit-icon):not(h3),
+.pain-column > :not(.pain-icon):not(h4) {
+    grid-column: 1 / -1;
+}
+
+.benefit-card > h3,
+.pain-column > h4 {
+    margin-bottom: 0;
+}
+
+.benefit-card > h3 + *,
+.pain-column > h4 + * {
+    margin-top: var(--spacing-md);
+}
+
+.benefit-card .benefit-icon,
+.pain-icon {
+    width: auto;
+    height: auto;
+    background: none;
+    border-radius: 0;
+    margin-bottom: 0;
 }

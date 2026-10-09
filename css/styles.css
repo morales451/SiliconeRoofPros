@@ -5,8 +5,12 @@
 /* CSS Variables */
 :root {
     /* Colors */
-    --primary: #0088df;
-    --primary-dark: #0070b8;
+    /* --primary carries text and button fills on light surfaces, so it must
+       clear 4.5:1 against white (#0070b8 = 5.2:1). The original brighter
+       brand blue stays available for accents on the dark navy sections. */
+    --primary: #0070b8;
+    --primary-dark: #005a94;
+    --primary-bright: #0088df;
     --primary-light: #e8f4fc;
     --secondary: #1a1a2e;
     --accent: #00c4cc;
@@ -127,6 +131,35 @@ p {
 }
 
 /* Buttons */
+/* Keyboard focus: one consistent, visible ring for every interactive element */
+:focus-visible {
+    outline: 3px solid var(--primary-bright);
+    outline-offset: 2px;
+}
+
+/* Skip link: off-screen until a keyboard user tabs to it */
+.skip-link {
+    position: absolute;
+    left: var(--spacing-md);
+    top: -100px;
+    z-index: 10000;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--primary);
+    color: var(--white);
+    font-weight: 600;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+}
+
+.skip-link:focus {
+    top: var(--spacing-md);
+}
+
+::selection {
+    background: var(--primary-light);
+    color: var(--gray-900);
+}
+
 .btn {
     display: inline-flex;
     align-items: center;
@@ -312,6 +345,11 @@ p {
     padding: 0.5rem 1rem !important;
 }
 
+.nav-menu a.nav-cta,
+.nav-menu a.nav-cta:hover {
+    color: var(--white);
+}
+
 .mobile-menu-btn {
     display: none;
     flex-direction: column;
@@ -435,7 +473,7 @@ p {
 .form-group select:focus {
     outline: none;
     border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(0, 136, 223, 0.1);
+    box-shadow: 0 0 0 3px rgba(0, 112, 184, 0.35);
 }
 
 .form-group label {
@@ -484,7 +522,7 @@ section {
 }
 
 .section-header p {
-    color: var(--gray-500);
+    color: var(--gray-600);
     font-size: var(--font-size-lg);
     margin-bottom: 0;
 }
@@ -636,8 +674,27 @@ section {
     animation: logo-scroll 28s linear infinite;
 }
 
-.logos-track:hover {
+.logos-track:hover,
+.logos-carousel:focus-within .logos-track {
     animation-play-state: paused;
+}
+
+/* Reduced motion: the strip stands still and can be scrolled by hand;
+   the duplicate set that only exists for the seamless loop is hidden. */
+@media (prefers-reduced-motion: reduce) {
+    .logos-carousel {
+        overflow-x: auto;
+        -webkit-mask-image: none;
+        mask-image: none;
+    }
+
+    .logos-track {
+        animation: none;
+    }
+
+    .logos-track [aria-hidden="true"] {
+        display: none;
+    }
 }
 
 @keyframes logo-scroll {
@@ -890,7 +947,7 @@ section {
 }
 
 .newsletter-form input::placeholder {
-    color: var(--gray-500);
+    color: var(--gray-400);
 }
 
 .newsletter-form .btn {
@@ -916,7 +973,7 @@ section {
 }
 
 .quick-contact-form input::placeholder {
-    color: var(--gray-500);
+    color: var(--gray-400);
 }
 
 .quick-contact-form .btn {
@@ -1467,7 +1524,9 @@ section {
     color: var(--primary);
 }
 
-.contact-text h4 {
+.contact-text h3 {
+    font-size: var(--font-size-lg);
+    line-height: 1.2;
     color: var(--gray-900);
     margin-bottom: var(--spacing-xs);
 }
@@ -1650,7 +1709,9 @@ a.area-tag:hover {
     color: var(--primary);
 }
 
-.benefit-item h4 {
+.benefit-item h3 {
+    font-size: var(--font-size-lg);
+    line-height: 1.2;
     margin-bottom: var(--spacing-sm);
 }
 
@@ -2063,7 +2124,7 @@ a.area-tag:hover {
 .exit-intent-form input:focus {
     outline: none;
     border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(0, 136, 223, 0.1);
+    box-shadow: 0 0 0 3px rgba(0, 112, 184, 0.35);
 }
 
 .exit-intent-form .btn {
@@ -2264,7 +2325,7 @@ a.area-tag:hover {
 }
 
 .location-hero h1 .highlight {
-    color: var(--primary);
+    color: var(--primary-bright);
 }
 
 .location-hero p {
@@ -2439,7 +2500,7 @@ a.area-tag:hover {
     padding: var(--spacing-xl);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
-    border-left: 4px solid var(--primary);
+    border: 1px solid var(--gray-200);
 }
 
 .service-card h3 {
@@ -2556,7 +2617,8 @@ a.area-tag:hover {
     gap: var(--spacing-xl);
 }
 
-.area-column h4 {
+.area-column h3 {
+    line-height: 1.2;
     font-size: var(--font-size-lg);
     color: var(--primary);
     margin-bottom: var(--spacing-md);
@@ -2819,4 +2881,115 @@ a.area-tag:hover {
     h1, h2, h3, h4 {
         page-break-after: avoid;
     }
+}
+
+/* Legal / long-form text pages (privacy policy) */
+.legal-section {
+    padding: var(--spacing-3xl) 0 var(--spacing-4xl);
+}
+
+.legal-content {
+    max-width: 70ch;
+    margin: 0 auto;
+    color: var(--gray-700);
+    line-height: 1.75;
+}
+
+.legal-content h2 {
+    font-size: var(--font-size-2xl);
+    color: var(--gray-900);
+    margin: var(--spacing-2xl) 0 var(--spacing-sm);
+}
+
+.legal-content ul {
+    margin: 0 0 var(--spacing-md) var(--spacing-lg);
+    list-style: disc;
+}
+
+.legal-content li {
+    margin-bottom: var(--spacing-sm);
+}
+
+.legal-content a {
+    color: var(--primary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.legal-updated {
+    font-size: var(--font-size-sm);
+    color: var(--gray-600);
+}
+
+/* Card icons sit beside their heading as plain line icons, not inside a
+   tinted tile stacked above it (the generic feature-card template). */
+.challenge-card,
+.mission-card {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: var(--spacing-md);
+    align-items: center;
+    align-content: start;
+}
+
+.challenge-card > :not(.challenge-icon):not(h3),
+.mission-card > :not(.mission-icon):not(h3) {
+    grid-column: 1 / -1;
+}
+
+.challenge-card > h3,
+.mission-card > h3 {
+    margin-bottom: 0;
+}
+
+.challenge-card > h3 + *,
+.mission-card > h3 + * {
+    margin-top: var(--spacing-md);
+}
+
+.challenge-icon,
+.mission-icon {
+    width: auto;
+    height: auto;
+    min-width: 0;
+    min-height: 0;
+    max-width: none;
+    max-height: none;
+    background: none;
+    border-radius: 0;
+    margin-bottom: 0;
+}
+
+/* Touch targets: phone, menu, logo and footer links reach 44x44px
+   without changing how they look. */
+.mobile-menu-btn {
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    min-height: 44px;
+    min-width: 44px;
+}
+
+.emergency-phone,
+.footer-legal a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+}
+
+.about-photo {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+}
+
+.cta-or {
+    margin: 0 var(--spacing-md);
+    color: var(--gray-600);
 }

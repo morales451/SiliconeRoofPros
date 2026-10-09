@@ -121,10 +121,10 @@
     }
     </script>
 
-    <link rel="stylesheet" href="css/styles.css?v=2026-10-06">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css?v=2026-10-09">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..800&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="assets/icons/50-50-icon-whitebg.png">
     <style>
         .faq-section {
@@ -165,11 +165,11 @@
         .faq-toggle svg {
             width: 16px;
             height: 16px;
-            color: #0088df;
+            color: var(--primary);
             transition: transform 0.3s ease;
         }
         .faq-item.active .faq-toggle {
-            background: #0088df;
+            background: var(--primary);
         }
         .faq-item.active .faq-toggle svg {
             color: white;
@@ -206,10 +206,10 @@
         }
         .faq-category-title {
             font-size: 1.5rem;
-            color: #0088df;
+            color: var(--primary);
             margin-bottom: 1.5rem;
             padding-bottom: 0.5rem;
-            border-bottom: 2px solid #0088df;
+            border-bottom: 2px solid var(--primary);
         }
         .faq-cta {
             text-align: center;
@@ -262,6 +262,7 @@
     </script>
 </head>
 <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
     <!-- Header -->
     <header class="header">
         <div class="top-bar">
@@ -280,7 +281,7 @@
         <nav class="navbar">
             <div class="container">
                 <a href="index.html" class="logo">
-                    <img src="assets/icons/50-50-logoicon.png" alt="Silicone Roof Pros" class="logo-img">
+                    <img width="50" height="50" src="assets/icons/50-50-logoicon.png" alt="Silicone Roof Pros" class="logo-img">
                 </a>
                 <button class="mobile-menu-btn" aria-label="Toggle menu">
                     <span></span>
@@ -293,7 +294,7 @@
                     <li><a href="coatings.html">Coatings</a></li>
                     <li><a href="process.html">How It Works</a></li>
                     <li class="has-dropdown">
-                        <a href="#">Service Areas</a>
+                        <a href="index.html#service-areas">Service Areas</a>
                         <ul class="dropdown-menu">
                             <li><a href="locations/houston.html">Houston</a></li>
                             <li><a href="locations/dallas.html">Dallas</a></li>
@@ -310,6 +311,8 @@
             </div>
         </nav>
     </header>
+
+    <main id="main">
 
     <!-- Page Hero -->
     <section class="page-hero">
@@ -546,7 +549,7 @@
                     <h3>Still Have Questions?</h3>
                     <p>Those are the general answers. Send us your address and we will answer them about your actual roof &mdash; free, and with no obligation.</p>
                     <a href="contact.html" class="btn btn-primary">Contact Us</a>
-                    <span style="margin: 0 1rem; color: #9ca3af;">or</span>
+                    <span class="cta-or">or</span>
                     <a href="tel:8323033183" class="btn btn-outline">Call (832) 303-3183</a>
                 </div>
 
@@ -554,13 +557,15 @@
         </div>
     </section>
 
+    </main>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-about">
                     <a href="index.html" class="footer-logo">
-                        <img src="assets/icons/small-logo.png" alt="Silicone Roof Pros" class="footer-logo-img">
+                        <img width="500" height="500" src="assets/icons/small-logo.png" alt="Silicone Roof Pros" class="footer-logo-img">
                     </a>
                     <p>Commercial flat roof restoration in Texas and Pennsylvania. We spray seamless silicone, acrylic and aluminum coating systems over your existing roof &mdash; no tear-off, warrantied 10, 15 or 20 years.</p>
                 </div>
@@ -597,14 +602,13 @@
             <div class="footer-bottom">
                 <p>&copy; 2026 Silicone Roof Pros. All rights reserved.</p>
                 <div class="footer-legal">
-                    <a href="#">Terms of Service</a>
-                    <a href="#">Privacy Policy</a>
+                    <a href="privacy.html">Privacy Policy</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <script src="js/main.js?v=2026-10-06"></script>
+    <script src="js/main.js?v=2026-10-09"></script>
     <script>
         // FAQ Accordion functionality
         document.querySelectorAll('.faq-question').forEach(question => {
@@ -624,6 +628,6 @@
             });
         });
     </script>
-    <script src="js/exit-intent.js?v=2026-10-06"></script>
+    <script src="js/exit-intent.js?v=2026-10-09"></script>
 </body>
 </html>

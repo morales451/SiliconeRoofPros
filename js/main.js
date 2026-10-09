@@ -444,6 +444,8 @@
      * Animate Counter Number
      */
     function animateCounter(element) {
+        // Respect the OS "reduce motion" setting: show the final number at once
+        if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
         const text = element.textContent;
         const match = text.match(/(\d+)/);
 

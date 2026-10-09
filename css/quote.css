@@ -98,7 +98,7 @@
 .search-input-wrapper input:focus {
     outline: none;
     border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(0, 136, 223, 0.1);
+    box-shadow: 0 0 0 3px rgba(0, 112, 184, 0.35);
 }
 
 .search-input-wrapper .btn {
@@ -228,7 +228,9 @@
     box-shadow: var(--shadow-lg);
 }
 
-.quote-form-card h3 {
+.quote-form-card h2 {
+    font-size: var(--font-size-xl);
+    line-height: 1.2;
     margin-bottom: var(--spacing-sm);
 }
 
@@ -257,7 +259,7 @@
 .quote-form-card select:focus {
     outline: none;
     border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(0, 136, 223, 0.1);
+    box-shadow: 0 0 0 3px rgba(0, 112, 184, 0.35);
 }
 
 .quote-form-card textarea {
@@ -327,7 +329,9 @@
     color: var(--primary);
 }
 
-.quote-benefits .benefit-item h4 {
+.quote-benefits .benefit-item h3 {
+    font-size: var(--font-size-lg);
+    line-height: 1.2;
     margin-bottom: var(--spacing-sm);
 }
 
@@ -532,7 +536,7 @@
 .measurement-unit {
     display: block;
     font-size: var(--font-size-sm);
-    color: var(--gray-500);
+    color: var(--gray-600);
     margin-top: var(--spacing-xs);
 }
 
@@ -700,7 +704,7 @@
 #estimate-contact-form input:focus {
     outline: none;
     border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(0, 136, 223, 0.1);
+    box-shadow: 0 0 0 3px rgba(0, 112, 184, 0.35);
 }
 
 #estimate-contact-form .btn {
@@ -836,10 +840,8 @@
 
 /* Factors */
 .estimate-factors {
-    background: #fffbeb;
-    border: 1px solid #fcd34d;
-    border-radius: var(--radius-md);
-    padding: var(--spacing-lg);
+    border-top: 1px solid var(--gray-200);
+    padding: var(--spacing-lg) 0 0;
     margin-bottom: var(--spacing-xl);
 }
 
