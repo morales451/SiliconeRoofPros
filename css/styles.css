@@ -4,32 +4,51 @@
 
 /* CSS Variables */
 :root {
-    /* Colors */
-    /* --primary carries text and button fills on light surfaces, so it must
-       clear 4.5:1 against white (#0070b8 = 5.2:1). The original brighter
-       brand blue stays available for accents on the dark navy sections. */
-    --primary: #0070b8;
-    --primary-dark: #005a94;
-    --primary-bright: #0088df;
-    --primary-light: #e8f4fc;
-    --secondary: #1a1a2e;
-    --accent: #00c4cc;
+    /* Colors - the moisture-survey world (see DESIGN.md).
+       --primary is the "dry / cold" survey blue, the logo's own hue,
+       dark enough for text and white-on-fill (6.1:1 on white). */
+    --primary: #0a5f96;
+    --primary-dark: #084b77;
+    --primary-bright: #3aa0e0;
+    --primary-light: #e7eef3;
+    --secondary: #1b1d21;
+    --accent: #f4a21c;
 
-    /* Neutrals */
+    /* Survey palette */
+    --survey: #1b1d21;          /* graphite orthophoto ground */
+    --survey-2: #26292e;
+    --survey-line: #3b3f46;
+    --sheet: #eef0f1;           /* cool report sheet */
+    --paper: #ffffff;
+    --ink: #15171a;
+    --rule: #c9cdd1;
+    --wet: #d4232a;             /* hatch red: wet / failing */
+    --wet-ink: #b51d23;
+    --wet-tint: #fbecec;
+    --dry: #0a5f96;             /* dry / sound */
+    --dry-tint: #e7eef3;
+    --action: #f4a21c;          /* amber: the one action colour */
+    --action-hover: #ffb43d;
+    --action-ink: #8a4f00;
+    --heat-0: #160b33; --heat-1: #4c1182; --heat-2: #a3207c;
+    --heat-3: #e14b2b; --heat-4: #f59a1b; --heat-5: #fde9a3;
+    --heat-ramp: linear-gradient(0deg, var(--heat-0), var(--heat-1) 22%, var(--heat-2) 44%, var(--heat-3) 64%, var(--heat-4) 82%, var(--heat-5));
+
+    /* Neutrals (cool graphite, not blue-grey) */
     --white: #ffffff;
-    --gray-50: #f9fafb;
-    --gray-100: #f3f4f6;
-    --gray-200: #e5e7eb;
-    --gray-300: #d1d5db;
-    --gray-400: #9ca3af;
-    --gray-500: #6b7280;
-    --gray-600: #4b5563;
-    --gray-700: #374151;
-    --gray-800: #1f2937;
-    --gray-900: #111827;
+    --gray-50: #f6f7f8;
+    --gray-100: #eef0f1;
+    --gray-200: #dfe2e4;
+    --gray-300: #c9cdd1;
+    --gray-400: #9aa0a6;
+    --gray-500: #5f656c;
+    --gray-600: #4d5258;
+    --gray-700: #33373c;
+    --gray-800: #23262a;
+    --gray-900: #15171a;
 
     /* Typography */
-    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-family: 'Archivo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --font-size-xs: 0.75rem;
     --font-size-sm: 0.875rem;
     --font-size-base: 1rem;
@@ -51,17 +70,17 @@
     --spacing-4xl: 6rem;
 
     /* Border Radius */
-    --radius-sm: 0.25rem;
-    --radius-md: 0.5rem;
-    --radius-lg: 0.75rem;
-    --radius-xl: 1rem;
+    --radius-sm: 2px;
+    --radius-md: 2px;
+    --radius-lg: 3px;
+    --radius-xl: 4px;
     --radius-full: 9999px;
 
     /* Shadows */
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --shadow-sm: none;
+    --shadow-md: 0 1px 2px rgba(21,23,26,.08);
+    --shadow-lg: 0 8px 24px -12px rgba(21,23,26,.28);
+    --shadow-xl: 0 18px 40px -18px rgba(21,23,26,.4);
 
     /* Transitions */
     --transition-fast: 150ms ease;
@@ -373,7 +392,7 @@ p {
 .hero {
     position: relative;
     padding: var(--spacing-4xl) 0;
-    background: linear-gradient(135deg, var(--secondary) 0%, #16213e 100%);
+    background: var(--secondary);
     overflow: hidden;
 }
 
@@ -386,7 +405,7 @@ p {
 .hero-overlay {
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at 70% 50%, rgba(0, 136, 223, 0.2) 0%, transparent 50%);
+    background: radial-gradient(circle at 70% 50%, rgba(10, 95, 150, 0.2) 0%, transparent 50%);
 }
 
 .hero-content {
@@ -473,7 +492,7 @@ p {
 .form-group select:focus {
     outline: none;
     border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(0, 112, 184, 0.35);
+    box-shadow: 0 0 0 3px rgba(10, 95, 150, 0.35);
 }
 
 .form-group label {
@@ -487,7 +506,7 @@ p {
    Page Hero (Inner Pages)
    =================================== */
 .page-hero {
-    background: linear-gradient(135deg, var(--secondary) 0%, #16213e 100%);
+    background: var(--secondary);
     padding: var(--spacing-3xl) 0;
     text-align: center;
 }
@@ -596,7 +615,7 @@ section {
 .why-us-icon {
     width: 72px;
     height: 72px;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    background: var(--primary);
     border-radius: var(--radius-full);
     display: flex;
     align-items: center;
@@ -623,7 +642,7 @@ section {
    Stats Section
    =================================== */
 .stats {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    background: var(--primary);
     padding: var(--spacing-3xl) 0;
 }
 
@@ -789,7 +808,7 @@ section {
    CTA Section
    =================================== */
 .cta {
-    background: linear-gradient(135deg, var(--secondary) 0%, #16213e 100%);
+    background: var(--secondary);
     padding: var(--spacing-3xl) 0;
 }
 
@@ -1409,7 +1428,7 @@ section {
 .blog-placeholder {
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, var(--primary-light) 0%, var(--gray-100) 100%);
+    background: var(--primary-light);
     border-radius: 0;
     aspect-ratio: auto;
 }
@@ -1983,7 +2002,7 @@ a.area-tag:hover {
 }
 
 .exit-intent-header {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    background: var(--primary);
     color: var(--white);
     padding: var(--spacing-2xl);
     text-align: center;
@@ -2124,7 +2143,7 @@ a.area-tag:hover {
 .exit-intent-form input:focus {
     outline: none;
     border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(0, 112, 184, 0.35);
+    box-shadow: 0 0 0 3px rgba(10, 95, 150, 0.35);
 }
 
 .exit-intent-form .btn {
@@ -2517,7 +2536,7 @@ a.area-tag:hover {
 /* Location Testimonial */
 .location-testimonial {
     padding: var(--spacing-4xl) 0;
-    background: linear-gradient(135deg, var(--secondary) 0%, #2a2a4e 100%);
+    background: var(--secondary);
 }
 
 .testimonial-featured {
@@ -2542,7 +2561,7 @@ a.area-tag:hover {
     max-width: 24px;
     max-height: 24px;
     flex-shrink: 0;
-    color: #fbbf24;
+    color: var(--action);
 }
 
 .testimonial-featured blockquote {
@@ -2556,8 +2575,7 @@ a.area-tag:hover {
 .testimonial-featured .partner-label {
     font-size: var(--font-size-sm);
     font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    letter-spacing: 0.01em;
     opacity: 0.8;
     margin-bottom: var(--spacing-md);
 }
@@ -2644,7 +2662,7 @@ a.area-tag:hover {
 /* Location CTA Section */
 .location-cta {
     padding: var(--spacing-4xl) 0;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    background: var(--primary);
     text-align: center;
 }
 

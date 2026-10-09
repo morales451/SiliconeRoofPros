@@ -381,40 +381,10 @@
     }
 
     /**
-     * Animate Elements on Scroll
+     * Scroll reveals were removed in the survey redesign: content is visible
+     * by default, and the page's one authored motion is the hero scan pass.
      */
-    function initAnimateOnScroll() {
-        const animatedElements = document.querySelectorAll(
-            '.service-card, .why-us-card, .value-card, .blog-card, .step-item, .diff-item, .benefit-item'
-        );
-
-        if (!animatedElements.length) return;
-
-        // Set initial state
-        animatedElements.forEach(function(el) {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-        });
-
-        // Intersection Observer
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        });
-
-        animatedElements.forEach(function(el) {
-            observer.observe(el);
-        });
-    }
+    function initAnimateOnScroll() {}
 
     /**
      * Counter Animation for Stats

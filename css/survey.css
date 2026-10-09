@@ -1,0 +1,603 @@
+/* ===================================
+   Survey world layer
+   The site is styled as a roof-survey deliverable: graphite orthophoto
+   grounds, cool report sheets, hatch-red for wet/failing, survey blue for
+   dry/sound, amber for the one action, and an iron-palette thermal strip.
+   Loaded last on every page so it sets the shared vocabulary.
+   =================================== */
+
+/* ---------- Base ---------- */
+html {
+    scrollbar-color: var(--gray-400) var(--gray-100);
+}
+
+body {
+    font-family: var(--font-family);
+    color: var(--gray-700);
+    background: var(--paper);
+    font-feature-settings: "ss01" off;
+    caret-color: var(--primary);
+}
+
+::selection {
+    background: var(--action);
+    color: var(--ink);
+}
+
+h1, h2, h3, h4 {
+    color: var(--ink);
+    font-stretch: 87.5%;
+    font-weight: 750;
+    letter-spacing: -0.018em;
+    text-wrap: balance;
+}
+
+h1 { font-weight: 800; letter-spacing: -0.028em; }
+
+p { text-wrap: pretty; }
+
+a:not(.btn) {
+    text-underline-offset: 0.18em;
+    text-decoration-thickness: 1px;
+}
+
+:focus-visible {
+    outline: 3px solid var(--action);
+    outline-offset: 2px;
+}
+
+/* Every measured figure on the site reads like an instrument value */
+.readout-num, .hud-value, .tier-years, .stat-number, .stat-value,
+.hero-measurement-value, .diff-number, .step-number, .step-num,
+table td, .price, .tax-compare-value {
+    font-variant-numeric: tabular-nums lining-nums;
+}
+
+/* ---------- Thermal strip: the world's signature rule ---------- */
+.top-bar,
+.footer,
+.final-cta,
+.location-cta,
+.cta,
+.page-hero,
+.location-hero {
+    position: relative;
+}
+
+.top-bar::after,
+.footer::before,
+.final-cta::before,
+.location-cta::before,
+.cta::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--heat-0), var(--heat-1) 20%, var(--heat-2) 42%, var(--heat-3) 62%, var(--heat-4) 82%, var(--heat-5));
+    pointer-events: none;
+}
+
+.top-bar::after { bottom: 0; }
+.footer::before, .final-cta::before, .location-cta::before, .cta::before { top: 0; }
+
+/* ---------- Header: the report's title block ---------- */
+.header {
+    background: var(--paper);
+    box-shadow: none;
+    border-bottom: 1px solid var(--ink);
+}
+
+.top-bar {
+    background: var(--survey);
+    padding: 0.45rem 0 calc(0.45rem + 4px);
+}
+
+.top-bar-text {
+    color: var(--gray-300);
+    font-stretch: 87.5%;
+    letter-spacing: 0.01em;
+}
+
+.emergency-phone {
+    color: var(--white);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+}
+
+.emergency-phone:hover { color: var(--action); }
+
+.navbar { background: var(--paper); }
+
+.nav-menu a {
+    color: var(--ink);
+    font-weight: 600;
+    font-stretch: 93%;
+}
+
+.nav-menu > li > a:not(.nav-cta) {
+    position: relative;
+}
+
+.nav-menu > li > a:not(.nav-cta):hover,
+.nav-menu a.active {
+    color: var(--ink);
+    background: none;
+}
+
+.nav-menu > li > a:not(.nav-cta)::after {
+    content: "";
+    position: absolute;
+    left: 0.5rem;
+    right: 0.5rem;
+    bottom: 2px;
+    height: 2px;
+    background: var(--action);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-menu > li > a:not(.nav-cta):hover::after,
+.nav-menu > li > a.active::after {
+    transform: scaleX(1);
+}
+
+.dropdown-menu {
+    border-radius: 0;
+    border: 1px solid var(--ink);
+    box-shadow: 0 12px 28px -16px rgba(21, 23, 26, 0.45);
+}
+
+.dropdown-menu a:hover,
+.dropdown-menu a.active {
+    background: var(--sheet);
+    color: var(--ink);
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+    border-radius: 2px;
+    font-weight: 700;
+    font-stretch: 93%;
+    letter-spacing: 0.005em;
+    box-shadow: none;
+    transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease, transform 160ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn:hover { transform: none; box-shadow: none; }
+.btn:active { transform: translateY(1px); }
+
+.btn-primary,
+.nav-menu a.nav-cta,
+.btn-white {
+    background: var(--action);
+    color: var(--ink);
+    border: 1px solid var(--ink);
+}
+
+.btn-primary:hover,
+.nav-menu a.nav-cta:hover,
+.btn-white:hover {
+    background: var(--action-hover);
+    color: var(--ink);
+}
+
+.btn-outline,
+.btn-outline-white {
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--ink);
+}
+
+.btn-outline:hover {
+    background: var(--ink);
+    color: var(--white);
+}
+
+.btn-outline-white,
+.location-hero .btn-outline,
+.page-hero .btn-outline {
+    color: var(--white);
+    border-color: rgba(255, 255, 255, 0.7);
+}
+
+.btn-outline-white:hover,
+.location-hero .btn-outline:hover,
+.page-hero .btn-outline:hover {
+    background: var(--white);
+    color: var(--ink);
+}
+
+.btn[disabled], .btn:disabled {
+    background: var(--gray-200);
+    color: var(--gray-500);
+    border-color: var(--gray-300);
+    cursor: not-allowed;
+}
+
+.text-link {
+    display: inline-block;
+    padding: 12px 0;
+    color: var(--primary);
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: var(--action);
+    text-decoration-thickness: 2px;
+}
+
+.text-link:hover { color: var(--ink); }
+
+/* ---------- Section headings: report headings, ruled, left-set ---------- */
+.section-header,
+.pain-header,
+.solution-header {
+    text-align: left;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+    border-top: 1px solid var(--ink);
+    padding-top: var(--spacing-lg);
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: var(--spacing-md) var(--spacing-2xl);
+    align-items: end;
+}
+
+.section-header h2,
+.pain-header h2,
+.solution-header h2 {
+    text-align: left;
+    font-size: clamp(1.75rem, 1.2rem + 2.2vw, 2.75rem);
+    line-height: 1.05;
+    margin: 0;
+}
+
+.section-header p,
+.solution-subtitle {
+    margin: 0;
+    color: var(--gray-600);
+    max-width: 52ch;
+    text-align: left;
+}
+
+@media (max-width: 860px) {
+    .section-header,
+    .pain-header,
+    .solution-header {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Dark sections keep the rule in white */
+.final-cta .section-header,
+.location-cta .section-header,
+.cta .section-header {
+    border-top-color: rgba(255, 255, 255, 0.5);
+}
+
+/* ---------- Cards become report panels ---------- */
+.benefit-card, .challenge-card, .mission-card, .value-card, .why-us-card,
+.service-card, .step-card, .testimonial-card, .blog-card, .stat-card,
+.timeline-card, .location-link-card, .contact-form-card, .diff-item,
+.solution-item, .tax-compare-card, .manufacturer-item,
+.next-steps, .faq-item, .coating-card, .comparison-card, .overview-stat,
+.contact-item, .benefit-item {
+    border-radius: 0;
+    box-shadow: none;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+}
+
+.benefit-card:hover, .challenge-card:hover, .mission-card:hover, .value-card:hover,
+.why-us-card:hover, .service-card:hover, .step-card:hover, .testimonial-card:hover,
+.blog-card:hover, .stat-card:hover, .location-link-card:hover, .manufacturer-item:hover,
+.coating-card:hover, .comparison-card:hover {
+    transform: none;
+    box-shadow: none;
+    border-color: var(--ink);
+}
+
+/* Grids of panels share hairlines instead of floating apart */
+.benefits-grid-alt, .challenges-grid, .mission-grid, .values-grid, .why-us-grid,
+.services-grid, .steps-grid, .testimonials-grid {
+    gap: 0;
+    border-top: 1px solid var(--rule);
+    border-left: 1px solid var(--rule);
+}
+
+.benefits-grid-alt > *, .challenges-grid > *, .mission-grid > *, .values-grid > *,
+.why-us-grid > *, .services-grid > *, .steps-grid > *, .testimonials-grid > * {
+    border-top: 0;
+    border-left: 0;
+}
+
+/* Icon tiles become legend glyphs: line icons, no tinted disc */
+.benefit-icon, .challenge-icon, .mission-icon, .service-icon, .value-icon,
+.why-us-icon, .step-icon, .pain-icon, .timeline-icon, .contact-icon,
+.exit-benefit-icon {
+    background: none;
+    border-radius: 0;
+    box-shadow: none;
+    color: var(--primary);
+    width: 32px;
+    height: 32px;
+    padding: 0;
+}
+
+.benefit-icon svg, .challenge-icon svg, .mission-icon svg, .service-icon svg,
+.value-icon svg, .why-us-icon svg, .step-icon svg, .pain-icon svg,
+.timeline-icon svg, .contact-icon svg {
+    width: 28px;
+    height: 28px;
+    color: inherit;
+    stroke-width: 1.6;
+}
+
+/* ---------- Graphite survey grounds ---------- */
+.final-cta, .location-cta, .cta, .page-hero, .warranty-banner,
+.exit-intent-header, .footer {
+    background-color: var(--survey);
+}
+
+.page-hero {
+    border-bottom: 4px solid transparent;
+    border-image: linear-gradient(90deg, var(--heat-0), var(--heat-1) 20%, var(--heat-2) 42%, var(--heat-3) 62%, var(--heat-4) 82%, var(--heat-5)) 1;
+}
+
+.page-hero h1, .location-hero h1, .final-cta h2, .location-cta h2, .cta h2,
+.cta-content h2 {
+    color: var(--white);
+}
+
+.page-hero p, .location-hero p, .final-cta p, .location-cta p, .cta p {
+    color: var(--gray-300);
+}
+
+.highlight, .location-hero h1 .highlight {
+    color: var(--action);
+    background: none;
+    -webkit-text-fill-color: currentColor;
+}
+
+/* ---------- Hatch: the survey's mark for wet / failing ---------- */
+.hatch, .key-wet {
+    background-image: repeating-linear-gradient(135deg, var(--wet) 0 2px, transparent 2px 8px);
+}
+
+.red, .pain-highlight {
+    color: var(--wet-ink);
+}
+
+/* ---------- Footer ---------- */
+.footer {
+    color: var(--gray-300);
+    padding-top: calc(var(--spacing-4xl) + 4px);
+}
+
+.footer h4 {
+    color: var(--white);
+    font-stretch: 87.5%;
+    letter-spacing: 0;
+}
+
+.footer a:hover { color: var(--action); }
+
+.footer-bottom {
+    border-top: 1px solid var(--survey-line);
+}
+
+.quick-contact-form input,
+.newsletter-form input {
+    border-radius: 2px;
+    background: var(--survey-2);
+    border: 1px solid var(--survey-line);
+    color: var(--white);
+}
+
+.quick-contact-form input::placeholder,
+.newsletter-form input::placeholder {
+    color: var(--gray-400);
+}
+
+/* ---------- Forms (light grounds) ---------- */
+.form-group input, .form-group select, .form-group textarea,
+.contact-form input, .contact-form select, .contact-form textarea {
+    border-radius: 2px;
+    border: 1px solid var(--gray-400);
+    background: var(--paper);
+    color: var(--ink);
+}
+
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    border-color: var(--ink);
+    box-shadow: 0 0 0 3px rgba(244, 162, 28, 0.45);
+    outline: none;
+}
+
+.form-group label {
+    color: var(--ink);
+    font-weight: 600;
+}
+
+/* ---------- Pop-ups and modals ---------- */
+.exit-intent-content, .quote-modal-content, .estimate-modal-content {
+    border-radius: 0;
+    border: 1px solid var(--ink);
+}
+
+.exit-intent-header { color: var(--white); }
+.exit-intent-badge {
+    background: var(--action);
+    color: var(--ink);
+    border-radius: 0;
+}
+
+/* ---------- Tables (blog comparisons, coatings) ---------- */
+table {
+    border-collapse: collapse;
+}
+
+table th {
+    background: var(--survey);
+    color: var(--white);
+    font-stretch: 87.5%;
+    text-align: left;
+}
+
+table td, table th {
+    border: 1px solid var(--rule);
+}
+
+/* ---------- Motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+    .nav-menu > li > a:not(.nav-cta)::after { transition: none; }
+}
+
+/* ---------- Survey viewport marks (shared by the quote page map) ---------- */
+.survey-marks {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.reg {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border: 0 solid rgba(255, 255, 255, 0.85);
+}
+
+.reg-tl { top: 12px; left: 12px; border-top-width: 2px; border-left-width: 2px; }
+.reg-tr { top: 12px; right: 12px; border-top-width: 2px; border-right-width: 2px; }
+.reg-bl { bottom: 12px; left: 12px; border-bottom-width: 2px; border-left-width: 2px; }
+.reg-br { bottom: 12px; right: 12px; border-bottom-width: 2px; border-right-width: 2px; }
+
+.map-container {
+    border-radius: 0;
+    border: 1px solid var(--ink);
+    border-top: 4px solid transparent;
+    border-image: linear-gradient(90deg, var(--heat-0), var(--heat-1) 20%, var(--heat-2) 42%, var(--heat-3) 62%, var(--heat-4) 82%, var(--heat-5)) 4 0 0 0;
+    box-shadow: none;
+    background: #2a2d31;
+}
+
+.map-container .map-overlay:not(.is-live) {
+    background-color: #2a2d31;
+    background-blend-mode: luminosity;
+}
+
+.map-overlay-card {
+    border-radius: 0;
+    background: rgba(18, 20, 23, 0.92);
+    color: var(--gray-200);
+    border: 1px solid var(--survey-line);
+    box-shadow: none;
+}
+
+.map-overlay-card p, .map-overlay-card strong { color: var(--gray-200); }
+.map-overlay-card svg { color: var(--action); }
+
+.instruction-step .step-number,
+.next-step .step-icon {
+    border-radius: 0;
+    background: var(--ink);
+    color: var(--white);
+}
+
+.measurement-card {
+    border-radius: 0;
+    border: 1px solid var(--action);
+    background: var(--paper);
+    box-shadow: none;
+}
+
+.measurement-icon {
+    background: none;
+    color: var(--primary);
+    border-radius: 0;
+}
+
+.search-input-wrapper input,
+.address-search input {
+    border-radius: 2px;
+    border: 1px solid var(--ink);
+}
+
+.quote-form-card {
+    border-radius: 0;
+    border: 1px solid var(--ink);
+    box-shadow: none;
+}
+
+/* ---------- Interior heroes: left-set report title on graphite ---------- */
+.page-hero,
+.location-hero {
+    text-align: left;
+    padding: clamp(2.75rem, 6vw, 4.5rem) 0 clamp(2.5rem, 5vw, 4rem);
+}
+
+.page-hero h1,
+.location-hero h1 {
+    font-size: clamp(2.1rem, 1.3rem + 2.6vw, 3.4rem);
+    line-height: 1.02;
+    max-width: 20ch;
+}
+
+.page-hero p,
+.location-hero p {
+    max-width: 60ch;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.page-hero .hero-ctas,
+.location-hero .hero-ctas {
+    justify-content: flex-start;
+}
+
+.location-badge {
+    border-radius: 0;
+    background: none;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    color: var(--gray-200);
+    padding: 0.35rem 0.75rem;
+    font-weight: 600;
+}
+
+.location-badge svg { color: var(--action); }
+
+/* Stat blocks read as instrument readouts, not hero metrics */
+.stat-card, .overview-stat, .stat-item {
+    text-align: left;
+    padding: 0.9rem 1rem;
+}
+
+.stat-number, .stat-value {
+    color: var(--ink);
+    font-stretch: 75%;
+    font-weight: 700;
+}
+
+.stat-label, .stat-desc {
+    color: var(--gray-600);
+}
+
+.author-avatar {
+    border-radius: 0;
+}
+
+.testimonial-featured .author-avatar {
+    background: var(--action);
+    color: var(--ink);
+}
+
+.contact-text a {
+    display: inline-block;
+    padding: 13px 0;
+    margin: -13px 0;
+}
+
+.area-tag { min-height: 44px; display: inline-flex; align-items: center; border-radius: 0; }

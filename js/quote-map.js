@@ -106,9 +106,9 @@
             drawingMode: null,
             drawingControl: false, // We use custom controls
             polygonOptions: {
-                fillColor: '#0088df',
+                fillColor: '#f4a21c',
                 fillOpacity: 0.35,
-                strokeColor: '#0088df',
+                strokeColor: '#f4a21c',
                 strokeWeight: 3,
                 editable: true,
                 draggable: true

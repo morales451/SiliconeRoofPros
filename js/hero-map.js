@@ -57,9 +57,9 @@
             drawingMode: null,
             drawingControl: false,
             polygonOptions: {
-                fillColor: '#0088df',
-                fillOpacity: 0.35,
-                strokeColor: '#0088df',
+                fillColor: '#f4a21c',
+                fillOpacity: 0.28,
+                strokeColor: '#f4a21c',
                 strokeWeight: 3,
                 editable: true,
                 draggable: true
@@ -366,6 +366,7 @@
 
         // Reset area
         roofAreaSqFt = 0;
+        updateHud(0);
 
         // Hide measurement display
         const measurement = document.getElementById('hero-measurement');
@@ -422,6 +423,27 @@
     /**
      * Calculate area and display results
      */
+    /**
+     * Survey readout on the map frame: measured area and the
+     * $3.50-$5.00/sq ft silicone range. Dashes until a roof is outlined.
+     */
+    function updateHud(sqft) {
+        const area = document.getElementById('hero-hud-area');
+        const est = document.getElementById('hero-hud-est');
+        const hud = document.getElementById('hero-hud');
+        if (!area || !est) return;
+        if (!sqft) {
+            area.textContent = '\u2014';
+            est.textContent = '\u2014';
+            if (hud) hud.classList.remove('is-measured');
+            return;
+        }
+        const k = (n) => '$' + Math.round(n / 1000).toLocaleString() + 'k';
+        area.textContent = sqft.toLocaleString();
+        est.textContent = k(sqft * 3.5) + '\u2013' + k(sqft * 5);
+        if (hud) hud.classList.add('is-measured');
+    }
+
     function calculateAndDisplayArea() {
         if (!roofPolygon) return;
 
@@ -442,6 +464,7 @@
         if (measurement) {
             measurement.style.display = 'flex';
         }
+        updateHud(roofAreaSqFt);
 
         showNotification(`Roof measured: ${roofAreaSqFt.toLocaleString()} sq ft. Click "Get My Price Estimate"!`, 'success');
     }

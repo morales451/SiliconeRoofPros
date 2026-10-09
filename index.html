@@ -149,9 +149,10 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="css/styles.css?v=2026-10-09">
-    <link rel="stylesheet" href="css/home.css?v=2026-10-09">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css?v=2026-10-09b">
+    <link rel="stylesheet" href="css/home.css?v=2026-10-09b">
+    <link rel="stylesheet" href="css/survey.css?v=2026-10-09b">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,400..800&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="assets/icons/50-50-icon-whitebg.png">
 </head>
 <body>
@@ -207,79 +208,92 @@
 
     <main id="main">
 
-    <!-- Hero Section with Map -->
+    <!-- Hero: the satellite survey viewport -->
     <section class="hero-map" id="satellite-quote">
-        <div class="hero-map-bg"></div>
         <div class="container">
             <div class="hero-map-content">
                 <div class="hero-map-text">
                     <h1>Silicone Roof Coating That Ends Flat Roof Leaks <span class="highlight">For Half The Cost</span></h1>
                     <p class="hero-subhead">No tear-off. No relocated tenants. We spray a seamless silicone membrane straight over your existing TPO, EPDM, metal, modified bitumen or built-up roof &mdash; and back it for 10, 15 or 20 years.</p>
-                    <div class="hero-benefits">
-                        <div class="hero-benefit">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                            <span><strong>No tear-off</strong> &mdash; we coat over the roof you already own</span>
+
+                    <dl class="readout-strip" aria-label="Restoration against replacement">
+                        <div class="readout">
+                            <dt>Restore</dt>
+                            <dd><span class="readout-num">$3.50&ndash;5.00</span><span class="readout-unit">/sq ft</span></dd>
                         </div>
-                        <div class="hero-benefit">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                            <span><strong>No seams</strong> &mdash; one continuous membrane, parapet to parapet</span>
+                        <div class="readout readout-wet">
+                            <dt>Tear off &amp; replace</dt>
+                            <dd><span class="readout-num">$8&ndash;15</span><span class="readout-unit">/sq ft</span></dd>
                         </div>
-                        <div class="hero-benefit">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                            <span><strong>Up to 35%</strong> off your summer cooling bill</span>
+                        <div class="readout">
+                            <dt>On site</dt>
+                            <dd><span class="readout-num">3&ndash;7</span><span class="readout-unit">days</span></dd>
+                        </div>
+                        <div class="readout">
+                            <dt>Warranty</dt>
+                            <dd><span class="readout-num">10&middot;15&middot;20</span><span class="readout-unit">yr</span></dd>
+                        </div>
+                    </dl>
+
+                    <div class="hero-call">
+                        <p class="hero-cta-text">Rather talk it through? Call the crew for your region.</p>
+                        <div class="hero-call-lines">
+                            <a href="tel:8323033183" class="call-line"><span class="call-region">Texas</span><span class="call-num">(832) 303-3183</span></a>
+                            <a href="tel:4844018586" class="call-line"><span class="call-region">Pennsylvania</span><span class="call-num">(484) 401-8586</span></a>
                         </div>
                     </div>
-                    <p class="hero-cta-text">See your roof by satellite and get a real number &mdash; <strong>in about 60 minutes.</strong></p>
-                    <img width="1062" height="743" src="assets/icons/atlantaga-coatings-install.webp" alt="Silicone roof coating installation on a commercial flat roof" class="hero-install-img">
                 </div>
 
-                <div class="hero-map-widget">
+                <div class="hero-map-widget survey-frame">
                     <div class="map-widget-header">
                         <h2>Get Your Free Satellite Quote</h2>
-                        <p>Enter your address. Nobody has to climb on your roof.</p>
+                        <p>Find your building, outline the roof, read the price. Nobody climbs on it.</p>
                     </div>
 
                     <!-- Address Search -->
                     <div class="map-widget-search">
                         <div class="search-input-group">
-                            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
                                 <circle cx="12" cy="10" r="3"/>
                             </svg>
-                            <input type="text" id="hero-address-input" aria-label="Property address" placeholder="Enter your property address..." autocomplete="off">
+                            <input type="text" id="hero-address-input" aria-label="Property address" placeholder="Property address" autocomplete="off">
                         </div>
                         <button type="button" id="hero-search-btn" class="btn btn-primary btn-lg">
                             <span>View My Roof</span>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                                 <line x1="5" y1="12" x2="19" y2="12"/>
                                 <polyline points="12 5 19 12 12 19"/>
                             </svg>
                         </button>
                     </div>
 
-                    <!-- Map Container -->
-                    <div class="map-widget-container">
+                    <!-- Map Container: the survey viewport -->
+                    <div class="map-widget-container survey-viewport">
                         <div id="hero-map"></div>
                         <div class="map-widget-overlay" id="hero-map-overlay">
                             <div class="map-placeholder">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
                                     <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
                                     <circle cx="12" cy="10" r="3"/>
                                 </svg>
                                 <p>Enter your address above &mdash; we'll zoom to your roof so you can outline it.</p>
                             </div>
                         </div>
+                        <div class="survey-marks" aria-hidden="true">
+                            <span class="reg reg-tl"></span><span class="reg reg-tr"></span><span class="reg reg-bl"></span><span class="reg reg-br"></span>
+                            <span class="crosshair"></span>
+                            <span class="survey-scan"></span>
+                        </div>
+                        <div class="survey-hud" id="hero-hud" aria-live="polite">
+                            <div class="hud-cell"><span class="hud-label">Roof area</span><span class="hud-value"><span id="hero-hud-area">&mdash;</span> <small>sq ft</small></span></div>
+                            <div class="hud-cell"><span class="hud-label">Silicone est.</span><span class="hud-value" id="hero-hud-est">&mdash;</span></div>
+                        </div>
                     </div>
 
                     <!-- Pin Confirmation -->
                     <div class="map-widget-pin" id="hero-pin-info" style="display: none;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                             <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
                             <polyline points="22 4 12 14.01 9 11.01"/>
                         </svg>
@@ -289,7 +303,7 @@
                     <!-- Drawing Controls -->
                     <div class="hero-drawing-controls" id="hero-drawing-controls" style="display: none;">
                         <button type="button" id="hero-draw-roof-btn" class="btn btn-primary">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                                 <polygon points="12 2 2 7 12 12 22 7 12 2"/>
                                 <polyline points="2 17 12 22 22 17"/>
                                 <polyline points="2 12 12 17 22 12"/>
@@ -297,7 +311,7 @@
                             <span>Draw Roof Outline</span>
                         </button>
                         <button type="button" id="hero-clear-drawing-btn" class="btn btn-outline" style="display: none;">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                                 <path d="M3 6h18"/>
                                 <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/>
                                 <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>
@@ -319,93 +333,45 @@
                         </div>
                         <button type="button" id="hero-get-estimate-btn" class="btn btn-primary btn-lg">
                             Get My Price Estimate
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                                 <line x1="5" y1="12" x2="19" y2="12"/>
                                 <polyline points="12 5 19 12 12 19"/>
                             </svg>
                         </button>
                     </div>
 
-                    <p class="map-widget-note">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"/>
-                            <polyline points="12 6 12 12 16 14"/>
-                        </svg>
-                        Estimates delivered within 60 minutes!
-                    </p>
+                    <p class="map-widget-note">Written, itemised quote in your inbox in about 60 minutes.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Trust Badges -->
-    <section class="trust-badges">
+    <!-- The scan: what decides restore or replace -->
+    <section class="scan-sheet">
         <div class="container">
-            <div class="badges-grid">
-                <div class="badge-item">
-                    <div class="badge-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                        </svg>
-                    </div>
-                    <div class="badge-text">
-                        <strong>10-20 Year</strong>
-                        <span>Warranty Options</span>
-                    </div>
-                </div>
-                <div class="badge-item">
-                    <div class="badge-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                            <path d="M2 17l10 5 10-5"/>
-                            <path d="M2 12l10 5 10-5"/>
-                        </svg>
-                    </div>
-                    <div class="badge-text">
-                        <strong>No Tear-Off</strong>
-                        <span>Required</span>
-                    </div>
-                </div>
-                <div class="badge-item">
-                    <div class="badge-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                            <polyline points="22 4 12 14.01 9 11.01"/>
-                        </svg>
-                    </div>
-                    <div class="badge-text">
-                        <strong>100%</strong>
-                        <span>Leak-Proof</span>
-                    </div>
-                </div>
-                <div class="badge-item">
-                    <div class="badge-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <line x1="12" y1="1" x2="12" y2="23"/>
-                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-                        </svg>
-                    </div>
-                    <div class="badge-text">
-                        <strong>Save 50%</strong>
-                        <span>vs Replacement</span>
-                    </div>
-                </div>
-                <div class="badge-item">
-                    <div class="badge-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="5"/>
-                            <line x1="12" y1="1" x2="12" y2="3"/>
-                            <line x1="12" y1="21" x2="12" y2="23"/>
-                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-                            <line x1="1" y1="12" x2="3" y2="12"/>
-                            <line x1="21" y1="12" x2="23" y2="12"/>
-                        </svg>
-                    </div>
-                    <div class="badge-text">
-                        <strong>Energy Star</strong>
-                        <span>Rated</span>
-                    </div>
+            <div class="scan-grid">
+                <figure class="scan-figure">
+                    <img width="595" height="346" src="assets/icons/aerial-scan.jpg" alt="Infrared moisture survey of a large commercial flat roof, with wet insulation areas hatched in red across several roof sections" loading="lazy" decoding="async">
+                    <figcaption>Infrared moisture survey of a commercial flat roof. Hatched areas hold wet insulation.</figcaption>
+                </figure>
+                <div class="scan-text">
+                    <h2>Before Anyone Quotes a Coating, the Roof Gets Scanned</h2>
+                    <p>After sundown, wet insulation holds the day's heat and glows on an infrared camera. That one scan decides what your roof needs &mdash; and it is why we will tell you when coating is the wrong answer.</p>
+                    <dl class="scan-legend">
+                        <div class="legend-row">
+                            <dt><span class="key key-wet" aria-hidden="true"></span>Wet</dt>
+                            <dd>Saturated insulation is cut out and replaced. If too much of the roof is wet, we tell you to re-roof instead.</dd>
+                        </div>
+                        <div class="legend-row">
+                            <dt><span class="key key-dry" aria-hidden="true"></span>Dry</dt>
+                            <dd>Sound membrane stays where it is. It is cleaned, primed and sealed under one seamless coat.</dd>
+                        </div>
+                        <div class="legend-row">
+                            <dt><span class="key key-outline" aria-hidden="true"></span>Measured</dt>
+                            <dd>The outline you draw on the satellite map gives the square footage your quote is priced on.</dd>
+                        </div>
+                    </dl>
+                    <a href="process.html" class="text-link">See the full inspection process</a>
                 </div>
             </div>
         </div>
@@ -517,6 +483,10 @@
                     </div>
                 </div>
             </div>
+
+            <figure class="solution-photo">
+                <img width="1062" height="743" src="assets/icons/atlantaga-coatings-install.webp" alt="Crew spraying silicone roof coating over an existing commercial flat roof" loading="lazy" decoding="async">
+            </figure>
 
             <div class="solution-cta">
                 <a href="#satellite-quote" class="btn btn-primary btn-lg">Get My Free Satellite Quote</a>
@@ -1187,10 +1157,10 @@
         </div>
     </div>
 
-    <script src="js/main.js?v=2026-10-09"></script>
-    <script src="js/polygon-drawer.js?v=2026-10-09"></script>
-    <script src="js/hero-map.js?v=2026-10-09"></script>
-    <script src="js/exit-intent.js?v=2026-10-09"></script>
+    <script src="js/main.js?v=2026-10-09b"></script>
+    <script src="js/polygon-drawer.js?v=2026-10-09b"></script>
+    <script src="js/hero-map.js?v=2026-10-09b"></script>
+    <script src="js/exit-intent.js?v=2026-10-09b"></script>
 
     <!-- Google Maps API.
          Loaded AFTER the map script above so that window.initHeroMap is guaranteed to
